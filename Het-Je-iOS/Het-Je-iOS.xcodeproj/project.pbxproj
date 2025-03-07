@@ -6,30 +6,39 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9E7FC19D2D79DD5F00CEF423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */; };
+		9E7FC19F2D79DD5F00CEF423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1992D79DD5F00CEF423 /* LaunchScreen.storyboard */; };
+		9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */; };
+		9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC19A2D79DD5F00CEF423 /* SceneDelegate.swift */; };
+		9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */; };
+		9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1F52D7AC4E800CEF423 /* Config.swift */; };
+		9E7FC1F92D7AC5C800CEF423 /* Secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9E7FC17D2D79DC5C00CEF423 /* Het-Je-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Het-Je-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E7FC1972D79DD5F00CEF423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E7FC1982D79DD5F00CEF423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E7FC19A2D79DD5F00CEF423 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9E7FC1A52D79DE6400CEF423 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		9E7FC1A62D79DE6400CEF423 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		9E7FC1A72D79DE6400CEF423 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		9E7FC1A82D79DE6400CEF423 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		9E7FC1A92D79DE6400CEF423 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		9E7FC1AA2D79DE6400CEF423 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		9E7FC1AC2D79DE6400CEF423 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
+		9E7FC1AE2D79DE6400CEF423 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		9E7FC1B42D79DE6400CEF423 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertManager.swift; sourceTree = "<group>"; };
+		9E7FC1BA2D79DE6400CEF423 /* ViewTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionType.swift; sourceTree = "<group>"; };
+		9E7FC1BF2D79DE6400CEF423 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellReusable+.swift"; sourceTree = "<group>"; };
+		9E7FC1F52D7AC4E800CEF423 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9E7FC18F2D79DC5E00CEF423 /* Exceptions for "Het-Je-iOS" folder in "Het-Je-iOS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 9E7FC17C2D79DC5C00CEF423 /* Het-Je-iOS */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		9E7FC17F2D79DC5C00CEF423 /* Het-Je-iOS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9E7FC18F2D79DC5E00CEF423 /* Exceptions for "Het-Je-iOS" folder in "Het-Je-iOS" target */,
-			);
-			path = "Het-Je-iOS";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9E7FC17A2D79DC5C00CEF423 /* Frameworks */ = {
@@ -45,7 +54,7 @@
 		9E7FC1742D79DC5C00CEF423 = {
 			isa = PBXGroup;
 			children = (
-				9E7FC17F2D79DC5C00CEF423 /* Het-Je-iOS */,
+				9E7FC19C2D79DD5F00CEF423 /* Het-Je-iOS */,
 				9E7FC17E2D79DC5C00CEF423 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +65,169 @@
 				9E7FC17D2D79DC5C00CEF423 /* Het-Je-iOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9E7FC19C2D79DD5F00CEF423 /* Het-Je-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1A32D79DD6300CEF423 /* Application */,
+				9E7FC1972D79DD5F00CEF423 /* Info.plist */,
+				9E7FC1B82D79DE6400CEF423 /* Global */,
+				9E7FC1E72D79DE6400CEF423 /* Presentation */,
+			);
+			path = "Het-Je-iOS";
+			sourceTree = "<group>";
+		};
+		9E7FC1A32D79DD6300CEF423 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */,
+				9E7FC19A2D79DD5F00CEF423 /* SceneDelegate.swift */,
+				9E7FC1992D79DD5F00CEF423 /* LaunchScreen.storyboard */,
+				9E7FC1A42D79DDAB00CEF423 /* Settings */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9E7FC1A42D79DDAB00CEF423 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1F52D7AC4E800CEF423 /* Config.swift */,
+				9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9E7FC1AB2D79DE6400CEF423 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1A52D79DE6400CEF423 /* UIButton+.swift */,
+				9E7FC1A62D79DE6400CEF423 /* UIImageView+.swift */,
+				9E7FC1A72D79DE6400CEF423 /* UILabel+.swift */,
+				9E7FC1A82D79DE6400CEF423 /* UIStackView+.swift */,
+				9E7FC1A92D79DE6400CEF423 /* UITextField+.swift */,
+				9E7FC1AA2D79DE6400CEF423 /* UIView+.swift */,
+				9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E7FC1AD2D79DE6400CEF423 /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1AC2D79DE6400CEF423 /* StringLiterals.swift */,
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		9E7FC1AF2D79DE6400CEF423 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1AE2D79DE6400CEF423 /* ViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9E7FC1B12D79DE6400CEF423 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9E7FC1B32D79DE6400CEF423 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		9E7FC1B72D79DE6400CEF423 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1B32D79DE6400CEF423 /* Enums */,
+				9E7FC1B42D79DE6400CEF423 /* DateFormatterManager.swift */,
+				9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		9E7FC1B82D79DE6400CEF423 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1AB2D79DE6400CEF423 /* Extensions */,
+				9E7FC1AD2D79DE6400CEF423 /* Literals */,
+				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
+				9E7FC1B12D79DE6400CEF423 /* Resources */,
+				9E7FC1B72D79DE6400CEF423 /* Utility */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		9E7FC1BB2D79DE6400CEF423 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1BA2D79DE6400CEF423 /* ViewTransitionType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		9E7FC1C02D79DE6400CEF423 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1BB2D79DE6400CEF423 /* Enums */,
+				9E7FC1BF2D79DE6400CEF423 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9E7FC1E72D79DE6400CEF423 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1F12D7AC40200CEF423 /* 1. TabBar */,
+				9E7FC1F22D7AC42500CEF423 /* 2. 거래소 */,
+				9E7FC1F32D7AC44000CEF423 /* 3. 코인정보 */,
+				9E7FC1F42D7AC44600CEF423 /* 4. 포트폴리오 */,
+				9E7FC1C02D79DE6400CEF423 /* Base */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9E7FC1F12D7AC40200CEF423 /* 1. TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				9E7FC1F72D7AC56D00CEF423 /* Views */,
+			);
+			path = "1. TabBar";
+			sourceTree = "<group>";
+		};
+		9E7FC1F22D7AC42500CEF423 /* 2. 거래소 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "2. 거래소";
+			sourceTree = "<group>";
+		};
+		9E7FC1F32D7AC44000CEF423 /* 3. 코인정보 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "3. 코인정보";
+			sourceTree = "<group>";
+		};
+		9E7FC1F42D7AC44600CEF423 /* 4. 포트폴리오 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "4. 포트폴리오";
+			sourceTree = "<group>";
+		};
+		9E7FC1F72D7AC56D00CEF423 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +244,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				9E7FC17F2D79DC5C00CEF423 /* Het-Je-iOS */,
 			);
 			name = "Het-Je-iOS";
 			packageProductDependencies = (
@@ -122,6 +291,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7FC1F92D7AC5C800CEF423 /* Secret.xcconfig in Resources */,
+				9E7FC19D2D79DD5F00CEF423 /* Assets.xcassets in Resources */,
+				9E7FC19F2D79DD5F00CEF423 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +304,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
+				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
+				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
+				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E7FC1992D79DD5F00CEF423 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E7FC1982D79DD5F00CEF423 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9E7FC1912D79DC5E00CEF423 /* Debug */ = {
@@ -147,7 +334,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Het-Je-iOS/Info.plist";
+				INFOPLIST_FILE = "Het-Je-iOS/Application/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Het-Je_박신영";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -179,7 +366,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Het-Je-iOS/Info.plist";
+				INFOPLIST_FILE = "Het-Je-iOS/Application/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Het-Je_박신영";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
