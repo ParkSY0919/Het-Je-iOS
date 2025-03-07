@@ -15,8 +15,8 @@ enum AppIconType {
     case star_fill
     case right
     case left
-    case chart
-    case uptrendChart
+    case chart_Bar
+    case uptrend_Chart
     
     var image: UIImage? {
         switch self {
@@ -34,9 +34,9 @@ enum AppIconType {
             UIImage(systemName: "chevron.right")
         case .left:
             UIImage(systemName: "arrow.left")
-        case .chart:
-            UIImage(systemName: "all chart.bar.fill")
-        case .uptrendChart:
+        case .chart_Bar:
+            UIImage(systemName: "chart.bar.fill")
+        case .uptrend_Chart:
             UIImage(systemName: "chart.line.uptrend.xyaxis")
         }
     }
