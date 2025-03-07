@@ -1,5 +1,5 @@
 //
-//  VariationRate.swift
+//  VariationRateComponent.swift
 //  Het-Je-iOS
 //
 //  Created by 박신영 on 3/7/25.
@@ -9,7 +9,7 @@ import UIKit
 
 import Then
 
-final class VariationRate: UILabel {
+final class VariationRateComponent: UILabel {
     enum VariationRateType {
         case rise(rate: String, alignment: NSTextAlignment)
         case reduce(rate: String, alignment: NSTextAlignment)
@@ -72,15 +72,15 @@ final class VariationRate: UILabel {
         }
     }
     
-    static func rateType(rate: Double, alignment: NSTextAlignment) -> VariationRate {
+    static func rateType(rate: Double, alignment: NSTextAlignment) -> VariationRateComponent {
         let rate = CustomFormatterManager.shard.formatNum(num: rate)
         switch Double(rate) ?? 0.00 > 0 {
         case true:
-            return VariationRate(variationRateType: .rise(rate: rate, alignment: alignment))
+            return VariationRateComponent(variationRateType: .rise(rate: rate, alignment: alignment))
         case false:
             return Double(rate) ?? 0.00 == 0.00 ?
-            VariationRate(variationRateType: .none(rate: rate, alignment: alignment)) :
-            VariationRate(variationRateType: .reduce(rate: rate, alignment: alignment))
+            VariationRateComponent(variationRateType: .none(rate: rate, alignment: alignment)) :
+            VariationRateComponent(variationRateType: .reduce(rate: rate, alignment: alignment))
         }
     }
     

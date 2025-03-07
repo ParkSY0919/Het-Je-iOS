@@ -41,7 +41,8 @@
 		9E9E1C062D7ADF4B000EC8DB /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 9E9E1C052D7ADF4B000EC8DB /* RxDataSources */; };
 		9E9E1C092D7ADF7A000EC8DB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9E9E1C082D7ADF7A000EC8DB /* RealmSwift */; };
 		9E9E1C0A2D7ADF83000EC8DB /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 9E9E1C082D7ADF7A000EC8DB /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		9E9E1C0E2D7AFD78000EC8DB /* VariationRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C0D2D7AFD78000EC8DB /* VariationRate.swift */; };
+		9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */; };
+		9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,7 +85,8 @@
 		9E7FC1FC2D7AC90500CEF423 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		9E9E1BD92D7ADDE8000EC8DB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9E9E1BE02D7ADE47000EC8DB /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
-		9E9E1C0D2D7AFD78000EC8DB /* VariationRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationRate.swift; sourceTree = "<group>"; };
+		9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationRateComponent.swift; sourceTree = "<group>"; };
+		9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoinComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +338,8 @@
 		9E9E1C0C2D7AE8FD000EC8DB /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E1C0D2D7AFD78000EC8DB /* VariationRate.swift */,
+				9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */,
+				9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -448,10 +451,11 @@
 				9E9E1BE62D7ADEB5000EC8DB /* ViewModelProtocol.swift in Sources */,
 				9E9E1BE72D7ADEB5000EC8DB /* UITextField+.swift in Sources */,
 				9E9E1BE82D7ADEB5000EC8DB /* UILabel+.swift in Sources */,
+				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
-				9E9E1C0E2D7AFD78000EC8DB /* VariationRate.swift in Sources */,
+				9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */,
 				9E9E1BEC2D7ADEB5000EC8DB /* StringLiterals.swift in Sources */,
 				9E9E1BED2D7ADEB5000EC8DB /* UIStackView+.swift in Sources */,
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
