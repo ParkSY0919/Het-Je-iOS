@@ -14,6 +14,8 @@
 		9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */; };
 		9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1F52D7AC4E800CEF423 /* Config.swift */; };
 		9E7FC1F92D7AC5C800CEF423 /* Secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */; };
+		9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */; };
+		9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1FC2D7AC90500CEF423 /* UIFont+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellReusable+.swift"; sourceTree = "<group>"; };
 		9E7FC1F52D7AC4E800CEF423 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
+		9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconType.swift; sourceTree = "<group>"; };
+		9E7FC1FC2D7AC90500CEF423 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				9E7FC1A92D79DE6400CEF423 /* UITextField+.swift */,
 				9E7FC1AA2D79DE6400CEF423 /* UIView+.swift */,
 				9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */,
+				9E7FC1FC2D7AC90500CEF423 /* UIFont+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 		9E7FC1B32D79DE6400CEF423 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
 				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
+				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
+				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
