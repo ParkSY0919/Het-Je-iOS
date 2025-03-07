@@ -12,10 +12,11 @@ import SnapKit
 
 extension UIImageView {
     
-    func setImageView(image: UIImage, cornerRadius: CGFloat) {
+    func setImageView(image: UIImage?, cornerRadius: CGFloat = 0) {
         self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadius
         self.image = image
-        self.contentMode = .scaleAspectFit
+        self.contentMode = .scaleAspectFill
     }
     
 }
