@@ -157,10 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				9E7FC1A52D79DE6400CEF423 /* UIButton+.swift */,
+				9E7FC1A92D79DE6400CEF423 /* UITextField+.swift */,
 				9E7FC1A62D79DE6400CEF423 /* UIImageView+.swift */,
 				9E7FC1A72D79DE6400CEF423 /* UILabel+.swift */,
 				9E7FC1A82D79DE6400CEF423 /* UIStackView+.swift */,
-				9E7FC1A92D79DE6400CEF423 /* UITextField+.swift */,
 				9E7FC1AA2D79DE6400CEF423 /* UIView+.swift */,
 				9E7FC1EF2D7AC20700CEF423 /* CellReusable+.swift */,
 				9E7FC1FC2D7AC90500CEF423 /* UIFont+.swift */,
@@ -217,6 +217,7 @@
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
 				9E7FC1B12D79DE6400CEF423 /* Resources */,
+				9E9E1C0C2D7AE8FD000EC8DB /* UIComponents */,
 				9E7FC1B72D79DE6400CEF423 /* Utility */,
 			);
 			path = Global;
@@ -328,6 +329,13 @@
 				9E9E1BE02D7ADE47000EC8DB /* OtherViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9E9E1C0C2D7AE8FD000EC8DB /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
