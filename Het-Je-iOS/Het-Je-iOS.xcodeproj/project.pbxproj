@@ -33,7 +33,7 @@
 		9E7FC1AA2D79DE6400CEF423 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		9E7FC1AC2D79DE6400CEF423 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 		9E7FC1AE2D79DE6400CEF423 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
-		9E7FC1B42D79DE6400CEF423 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		9E7FC1B42D79DE6400CEF423 /* CustomFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormatterManager.swift; sourceTree = "<group>"; };
 		9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertManager.swift; sourceTree = "<group>"; };
 		9E7FC1BA2D79DE6400CEF423 /* ViewTransitionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransitionType.swift; sourceTree = "<group>"; };
 		9E7FC1BF2D79DE6400CEF423 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7FC1B32D79DE6400CEF423 /* Enums */,
-				9E7FC1B42D79DE6400CEF423 /* DateFormatterManager.swift */,
+				9E7FC1B42D79DE6400CEF423 /* CustomFormatterManager.swift */,
 				9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */,
 			);
 			path = Utility;

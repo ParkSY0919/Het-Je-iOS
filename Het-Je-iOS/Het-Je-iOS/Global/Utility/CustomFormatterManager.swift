@@ -1,5 +1,5 @@
 //
-//  DateFormatterManager.swift
+//  CustomFormatterManager.swift
 //  TamaGrow-iOS
 //
 //  Created by 박신영 on 2/22/25.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-final class DateFormatterManager {
+final class CustomFormatterManager {
     
-    static let shard = DateFormatterManager()
+    static let shard = CustomFormatterManager()
     
     private init() {}
     
@@ -33,6 +33,19 @@ final class DateFormatterManager {
         outputDate.dateFormat = format
         
         return outputDate.string(from: date)
+    }
+    
+    func formatNum(num: Double) -> String {
+        //정수라면
+        if num.truncatingRemainder(dividingBy: 1) == 0 {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.string(from: NSNumber(value: Int(num)))
+            return formatter
+        } else {
+            //소수라면
+            return String(format: "%,.2f", num)
+        }
     }
     
 }
