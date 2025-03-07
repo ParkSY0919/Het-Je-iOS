@@ -71,10 +71,3 @@ extension TabBarController: UITabBarControllerDelegate {
     }
     
 }
-
-
-
-//#Preview {
-//        let vc = TabBarViewController()
-//        return vc
-//}

@@ -1,8 +1,8 @@
 //
 //  CustomFormatterManager.swift
-//  TamaGrow-iOS
+//  Het-Je-iOS
 //
-//  Created by 박신영 on 2/22/25.
+//  Created by 박신영 on 3/7/25.
 //
 
 
@@ -43,7 +43,7 @@ final class CustomFormatterManager {
             return formatter.string(from: NSNumber(value: Int(num))) ?? "formatNum fail"
         } else {
             //소수라면
-            return String(format: "%,.2f", num)
+            return String(format: "%.2f", num)
         }
     }
     
