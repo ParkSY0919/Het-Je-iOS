@@ -16,9 +16,9 @@ extension UIFont {
          
         var fontWeight: UIFont.Weight {
             switch self {
-            case .body_bold_12, .body_bold_9:
+            case .body_bold_9, .body_bold_12:
                 return .bold
-            case .body_regular_12, .body_regular_9:
+            case .body_regular_9, .body_regular_12:
                 return .regular
             }
         }
