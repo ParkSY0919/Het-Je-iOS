@@ -40,8 +40,7 @@ final class CustomFormatterManager {
         if num.truncatingRemainder(dividingBy: 1) == 0 {
             let formatter = NumberFormatter()
             formatter.numberStyle = .decimal
-            formatter.string(from: NSNumber(value: Int(num)))
-            return formatter
+            return formatter.string(from: NSNumber(value: Int(num))) ?? "formatNum fail"
         } else {
             //소수라면
             return String(format: "%,.2f", num)

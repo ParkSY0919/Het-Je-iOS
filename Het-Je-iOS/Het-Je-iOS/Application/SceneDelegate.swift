@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.window?.rootViewController = vc()
+            self.window?.rootViewController = TabBarController()
         }
     }
 
