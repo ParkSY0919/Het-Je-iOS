@@ -13,6 +13,8 @@ import Then
 
 class BaseViewController: UIViewController {
     
+    let underLine = UIView()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,9 +22,19 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUnderLine()
         setHierarchy()
         setLayout()
         setStyle()
+    }
+    
+    private func setUnderLine() {
+        view.addSubview(underLine)
+        underLine.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(2)
+        }
+        underLine.backgroundColor = UIColor.bg
     }
     
     func setHierarchy() {}

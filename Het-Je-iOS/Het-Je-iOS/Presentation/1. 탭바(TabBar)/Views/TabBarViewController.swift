@@ -9,7 +9,7 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     
-    private let exchangeVC = UINavigationController(rootViewController: OtherViewController())
+    private let exchangeVC = UINavigationController(rootViewController: ExchangeViewController(viewModel: ExchangeViewModel()))
     private let coninInfoVC = UINavigationController(rootViewController: OtherViewController())
     private let portfolioVC = UINavigationController(rootViewController: OtherViewController())
     

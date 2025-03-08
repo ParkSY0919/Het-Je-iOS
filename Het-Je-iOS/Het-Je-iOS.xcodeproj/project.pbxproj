@@ -44,6 +44,11 @@
 		9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */; };
 		9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */; };
 		9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */; };
+		9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C132D7B15E2000EC8DB /* ExchangeViewController.swift */; };
+		9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */; };
+		9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */; };
+		9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */; };
+		9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +94,11 @@
 		9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationRateComponent.swift; sourceTree = "<group>"; };
 		9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoinComponent.swift; sourceTree = "<group>"; };
 		9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		9E9E1C132D7B15E2000EC8DB /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
+		9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
+		9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "거래소데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonComponent.swift; sourceTree = "<group>"; };
+		9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +230,7 @@
 		9E7FC1B82D79DE6400CEF423 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C182D7B1C5F000EC8DB /* Mock */,
 				9E7FC1AB2D79DE6400CEF423 /* Extensions */,
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
@@ -305,6 +316,8 @@
 		9E9E1BDB2D7ADE17000EC8DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C132D7B15E2000EC8DB /* ExchangeViewController.swift */,
+				9E9E1C152D7B1B57000EC8DB /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +325,7 @@
 		9E9E1BDC2D7ADE1D000EC8DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -343,8 +357,25 @@
 			children = (
 				9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */,
 				9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */,
+				9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		9E9E1C152D7B1B57000EC8DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9E9E1C182D7B1C5F000EC8DB /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +474,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
+				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
+				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
@@ -454,16 +487,19 @@
 				9E9E1BE62D7ADEB5000EC8DB /* ViewModelProtocol.swift in Sources */,
 				9E9E1BE72D7ADEB5000EC8DB /* UITextField+.swift in Sources */,
 				9E9E1BE82D7ADEB5000EC8DB /* UILabel+.swift in Sources */,
+				9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */,
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
 				9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */,
+				9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */,
 				9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */,
 				9E9E1BEC2D7ADEB5000EC8DB /* StringLiterals.swift in Sources */,
 				9E9E1BED2D7ADEB5000EC8DB /* UIStackView+.swift in Sources */,
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
+				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
