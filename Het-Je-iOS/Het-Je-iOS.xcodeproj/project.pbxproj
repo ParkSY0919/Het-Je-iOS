@@ -55,6 +55,10 @@
 		9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */; };
 		9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */; };
 		9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */; };
+		9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */; };
+		9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */; };
+		9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */; };
+		9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +115,10 @@
 		9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeProtocol.swift; sourceTree = "<group>"; };
 		9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIRequestModel.swift; sourceTree = "<group>"; };
 		9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIRequestModel.swift; sourceTree = "<group>"; };
+		9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "상세데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "서치데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "트렌딩데이터.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +396,9 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */,
+				9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */,
+				9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */,
+				9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -405,6 +416,7 @@
 		9E9E1C332D7C6644000EC8DB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C472D7C7AAE000EC8DB /* MarketAPI */,
 				9E9E1C402D7C684A000EC8DB /* UpbitAPI */,
 				9E9E1C252D7C6644000EC8DB /* BaseServices */,
 			);
@@ -432,6 +444,30 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C472D7C7AAE000EC8DB /* MarketAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C492D7C7AC4000EC8DB /* ResponseModel */,
+				9E9E1C482D7C7ABA000EC8DB /* RequestModel */,
+			);
+			path = MarketAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C482D7C7ABA000EC8DB /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C492D7C7AC4000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -538,6 +574,9 @@
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
 				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
+				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
+				9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */,
+				9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
 				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
 				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
@@ -551,6 +590,7 @@
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
 				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
+				9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */,
 				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
 				9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */,
