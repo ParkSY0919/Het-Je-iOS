@@ -9,34 +9,34 @@ import Foundation
 
 /// #4. 코인상세 화면
 struct CoinDetail {
-  let id: String
-  let symbol: String
+  let id: String//id
+  let symbol: String//심볼명
   let name: String
   let image: String
-  let currentPrice: Double
-  let marketCap: Double
+  let currentPrice: Double//현재가
+  let marketCap: Double//시가총액
   let marketCapRank: Int
-  let fullyDilutedValuation: Double?
-  let totalVolume: Double
-  let high24h: Double?
-  let low24h: Double?
+  let fullyDilutedValuation: Double?//완전희석가치
+  let totalVolume: Double//총 거래량
+  let high24h: Double?//24시간 최고가
+  let low24h: Double?//24시간 최저가
   let priceChange24h: Double?
-  let priceChangePercentage24h: Double?
+  let priceChangePercentage24h: Double?//24시간 변동률
   let marketCapChange24h: Double?
   let marketCapChangePercentage24h: Double?
   let circulatingSupply: Double?
   let totalSupply: Double?
   let maxSupply: Double?
-  let ath: Double
+  let ath: Double//역대 최고가
   let athChangePercentage: Double
   let athDate: String
-  let atl: Double
+  let atl: Double//역대 최저가
   let atlChangePercentage: Double
   let atlDate: String
   let roi: CoinROI?
-  let lastUpdated: String
-  let sparklineIn7d: SparklineData?
-  let priceChangePercentage7dInCurrency: Double?
+  let lastUpdated: String// 최근 업데이트 시간
+  let sparklineIn7d: SparklineData?// 7일간 변화 그래프
+  let priceChangePercentage7dInCurrency: Double?// 7일 변동률
 
 }
 
