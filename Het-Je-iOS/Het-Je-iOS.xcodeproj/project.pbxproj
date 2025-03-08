@@ -60,6 +60,7 @@
 		9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */; };
 		9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */; };
 		9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */; };
+		9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +122,7 @@
 		9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "서치데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "트렌딩데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPIResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +420,7 @@
 		9E9E1C332D7C6644000EC8DB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C552D7C85FC000EC8DB /* TrendingAPI */,
 				9E9E1C472D7C7AAE000EC8DB /* MarketAPI */,
 				9E9E1C402D7C684A000EC8DB /* UpbitAPI */,
 				9E9E1C252D7C6644000EC8DB /* BaseServices */,
@@ -471,6 +474,22 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C552D7C85FC000EC8DB /* TrendingAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C562D7C8604000EC8DB /* ResponseModel */,
+			);
+			path = TrendingAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C562D7C8604000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -600,6 +619,7 @@
 				9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
+				9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */,
 				9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */,
 				9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */,
 				9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */,
