@@ -49,6 +49,20 @@
 		9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */; };
 		9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */; };
 		9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */; };
+		9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C222D7C6644000EC8DB /* DTO.swift */; };
+		9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */; };
+		9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C242D7C6644000EC8DB /* TargetType.swift */; };
+		9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */; };
+		9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */; };
+		9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */; };
+		9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */; };
+		9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */; };
+		9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */; };
+		9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */; };
+		9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */; };
+		9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */; };
+		9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */; };
+		9E9E1C622D7C8BFB000EC8DB /* SearchAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C612D7C8BFB000EC8DB /* SearchAPIRequestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +113,20 @@
 		9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "거래소데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonComponent.swift; sourceTree = "<group>"; };
 		9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		9E9E1C222D7C6644000EC8DB /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
+		9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9E9E1C242D7C6644000EC8DB /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeProtocol.swift; sourceTree = "<group>"; };
+		9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIRequestModel.swift; sourceTree = "<group>"; };
+		9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIRequestModel.swift; sourceTree = "<group>"; };
+		9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "상세데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "서치데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "트렌딩데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIResponseModel.swift; sourceTree = "<group>"; };
+		9E9E1C612D7C8BFB000EC8DB /* SearchAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIRequestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7FC1AE2D79DE6400CEF423 /* ViewModelProtocol.swift */,
+				9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -231,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C182D7B1C5F000EC8DB /* Mock */,
+				9E9E1C332D7C6644000EC8DB /* Network */,
 				9E7FC1AB2D79DE6400CEF423 /* Extensions */,
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
@@ -374,8 +404,124 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */,
+				9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */,
+				9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */,
+				9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		9E9E1C252D7C6644000EC8DB /* BaseServices */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C222D7C6644000EC8DB /* DTO.swift */,
+				9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */,
+				9E9E1C242D7C6644000EC8DB /* TargetType.swift */,
+			);
+			path = BaseServices;
+			sourceTree = "<group>";
+		};
+		9E9E1C332D7C6644000EC8DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C5C2D7C8A63000EC8DB /* SearchAPI */,
+				9E9E1C552D7C85FC000EC8DB /* TrendingAPI */,
+				9E9E1C472D7C7AAE000EC8DB /* MarketAPI */,
+				9E9E1C402D7C684A000EC8DB /* UpbitAPI */,
+				9E9E1C252D7C6644000EC8DB /* BaseServices */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9E9E1C402D7C684A000EC8DB /* UpbitAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C432D7C6E35000EC8DB /* RequestModel */,
+				9E9E1C442D7C6E3D000EC8DB /* ResponseModel */,
+			);
+			path = UpbitAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C432D7C6E35000EC8DB /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C442D7C6E3D000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C472D7C7AAE000EC8DB /* MarketAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C482D7C7ABA000EC8DB /* RequestModel */,
+				9E9E1C492D7C7AC4000EC8DB /* ResponseModel */,
+			);
+			path = MarketAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C482D7C7ABA000EC8DB /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C492D7C7AC4000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C552D7C85FC000EC8DB /* TrendingAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C562D7C8604000EC8DB /* ResponseModel */,
+			);
+			path = TrendingAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C562D7C8604000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C5C2D7C8A63000EC8DB /* SearchAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C5E2D7C8A71000EC8DB /* RequestModel */,
+				9E9E1C5D2D7C8A6A000EC8DB /* ResponseModel */,
+			);
+			path = SearchAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C5D2D7C8A6A000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C5E2D7C8A71000EC8DB /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C612D7C8BFB000EC8DB /* SearchAPIRequestModel.swift */,
+			);
+			path = RequestModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,8 +622,14 @@
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
+				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
+				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
+				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
+				9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */,
+				9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */,
+				9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
 				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
 				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
@@ -489,9 +641,16 @@
 				9E9E1BE82D7ADEB5000EC8DB /* UILabel+.swift in Sources */,
 				9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */,
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
+				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
+				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
+				9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */,
+				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
+				9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */,
+				9E9E1C622D7C8BFB000EC8DB /* SearchAPIRequestModel.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
+				9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */,
 				9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */,
 				9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */,
 				9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */,
@@ -500,6 +659,7 @@
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
+				9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +680,7 @@
 /* Begin XCBuildConfiguration section */
 		9E7FC1912D79DC5E00CEF423 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -532,6 +693,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,6 +714,7 @@
 		};
 		9E7FC1922D79DC5E00CEF423 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -564,6 +727,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
