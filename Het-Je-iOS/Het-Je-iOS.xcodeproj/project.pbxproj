@@ -59,6 +59,7 @@
 		9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */; };
 		9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */; };
 		9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */; };
+		9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,6 +120,7 @@
 		9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "상세데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "서치데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "트렌딩데이터.swift"; sourceTree = "<group>"; };
+		9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,8 +453,8 @@
 		9E9E1C472D7C7AAE000EC8DB /* MarketAPI */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E1C492D7C7AC4000EC8DB /* ResponseModel */,
 				9E9E1C482D7C7ABA000EC8DB /* RequestModel */,
+				9E9E1C492D7C7AC4000EC8DB /* ResponseModel */,
 			);
 			path = MarketAPI;
 			sourceTree = "<group>";
@@ -468,6 +470,7 @@
 		9E9E1C492D7C7AC4000EC8DB /* ResponseModel */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
 				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
 				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
+				9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */,
 				9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */,
 				9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
