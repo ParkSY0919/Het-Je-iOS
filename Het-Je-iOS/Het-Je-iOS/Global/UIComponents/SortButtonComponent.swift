@@ -25,11 +25,11 @@ final class SortButtonComponent: UIView {
         var title: String {
             switch self {
             case .currentPrice:
-                "현재가"
+                StringLiterals.Exchange.currentPrice
             case .prevDay:
-                "전일대비"
+                StringLiterals.Exchange.prevDay
             case .tradePayout:
-                "거래대금"
+                StringLiterals.Exchange.tradePayout
             }
         }
     }
