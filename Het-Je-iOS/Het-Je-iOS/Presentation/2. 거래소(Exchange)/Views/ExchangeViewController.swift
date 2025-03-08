@@ -35,7 +35,7 @@ final class ExchangeViewController: BaseViewController {
         setNav()
         bind()
         resetAllSortButtons(isFirstRun: true)
-        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: DTO.Request.MarketAPIRequestModel(vs_currency: "KRW", ids: "bitcoin")), responseModel: [DTO.Response.CoinDetail].self) { result in
+        NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { result in
             switch result {
             case .success(let success):
                 dump(success)

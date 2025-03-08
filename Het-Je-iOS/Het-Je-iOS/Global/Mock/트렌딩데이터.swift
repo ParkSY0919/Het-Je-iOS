@@ -15,10 +15,10 @@ struct TrendingCoinItem {
 struct TrendingCoinDetails {
   let id: String
   let coinId: Int
-  let name: String
-  let symbol: String
-  let marketCapRank: Int
-  let thumb: String
+  let name: String//
+  let symbol: String//
+  let marketCapRank: Int//
+  let thumb: String//
   let small: String
   let large: String
   let slug: String
@@ -30,7 +30,7 @@ struct TrendingCoinDetails {
 struct TrendingCoinData {
   let price: String
   let priceBtc: String
-  let priceChangePercentage24h: [String: Double]
+  let priceChangePercentage24h: [String: Double]//
   let marketCap: String
   let marketCapBtc: String
   let totalVolume: String
@@ -47,19 +47,19 @@ struct TrendingContentInfo  {
 
 struct TrendingNFTItem {
   let id: String
-  let name: String
+  let name: String//
   let symbol: String
-  let thumb: String
+  let thumb: String//
   let nftContractId: Int
-  let nativeCurrencySymbol: String
-  let floorPriceInNativeCurrency: Double
+  let nativeCurrencySymbol: String//네이티브 코인명
+  let floorPriceInNativeCurrency: Double//네이티브 코인 가격
   let floorPrice24hPercentageChange: Double
   let data: TrendingNFTData
 }
 
 struct TrendingNFTData {
   let floorPrice: String
-  let floorPriceInUsd24hPercentageChange: String
+  let floorPriceInUsd24hPercentageChange: String//네이프티 변화율
   let h24Volume: String
   let h24AverageSalePrice: String
   let sparkline: String
