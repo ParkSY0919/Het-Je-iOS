@@ -18,10 +18,6 @@ final class ExchangeTableViewCell: UITableViewCell {
     private let prevDayNumLabel = UILabel()
     private let tradePayoutLabel = UILabel()
     
-    private let currentPriceSortButton = SortButtonComponent(title: "현재가")
-    private let changeRateSortButton = SortButtonComponent(title: "전일대비")
-    private let volumeSortButton = SortButtonComponent(title: "거래대금")
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -38,22 +34,20 @@ final class ExchangeTableViewCell: UITableViewCell {
                                 currentPriceLabel,
                                 prevDayPercentageLabel,
                                 prevDayNumLabel,
-                                tradePayoutLabel,
-                                currentPriceSortButton,
-                                changeRateSortButton,
-                                volumeSortButton)
+                                tradePayoutLabel)
     }
     
     func setLayout() {
         marketLabel.snp.makeConstraints {
             $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
             $0.leading.equalTo(contentView.safeAreaLayoutGuide).offset(22)
+            $0.width.equalTo(100)
         }
         
         currentPriceLabel.snp.makeConstraints {
             $0.centerY.equalTo(marketLabel.snp.centerY)
             $0.trailing.equalTo(prevDayPercentageLabel.snp.trailing).offset(-70)
-            $0.leading.lessThanOrEqualTo(marketLabel.snp.trailing).offset(30)
+            $0.leading.lessThanOrEqualTo(marketLabel.snp.trailing).offset(10)
         }
         
         prevDayPercentageLabel.snp.makeConstraints {
@@ -72,40 +66,6 @@ final class ExchangeTableViewCell: UITableViewCell {
             $0.centerY.equalTo(marketLabel.snp.centerY)
             $0.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-22)
             $0.leading.lessThanOrEqualTo(prevDayNumLabel.snp.trailing)
-        }
-    }
-    
-    func setLayout(isFirstCell: Bool) {
-        if isFirstCell {
-            marketLabel.snp.makeConstraints {
-                $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
-                $0.leading.equalTo(contentView.safeAreaLayoutGuide).offset(22)
-            }
-            
-            currentPriceSortButton.snp.makeConstraints {
-                $0.centerY.equalTo(marketLabel.snp.centerY)
-                $0.trailing.equalTo(changeRateSortButton.snp.trailing).offset(-70)
-                $0.leading.lessThanOrEqualTo(marketLabel.snp.trailing).offset(30)
-            }
-            
-            changeRateSortButton.snp.makeConstraints {
-                $0.centerY.equalTo(marketLabel.snp.centerY)
-                $0.trailing.equalTo(volumeSortButton.snp.trailing).offset(-100)
-                $0.leading.lessThanOrEqualTo(currentPriceSortButton.snp.trailing)
-            }
-            
-            volumeSortButton.snp.makeConstraints {
-                $0.centerY.equalTo(marketLabel.snp.centerY)
-                $0.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-22)
-                $0.leading.lessThanOrEqualTo(changeRateSortButton.snp.trailing)
-            }
-            
-            marketLabel.setLabelUI("코인", font: .hetJeFont(.body_bold_12), textColor: .primary, alignment: .left)
-            
-            [currentPriceSortButton, changeRateSortButton, volumeSortButton].forEach { i in
-                i.set(title: i.title)
-            }
-            self.backgroundColor = .bg
         }
     }
     
