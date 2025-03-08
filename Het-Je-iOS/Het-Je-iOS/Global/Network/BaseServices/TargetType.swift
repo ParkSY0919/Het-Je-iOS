@@ -12,7 +12,7 @@ enum TargetType {
     case fetchUpbitAPI(request: DTO.Request.UpbitAPIRequestModel)
     case fetchMarketAPI(request: DTO.Request.MarketAPIRequestModel)
     case fetchTrendingAPI
-    case fetchSearchAPI(request: DTO.Request.UpbitAPIRequestModel)
+    case fetchSearchAPI(request: DTO.Request.SearchAPIRequestModel)
 }
 
 extension TargetType: TargetTypeProtocol {
