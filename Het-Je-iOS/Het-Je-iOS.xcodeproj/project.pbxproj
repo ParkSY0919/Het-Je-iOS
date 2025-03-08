@@ -63,6 +63,7 @@
 		9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */; };
 		9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */; };
 		9E9E1C622D7C8BFB000EC8DB /* SearchAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C612D7C8BFB000EC8DB /* SearchAPIRequestModel.swift */; };
+		9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C632D7CB06E000EC8DB /* CoinInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +128,7 @@
 		9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPIResponseModel.swift; sourceTree = "<group>"; };
 		9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIResponseModel.swift; sourceTree = "<group>"; };
 		9E9E1C612D7C8BFB000EC8DB /* SearchAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIRequestModel.swift; sourceTree = "<group>"; };
+		9E9E1C632D7CB06E000EC8DB /* CoinInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 		9E9E1BDD2D7ADE2F000EC8DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C632D7CB06E000EC8DB /* CoinInfoViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				9E9E1BED2D7ADEB5000EC8DB /* UIStackView+.swift in Sources */,
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
+				9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
 				9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,

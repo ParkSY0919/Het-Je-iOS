@@ -165,7 +165,7 @@ private extension ExchangeViewController {
         let label = UILabel()
         label.setLabelUI(
             StringLiterals.TabBar.exchangeTitle,
-            font: UIFont.systemFont(ofSize: 24, weight: .heavy),
+            font: UIFont.systemFont(ofSize: 18, weight: .heavy),
             textColor: UIColor.primary
         )
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)

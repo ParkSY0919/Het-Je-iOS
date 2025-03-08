@@ -27,4 +27,8 @@ extension StringLiterals {
         static let tradePayout = "거래대금"
     }
     
+    enum CoinInfo {
+        static let navTitle = "가상자산 / 심볼 검색"
+    }
+    
 }

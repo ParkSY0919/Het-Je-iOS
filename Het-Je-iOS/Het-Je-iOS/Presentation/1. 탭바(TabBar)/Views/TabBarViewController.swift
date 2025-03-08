@@ -10,7 +10,7 @@ import UIKit
 final class TabBarController: UITabBarController {
     
     private let exchangeVC = UINavigationController(rootViewController: ExchangeViewController(viewModel: ExchangeViewModel()))
-    private let coninInfoVC = UINavigationController(rootViewController: OtherViewController())
+    private let coninInfoVC = UINavigationController(rootViewController: CoinInfoViewController())
     private let portfolioVC = UINavigationController(rootViewController: OtherViewController())
     
     override func viewDidLoad() {
