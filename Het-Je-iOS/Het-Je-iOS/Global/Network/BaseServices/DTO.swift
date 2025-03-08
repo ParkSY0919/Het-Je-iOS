@@ -9,5 +9,7 @@ import Foundation
 
 enum DTO {
     enum Request {}
-    enum Response {}
+    enum Response {
+        enum Search {}
+    }
 }
