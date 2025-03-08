@@ -27,7 +27,13 @@ enum RequestParams {
 extension TargetTypeProtocol {
     
     func asURLRequest() throws -> URLRequest {
-        let url = baseURL.appendingPathComponent(utilPath + path)
+        var url = baseURL
+        if !utilPath.isEmpty {
+            url.appendPathComponent(utilPath)
+        }
+        if !path.isEmpty {
+            url.appendPathComponent(path)
+        }
         var urlRequest = try URLRequest(url: url, method: method)
         urlRequest.headers = header
 

@@ -9,15 +9,15 @@ import Foundation
 import Alamofire
 
 enum TargetType {
+    case fetchUpbitAPI(request: DTO.Request.UpbitAPIRequestModel)
 }
 
 extension TargetType: TargetTypeProtocol {
     
     var baseURL: URL {
         switch self {
-            
-        default:
-            guard let urlString = Bundle.main.object(forInfoDictionaryKey: Config.Keys.baseURL) as? String,
+        case .fetchUpbitAPI:
+            guard let urlString = Bundle.main.object(forInfoDictionaryKey: Config.Keys.upbitURL) as? String,
                   let url = URL(string: urlString) else {
                 fatalError("🚨BASE_URL을 찾을 수 없습니다🚨")
             }
@@ -32,8 +32,8 @@ extension TargetType: TargetTypeProtocol {
     
     var utilPath: String {
         switch self {
-        default:
-            ""
+        case .fetchUpbitAPI:
+            return ""
         }
     }
     
@@ -43,8 +43,8 @@ extension TargetType: TargetTypeProtocol {
     
     var parameters: RequestParams? {
         switch self {
-        default:
-                .none
+        case .fetchUpbitAPI(let request):
+            return .query(request)
         }
     }
     
@@ -53,9 +53,24 @@ extension TargetType: TargetTypeProtocol {
     }
     
     var header: Alamofire.HTTPHeaders {
+        guard let coingeckoAPIKey = Bundle.main.object(forInfoDictionaryKey: Config.Keys.coinGeckoAPI) as? String
+        else {
+            fatalError("🚨api key를 찾을 수 없습니다🚨")
+        }
         switch self {
+        case .fetchUpbitAPI:
+            let header: HTTPHeaders = [
+                    .init(name: "Content-Type", value: "application/json"),
+                    .init(name: "Accept", value: "application/json")
+                ]
+            return header
         default:
-            return HTTPHeaders()
+            let header: HTTPHeaders = [
+                    .init(name: "Content-Type", value: "application/json"),
+                    .init(name: "Accept", value: "application/json"),
+                    .init(name: "Authorization", value: "Bearer " + coingeckoAPIKey)
+                ]
+            return header
         }
     }
     

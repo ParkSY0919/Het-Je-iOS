@@ -35,6 +35,14 @@ final class ExchangeViewController: BaseViewController {
         setNav()
         bind()
         resetAllSortButtons(isFirstRun: true)
+        NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: DTO.Request.UpbitAPIRequestModel(quote_currencies: "KRW")), responseModel: [MarketData1].self) { result in
+            switch result {
+            case .success(let success):
+                dump(success)
+            case .failure(let failure):
+                print("error: \(String(describing: failure.errorDescription))")
+            }
+        }
     }
     
     override func setHierarchy() {
