@@ -35,12 +35,12 @@ final class ExchangeViewController: BaseViewController {
         setNav()
         bind()
         resetAllSortButtons(isFirstRun: true)
-        NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: DTO.Request.UpbitAPIRequestModel(quote_currencies: "KRW")), responseModel: [MarketData1].self) { result in
+        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: DTO.Request.MarketAPIRequestModel(vs_currency: "KRW", ids: "bitcoin")), responseModel: [DTO.Response.CoinDetail].self) { result in
             switch result {
             case .success(let success):
                 dump(success)
             case .failure(let failure):
-                print("error: \(String(describing: failure.errorDescription))")
+                print(failure)
             }
         }
     }

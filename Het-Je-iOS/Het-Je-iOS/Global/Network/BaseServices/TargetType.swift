@@ -10,6 +10,9 @@ import Alamofire
 
 enum TargetType {
     case fetchUpbitAPI(request: DTO.Request.UpbitAPIRequestModel)
+    case fetchMarketAPI(request: DTO.Request.MarketAPIRequestModel)
+    case fetchTrendingAPI
+    case fetchSearchAPI(request: DTO.Request.UpbitAPIRequestModel)
 }
 
 extension TargetType: TargetTypeProtocol {
@@ -18,6 +21,12 @@ extension TargetType: TargetTypeProtocol {
         switch self {
         case .fetchUpbitAPI:
             guard let urlString = Bundle.main.object(forInfoDictionaryKey: Config.Keys.upbitURL) as? String,
+                  let url = URL(string: urlString) else {
+                fatalError("🚨BASE_URL을 찾을 수 없습니다🚨")
+            }
+            return url
+        default:
+            guard let urlString = Bundle.main.object(forInfoDictionaryKey: Config.Keys.baseURL) as? String,
                   let url = URL(string: urlString) else {
                 fatalError("🚨BASE_URL을 찾을 수 없습니다🚨")
             }
@@ -34,16 +43,24 @@ extension TargetType: TargetTypeProtocol {
         switch self {
         case .fetchUpbitAPI:
             return ""
+        case .fetchMarketAPI:
+            return "/coins/markets"
+        case .fetchTrendingAPI:
+            return "/search/trending"
+        case .fetchSearchAPI:
+            return "/search"
         }
-    }
-    
-    var path: String {
-        return ""
     }
     
     var parameters: RequestParams? {
         switch self {
         case .fetchUpbitAPI(let request):
+            return .query(request)
+        case .fetchMarketAPI(let request):
+            return .query(request)
+        case .fetchTrendingAPI:
+            return .none
+        case .fetchSearchAPI(let request):
             return .query(request)
         }
     }
