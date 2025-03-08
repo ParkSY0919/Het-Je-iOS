@@ -73,7 +73,7 @@ final class ExchangeTableViewCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
-    func configureCell(model: MarketData) {
+    func configureCell(model: DTO.Response.MarketData) {
         marketLabel.setLabelUI(
             model.market,
             font: .hetJeFont(.body_bold_12),

@@ -35,14 +35,6 @@ final class ExchangeViewController: BaseViewController {
         setNav()
         bind()
         resetAllSortButtons(isFirstRun: true)
-        NetworkManager.shared.callAPI(apiHandler: .fetchSearchAPI(request: DTO.Request.SearchAPIRequestModel(query: "bitcoin")), responseModel: DTO.Response.Search.SearchAPIResponseModel.self) { result in
-            switch result {
-            case .success(let success):
-                dump(success)
-            case .failure(let failure):
-                print(failure)
-            }
-        }
     }
     
     override func setHierarchy() {
@@ -73,6 +65,7 @@ final class ExchangeViewController: BaseViewController {
             $0.leading.equalToSuperview().offset(22)
         }
                 
+        
         //#SortButtonComponent의 크기 설정
             //-> with와 height에 대한 고정값과 우선순위 설정하여 해결
         
@@ -155,7 +148,7 @@ private extension ExchangeViewController {
             })
             .disposed(by: disposeBag)
 
-        let input = ExchangeViewModel.Input(selectedButton: selectedButton.asObservable()) // ✅ Observable로 변환
+        let input = ExchangeViewModel.Input(selectedButton: selectedButton.asObservable())
         
         let output = viewModel.transform(input: input)
         

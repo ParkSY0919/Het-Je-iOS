@@ -13,7 +13,8 @@ import RxSwift
 final class ExchangeViewModel: ViewModelProtocol {
     //현재 눌려있는 버튼
     var activeSortButton: SortButtonComponent?
-    
+    private let onCallAPI = Observable<Int>.interval(.seconds(5), scheduler: MainScheduler.instance)
+    private let list = PublishSubject<[DTO.Response.MarketData]>()
     private let disposeBag = DisposeBag()
     
     struct Input {
@@ -21,27 +22,57 @@ final class ExchangeViewModel: ViewModelProtocol {
     }
     
     struct Output {
-        let sortedListResult: Driver<[MarketData]>
+        let sortedListResult: Driver<[DTO.Response.MarketData]>
     }
     
     func transform(input: Input) -> Output {
-        let originList = BehaviorSubject(value: mockMarketData)
+        let originList = BehaviorSubject<[DTO.Response.MarketData]>(value: [])
+        let isAPILoaded = BehaviorSubject<Bool>(value: false) //초기 api 로드 여부
+
+        onCallAPI
+            .startWith(0)
+            .subscribe(with: self) { owner, _ in
+                owner.callUpbitAPI()
+            }
+            .disposed(by: disposeBag)
+
         
-        let sortedList = input.selectedButton
-            .withLatestFrom(originList) { selectedButton, data in
+        list.subscribe(with: self) { owner, model in
+            originList.onNext(model)
+            isAPILoaded.onNext(true) //api 통신 끝났음을 알림
+        }.disposed(by: disposeBag)
+
+        //combineLatest 사용하여 api 로드 끝나면 아래 코드가 진행되도록 핸들링
+            //-> combineLatest은 해당되는 이벤트들이 한번씩은 발동해야 동작하기 때문
+        let sortedList = Observable
+            .combineLatest(input.selectedButton, originList, isAPILoaded)
+            .filter { _, _, loaded in loaded }
+            .compactMap { selectedButton, data, _ in
                 self.sortListOfType(selectedButton: selectedButton, data: data)
             }
             .asDriver(onErrorJustReturn: [])
-        
+
         return Output(sortedListResult: sortedList)
     }
 }
 
 private extension ExchangeViewModel {
     
-    func sortListOfType(selectedButton: SortButtonComponent, data: [MarketData]) -> [MarketData] {
+    func callUpbitAPI() {
+        let request = DTO.Request.UpbitAPIRequestModel(quote_currencies: "KRW")
+        NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: request), responseModel: [DTO.Response.MarketData].self) { result in
+            switch result {
+            case .success(let success):
+                self.list.onNext(success)
+            case .failure(let failure):
+                print("Error callUpbitAPI: \(failure.localizedDescription)")
+            }
+        }
+    }
+    
+    func sortListOfType(selectedButton: SortButtonComponent, data: [DTO.Response.MarketData]) -> [DTO.Response.MarketData] {
         let sortBy = selectedButton.currentState
-        let sortClosure: (MarketData, MarketData) -> Bool
+        let sortClosure: (DTO.Response.MarketData, DTO.Response.MarketData) -> Bool
 
         //정렬기준 none이라면 거래대금 내림차순으로 반환
         if sortBy == .none {
