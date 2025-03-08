@@ -53,6 +53,8 @@
 		9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */; };
 		9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C242D7C6644000EC8DB /* TargetType.swift */; };
 		9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */; };
+		9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */; };
+		9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +109,8 @@
 		9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9E9E1C242D7C6644000EC8DB /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeProtocol.swift; sourceTree = "<group>"; };
+		9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIRequestModel.swift; sourceTree = "<group>"; };
+		9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,9 +405,35 @@
 		9E9E1C332D7C6644000EC8DB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C402D7C684A000EC8DB /* UpbitAPI */,
 				9E9E1C252D7C6644000EC8DB /* BaseServices */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		9E9E1C402D7C684A000EC8DB /* UpbitAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C432D7C6E35000EC8DB /* RequestModel */,
+				9E9E1C442D7C6E3D000EC8DB /* ResponseModel */,
+			);
+			path = UpbitAPI;
+			sourceTree = "<group>";
+		};
+		9E9E1C432D7C6E35000EC8DB /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C442D7C6E3D000EC8DB /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */,
+			);
+			path = ResponseModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,8 +534,10 @@
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
+				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
+				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
 				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
 				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
@@ -552,6 +584,7 @@
 /* Begin XCBuildConfiguration section */
 		9E7FC1912D79DC5E00CEF423 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -564,6 +597,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -584,6 +618,7 @@
 		};
 		9E7FC1922D79DC5E00CEF423 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E7FC1F82D7AC5C800CEF423 /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -596,6 +631,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
