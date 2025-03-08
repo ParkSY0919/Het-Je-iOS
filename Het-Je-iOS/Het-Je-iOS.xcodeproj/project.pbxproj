@@ -49,6 +49,10 @@
 		9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */; };
 		9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */; };
 		9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */; };
+		9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C222D7C6644000EC8DB /* DTO.swift */; };
+		9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */; };
+		9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C242D7C6644000EC8DB /* TargetType.swift */; };
+		9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +103,10 @@
 		9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "거래소데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonComponent.swift; sourceTree = "<group>"; };
 		9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		9E9E1C222D7C6644000EC8DB /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
+		9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9E9E1C242D7C6644000EC8DB /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTypeProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7FC1AE2D79DE6400CEF423 /* ViewModelProtocol.swift */,
+				9E9E1C3E2D7C66B2000EC8DB /* TargetTypeProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -231,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				9E9E1C182D7B1C5F000EC8DB /* Mock */,
+				9E9E1C332D7C6644000EC8DB /* Network */,
 				9E7FC1AB2D79DE6400CEF423 /* Extensions */,
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
@@ -378,6 +388,24 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		9E9E1C252D7C6644000EC8DB /* BaseServices */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C222D7C6644000EC8DB /* DTO.swift */,
+				9E9E1C232D7C6644000EC8DB /* NetworkManager.swift */,
+				9E9E1C242D7C6644000EC8DB /* TargetType.swift */,
+			);
+			path = BaseServices;
+			sourceTree = "<group>";
+		};
+		9E9E1C332D7C6644000EC8DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C252D7C6644000EC8DB /* BaseServices */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,7 +517,11 @@
 				9E9E1BE82D7ADEB5000EC8DB /* UILabel+.swift in Sources */,
 				9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */,
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
+				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
+				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
+				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
+				9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
 				9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */,
