@@ -14,7 +14,6 @@ protocol TargetTypeProtocol: URLRequestConvertible {
     var method: HTTPMethod { get }
     var header: HTTPHeaders { get }
     var utilPath: String { get }
-    var path: String { get }
     var parameters: RequestParams? { get }
     var encoding: ParameterEncoding { get }
 }
@@ -30,9 +29,6 @@ extension TargetTypeProtocol {
         var url = baseURL
         if !utilPath.isEmpty {
             url.appendPathComponent(utilPath)
-        }
-        if !path.isEmpty {
-            url.appendPathComponent(path)
         }
         var urlRequest = try URLRequest(url: url, method: method)
         urlRequest.headers = header
