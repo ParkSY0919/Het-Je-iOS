@@ -7,26 +7,34 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 import Then
 
 final class ExchangeViewController: BaseViewController {
     
-    private let exchangeTableView = UITableView(frame: .zero)
+    private let viewModel: ExchangeViewModel
+    private let disposeBag = DisposeBag()
     
+    private let exchangeTableView = UITableView(frame: .zero)
     private let container = UIView()
     private let coinLabel = UILabel()
-    private let currentPriceSortButton = SortButtonComponent(title: "현재가")
-    private let changeRateSortButton = SortButtonComponent(title: "전일대비")
-    private let volumeSortButton = SortButtonComponent(title: "거래대금")
+    private let currentPriceSortButton = SortButtonComponent(type: .currentPrice)
+    private let prevDaySortButton = SortButtonComponent(type: .prevDay)
+    private let tradePayoutSortButton = SortButtonComponent(type: .tradePayout)
     
-    // 현재 활성화된 정렬 버튼을 추적하기 위한 변수
-    private var activeSortButton: SortButtonComponent?
+    init(viewModel: ExchangeViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNav()
+        bind()
+        resetAllSortButtons(isFirstRun: true)
     }
     
     override func setHierarchy() {
@@ -35,8 +43,8 @@ final class ExchangeViewController: BaseViewController {
         container.addSubviews(
             coinLabel,
             currentPriceSortButton,
-            changeRateSortButton,
-            volumeSortButton
+            prevDaySortButton,
+            tradePayoutSortButton
         )
     }
     
@@ -57,46 +65,42 @@ final class ExchangeViewController: BaseViewController {
             $0.leading.equalToSuperview().offset(22)
         }
                 
+        //#SortButtonComponent의 크기 설정
+            //-> with와 height에 대한 고정값과 우선순위 설정하여 해결
+        
         currentPriceSortButton.snp.makeConstraints {
             $0.centerY.equalTo(coinLabel.snp.centerY)
-            $0.trailing.equalTo(changeRateSortButton.snp.trailing).offset(-70)
-            
-            // width에 대한 고정값과 우선순위 설정
+            $0.trailing.equalTo(prevDaySortButton.snp.trailing).offset(-70)
             $0.width.equalTo(60).priority(999)
             $0.width.lessThanOrEqualTo(100)
-            
-            // height에 대한 고정값과 우선순위 설정
             $0.height.equalTo(30).priority(999)
             $0.height.lessThanOrEqualTo(view.safeAreaLayoutGuide)
         }
                 
-        changeRateSortButton.snp.makeConstraints {
+        prevDaySortButton.snp.makeConstraints {
             $0.centerY.equalTo(coinLabel.snp.centerY)
-            $0.trailing.equalTo(volumeSortButton.snp.trailing).offset(-100)
-            
-            // width에 대한 고정값과 우선순위 설정
+            $0.trailing.equalTo(tradePayoutSortButton.snp.trailing).offset(-100)
             $0.width.equalTo(60).priority(999)
             $0.width.lessThanOrEqualTo(100)
-            
-            // height에 대한 고정값과 우선순위 설정
             $0.height.equalTo(30).priority(999)
             $0.height.lessThanOrEqualTo(view.safeAreaLayoutGuide)
         }
                 
-        volumeSortButton.snp.makeConstraints {
+        tradePayoutSortButton.snp.makeConstraints {
             $0.centerY.equalTo(coinLabel.snp.centerY)
             $0.trailing.equalToSuperview().offset(-22)
-            
-            // width에 대한 고정값과 우선순위 설정
             $0.width.equalTo(60).priority(999)
             $0.width.lessThanOrEqualTo(100)
-            
-            // height에 대한 고정값과 우선순위 설정
             $0.height.equalTo(30).priority(999)
             $0.height.lessThanOrEqualTo(view.safeAreaLayoutGuide)
         }
                 
-        coinLabel.setLabelUI("코인", font: .hetJeFont(.body_bold_12), textColor: .primary, alignment: .left)
+        coinLabel.setLabelUI(
+            "코인",
+            font: .hetJeFont(.body_bold_12),
+            textColor: .primary,
+            alignment: .left
+        )
     }
     
     override func setStyle() {
@@ -106,26 +110,56 @@ final class ExchangeViewController: BaseViewController {
             $0.rowHeight = 35
             $0.separatorStyle = .none
             $0.showsVerticalScrollIndicator = false
-            $0.delegate = self
-            $0.dataSource = self
             $0.register(ExchangeTableViewCell.self, forCellReuseIdentifier: ExchangeTableViewCell.id)
             if #available(iOS 17.4, *) {
                 //바운스 막기
                 //$0.bouncesVertically = false
             }
         }
-        
-        currentPriceSortButton.delegate = self
-        changeRateSortButton.delegate = self
-        volumeSortButton.delegate = self
-        
-        resetAllSortButtons(isFirstRun: true)
     }
+    
 }
 
 // MARK: - Private Extension
 private extension ExchangeViewController {
     
+    private func bind() {
+        let selectedButton = PublishSubject<SortButtonComponent>()
+        
+        currentPriceSortButton.tapSubject
+            .subscribe(onNext: { [weak self] button in
+                self?.updateSortButtonStates(selectedButton: button)
+                selectedButton.onNext(button)
+            })
+            .disposed(by: disposeBag)
+        
+        prevDaySortButton.tapSubject
+            .subscribe(onNext: { [weak self] button in
+                self?.updateSortButtonStates(selectedButton: button)
+                selectedButton.onNext(button)
+            })
+            .disposed(by: disposeBag)
+        
+        tradePayoutSortButton.tapSubject
+            .subscribe(onNext: { [weak self] button in
+                self?.updateSortButtonStates(selectedButton: button)
+                selectedButton.onNext(button)
+            })
+            .disposed(by: disposeBag)
+
+        let input = ExchangeViewModel.Input(selectedButton: selectedButton.asObservable()) // ✅ Observable로 변환
+        
+        let output = viewModel.transform(input: input)
+        
+        output.sortedListResult
+            .drive(exchangeTableView.rx.items(cellIdentifier: ExchangeTableViewCell.id, cellType: ExchangeTableViewCell.self))
+            { _, element, cell in
+                cell.setLayout()
+                cell.configureCell(model: element)
+            }
+            .disposed(by: disposeBag)
+    }
+
     func setNav() {
         let label = UILabel()
         label.setLabelUI(
@@ -136,19 +170,14 @@ private extension ExchangeViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
     
-    //모든 sortButton 상태 초기화
-        //단, 첫 시작 시 거래대금 내림차순 시작
-    func resetAllSortButtons(isFirstRun: Bool = false) {
-        currentPriceSortButton.setState(.none)
-        changeRateSortButton.setState(.none)
-        isFirstRun ? volumeSortButton.setState(.descending) : volumeSortButton.setState(.none)
-        activeSortButton = nil
-    }
-    
+    //sortBtn 업데이트 함수
     func updateSortButtonStates(selectedButton: SortButtonComponent) {
-        // 이미 활성화된 버튼이 현재 선택된 버튼과 같은 경우
-        if activeSortButton == selectedButton {
-            // 상태 순환: none -> descending -> ascending -> none
+        
+        //이전 눌린버튼과 같은 버튼이 눌렸다면..
+        if viewModel.activeSortButton == selectedButton {
+            //none -> descending
+            //descending -> ascending
+            //ascending -> none
             switch selectedButton.currentState {
             case .none:
                 selectedButton.setState(.descending)
@@ -160,41 +189,20 @@ private extension ExchangeViewController {
         } else {
             resetAllSortButtons()
             selectedButton.setState(.descending)
-            activeSortButton = selectedButton
+            viewModel.activeSortButton = selectedButton
         }
-        
-        sortAndRefreshData()
-    }
-    
-    func sortAndRefreshData() {
         exchangeTableView.reloadData()
     }
     
-}
-
-// MARK: - SortButtonDelegate
-extension ExchangeViewController: SortButtonDelegate {
-    
-    func sortButtonDidTap(_ button: SortButtonComponent) {
-        updateSortButtonStates(selectedButton: button)
-    }
-    
-}
-
-// MARK: - TableView
-extension ExchangeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return mockMarketData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangeTableViewCell.id, for: indexPath) as! ExchangeTableViewCell
-        cell.setLayout()
-        cell.configureCell(model: mockMarketData[indexPath.row])
-        
-        return cell
+    //모든 sortButton 상태 초기화
+        //단, 첫 시작 시 거래대금 내림차순 시작
+    func resetAllSortButtons(isFirstRun: Bool = false) {
+        currentPriceSortButton.setState(.none)
+        prevDaySortButton.setState(.none)
+        tradePayoutSortButton.setState(.none)
+        if isFirstRun {
+            tradePayoutSortButton.tapSubject.onNext(tradePayoutSortButton)
+        }
     }
     
 }

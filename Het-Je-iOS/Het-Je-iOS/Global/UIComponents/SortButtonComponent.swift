@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 import Then
 
@@ -15,6 +17,23 @@ protocol SortButtonDelegate: AnyObject {
 }
 
 final class SortButtonComponent: UIView {
+    enum SortButtonType {
+        case currentPrice
+        case prevDay
+        case tradePayout
+        
+        var title: String {
+            switch self {
+            case .currentPrice:
+                "현재가"
+            case .prevDay:
+                "전일대비"
+            case .tradePayout:
+                "거래대금"
+            }
+        }
+    }
+    
     enum SortButtonState {
         case none
         case descending
@@ -22,15 +41,15 @@ final class SortButtonComponent: UIView {
     }
     
     var currentState: SortButtonState = .none
-    weak var delegate: SortButtonDelegate?
-    private let title: String
+    let type: SortButtonType
+    let tapSubject = PublishSubject<SortButtonComponent>()
     
     private let label = UILabel()
     private let upImageView = UIImageView()
     private let downImageView = UIImageView()
     
-    init(title: String) {
-        self.title = title
+    init(type: SortButtonType) {
+        self.type = type
         super.init(frame: .zero)
         setupView()
         addTapGesture()
@@ -44,7 +63,7 @@ final class SortButtonComponent: UIView {
     private func setupView() {
         addSubviews(label, upImageView, downImageView)
         
-        label.setLabelUI(title, font: .hetJeFont(.body_bold_12), textColor: .primary, alignment: .left)
+        label.setLabelUI(type.title, font: .hetJeFont(.body_bold_12), textColor: .primary, alignment: .left)
         
         [upImageView, downImageView].forEach { i in
             i.do {
@@ -74,16 +93,21 @@ final class SortButtonComponent: UIView {
     private func addTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSortButton))
         self.addGestureRecognizer(tapGesture)
-        self.isUserInteractionEnabled = true
     }
     
     @objc
     func didTapSortButton() {
-        delegate?.sortButtonDidTap(self)
+        tapSubject.onNext(self)
+    }
+    
+    //currentState 상태 변경
+    func setState(_ state: SortButtonState) {
+        currentState = state
+        updateUI()
     }
     
     //상태별 UI 업데이트
-    func updateUI() {
+    private func updateUI() {
         switch currentState {
         case .none:
             upImageView.tintColor = .secondary
@@ -95,11 +119,6 @@ final class SortButtonComponent: UIView {
             upImageView.tintColor = .primary
             downImageView.tintColor = .secondary
         }
-    }
-    
-    func setState(_ state: SortButtonState) {
-        currentState = state
-        updateUI()
     }
     
 }

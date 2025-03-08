@@ -48,6 +48,7 @@
 		9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */; };
 		9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */; };
 		9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */; };
+		9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +98,7 @@
 		9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
 		9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "거래소데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonComponent.swift; sourceTree = "<group>"; };
+		9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 		9E9E1BDC2D7ADE1D000EC8DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
+				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
