@@ -59,7 +59,7 @@ final class ExchangeViewModel: ViewModelProtocol {
 private extension ExchangeViewModel {
     
     func callUpbitAPI() {
-        let request = DTO.Request.UpbitAPIRequestModel(quote_currencies: "KRW")
+        let request = DTO.Request.UpbitAPIRequestModel(quote_currencies: StringLiterals.koreaCurrency)
         NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: request), responseModel: [DTO.Response.MarketData].self) { result in
             switch result {
             case .success(let success):

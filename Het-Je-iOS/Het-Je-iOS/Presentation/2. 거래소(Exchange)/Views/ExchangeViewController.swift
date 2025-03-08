@@ -97,7 +97,7 @@ final class ExchangeViewController: BaseViewController {
         }
                 
         coinLabel.setLabelUI(
-            "코인",
+            StringLiterals.Exchange.marketTitle,
             font: .hetJeFont(.body_bold_12),
             textColor: .primary,
             alignment: .left
