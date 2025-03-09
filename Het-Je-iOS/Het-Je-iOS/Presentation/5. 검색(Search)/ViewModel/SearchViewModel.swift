@@ -12,12 +12,20 @@ import RxSwift
 
 final class SearchViewModel: ViewModelProtocol {
     
-    struct Input {}
-    struct Output {}
+    struct Input {
+        let in_TapNavBackButton: ControlEvent<Void>
+    }
+    
+    struct Output {
+        let out_TapNavBackButton: Driver<Void>
+    }
     
     func transform(input: Input) -> Output {
+        let out_TapNavBackButton = input.in_TapNavBackButton
+            .asDriver()
         
-        return Output()
+        
+        return Output(out_TapNavBackButton: out_TapNavBackButton)
     }
     
 }
