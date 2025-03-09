@@ -305,11 +305,11 @@
 		9E7FC1E72D79DE6400CEF423 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */,
 				9E7FC1F12D7AC40200CEF423 /* 1. 탭바(TabBar) */,
 				9E7FC1F22D7AC42500CEF423 /* 2. 거래소(Exchange) */,
 				9E7FC1F32D7AC44000CEF423 /* 3. 코인정보(CoinInfo) */,
 				9E7FC1F42D7AC44600CEF423 /* 4. 포트폴리오 */,
+				9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */,
 				9E7FC1C02D79DE6400CEF423 /* Base */,
 			);
 			path = Presentation;
@@ -557,7 +557,6 @@
 				9E9E1C712D7D996F000EC8DB /* ViewModel */,
 				9E9E1C702D7D9969000EC8DB /* Views */,
 			);
-			name = "5. 검색(Search)";
 			path = "5. 검색(Search)";
 			sourceTree = "<group>";
 		};
