@@ -162,6 +162,9 @@ private extension CoinInfoViewController {
                 switch !searchText.isEmpty {
                 case true:
                     print("searchText:\(searchText)")
+                    let vm = SearchViewModel()
+                    let vc = SearchViewController(viewModel: vm, navTitle: searchText)
+                    owner.viewTransition(viewController: vc, transitionStyle: .push)
                 case false:
                     print("searchText empty")
                 }
