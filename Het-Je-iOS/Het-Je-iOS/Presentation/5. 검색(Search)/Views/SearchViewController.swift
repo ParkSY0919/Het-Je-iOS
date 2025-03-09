@@ -77,26 +77,33 @@ private extension SearchViewController {
     
     func bind() {
         let input = SearchViewModel.Input(
-            in_TapNavBackButton: navBackBtn.rx.tap
+            in_TapNavBackButton: navBackBtn.rx.tap,
+            in_TapNavTextFieldReturnKey: navTextField.rx.controlEvent(.editingDidEndOnExit),
+            in_NavTextFieldText: navTextField.rx.text.orEmpty
         )
-        
         
         let output = viewModel.transform(input: input)
         
         output.out_TapNavBackButton
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
         output.out_SearchResultList
             .drive(searchResultTableView.rx.items(
                     cellIdentifier: SearchResultTableViewCell.id,
                     cellType: SearchResultTableViewCell.self))
-        { item, element, cell in
-            cell.selectionStyle = .none
-            cell.fetcHSearchResultCell(model: element)
-        }.disposed(by: disposeBag)
+            { item, element, cell in
+                cell.selectionStyle = .none
+                cell.fetcHSearchResultCell(model: element)
+            }.disposed(by: disposeBag)
+        
+        output.out_IsScrollToTop
+            .bind(with: self) { owner, isScroll in
+                if isScroll {
+                    owner.setScrollToTop()
+                }
+            }.disposed(by: disposeBag)
     }
     
     func setNav(text: String) {
@@ -118,6 +125,12 @@ private extension SearchViewController {
         }
         
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem.init(customView: navBackBtn), UIBarButtonItem.init(customView: navTextField)]
+    }
+    
+    func setScrollToTop() {
+        print(#function)
+        let indexPath = NSIndexPath(row: NSNotFound, section: 0)
+        searchResultTableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
     }
     
 }

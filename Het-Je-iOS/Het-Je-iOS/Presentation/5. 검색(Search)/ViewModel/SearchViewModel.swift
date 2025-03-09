@@ -23,11 +23,14 @@ final class SearchViewModel: ViewModelProtocol {
     
     struct Input {
         let in_TapNavBackButton: ControlEvent<Void>
+        let in_TapNavTextFieldReturnKey: ControlEvent<()>
+        let in_NavTextFieldText: ControlProperty<String>
     }
     
     struct Output {
         let out_TapNavBackButton: Driver<Void>
         let out_SearchResultList: Driver<[DTO.Response.Search.Coin]>
+        let out_IsScrollToTop: PublishRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -35,6 +38,7 @@ final class SearchViewModel: ViewModelProtocol {
             .asDriver()
         let originSearchResultList = PublishRelay<[DTO.Response.Search.Coin]>()
         let isAPILoaded = PublishSubject<Bool>()
+        let out_IsScrollToTop = PublishRelay<Bool>()
         
         callSearchAPI
             .bind(with: self) { owner, text in
@@ -47,13 +51,25 @@ final class SearchViewModel: ViewModelProtocol {
                 isAPILoaded.onNext(true)
             }.disposed(by: disposeBag)
         
+        input.in_TapNavTextFieldReturnKey
+            .withLatestFrom(input.in_NavTextFieldText)
+            .distinctUntilChanged()
+            .subscribe(with: self) { owner, searchText in
+                owner.callSearchAPI(text: searchText)
+                out_IsScrollToTop.accept(true)
+            }.disposed(by: disposeBag)
+        
         let out_SearchResultList = Observable
             .combineLatest(originSearchResultList, isAPILoaded)
             .filter { _, loaded in loaded }
             .compactMap { item, _ in item }
             .asDriver(onErrorJustReturn: [])
         
-        return Output(out_TapNavBackButton: out_TapNavBackButton, out_SearchResultList: out_SearchResultList)
+        return Output(
+            out_TapNavBackButton: out_TapNavBackButton,
+            out_SearchResultList: out_SearchResultList,
+            out_IsScrollToTop: out_IsScrollToTop
+        )
     }
     
 }
