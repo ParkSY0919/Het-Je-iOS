@@ -68,6 +68,8 @@
 		9E9E1C692D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C682D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift */; };
 		9E9E1C6C2D7D3DD8000EC8DB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9E9E1C6B2D7D3DD8000EC8DB /* Kingfisher */; };
 		9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */; };
+		9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */; };
+		9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,6 +138,8 @@
 		9E9E1C662D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E9E1C682D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularNFTCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewModel.swift; sourceTree = "<group>"; };
+		9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +305,7 @@
 		9E7FC1E72D79DE6400CEF423 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */,
 				9E7FC1F12D7AC40200CEF423 /* 1. 탭바(TabBar) */,
 				9E7FC1F22D7AC42500CEF423 /* 2. 거래소(Exchange) */,
 				9E7FC1F32D7AC44000CEF423 /* 3. 코인정보(CoinInfo) */,
@@ -546,6 +551,32 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C712D7D996F000EC8DB /* ViewModel */,
+				9E9E1C702D7D9969000EC8DB /* Views */,
+			);
+			name = "5. 검색(Search)";
+			path = "5. 검색(Search)";
+			sourceTree = "<group>";
+		};
+		9E9E1C702D7D9969000EC8DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E9E1C712D7D996F000EC8DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -671,6 +702,7 @@
 				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
 				9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */,
 				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
+				9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */,
 				9E9E1BE92D7ADEB5000EC8DB /* UIButton+.swift in Sources */,
 				9E9E1C3F2D7C66B2000EC8DB /* TargetTypeProtocol.swift in Sources */,
 				9E9E1C622D7C8BFB000EC8DB /* SearchAPIRequestModel.swift in Sources */,
@@ -684,6 +716,7 @@
 				9E9E1BEC2D7ADEB5000EC8DB /* StringLiterals.swift in Sources */,
 				9E9E1BED2D7ADEB5000EC8DB /* UIStackView+.swift in Sources */,
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
+				9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
 				9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
