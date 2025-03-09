@@ -42,19 +42,21 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         
         nftNameLabel.snp.makeConstraints {
             $0.top.equalTo(coinImageView.snp.bottom).offset(8)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
         }
         
         nativeCurrencySymbolLabel.snp.makeConstraints {
             $0.top.equalTo(nftNameLabel.snp.bottom).offset(2)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide).offset(2)
-            
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide.snp.centerX).offset(2)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
         }
-        
+
         floorPriceInNativeCurrencyLabel.snp.makeConstraints {
             $0.top.equalTo(nativeCurrencySymbolLabel.snp.top)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide).offset(-2)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide.snp.centerX).offset(-2)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide)
         }
+
         
         variationRateLabel.snp.makeConstraints {
             $0.top.equalTo(floorPriceInNativeCurrencyLabel.snp.bottom).offset(2)
@@ -63,18 +65,22 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         
         coinImageView.setImageKfDownSampling(with: "https://assets.coingecko.com/nft_contracts/images/3717/small/arc-stellars.png?1707290159", cornerRadius: 22)
         
-        nftNameLabel.setLabelUI("Meebits", font: .hetJeFont(.body_bold_9), textColor: .primary)
+        nftNameLabel.setLabelUI(
+            "Meebits12412412412",
+            font: .hetJeFont(.body_bold_9),
+            textColor: .primary,
+            alignment: .center
+        )
         
         nativeCurrencySymbolLabel.setLabelUI(
-            "ETH",
-            font: .hetJeFont(.body_regular_12),
-            textColor: .secondary,
-            alignment: .left
+            "ETH2222222222",
+            font: .hetJeFont(.body_regular_9),
+            textColor: .secondary
         )
         
         floorPriceInNativeCurrencyLabel.setLabelUI(
-            "0.66 ",
-            font: .hetJeFont(.body_regular_12),
+            "0.665425235235",
+            font: .hetJeFont(.body_regular_9),
             textColor: .secondary,
             alignment: .right
         )
