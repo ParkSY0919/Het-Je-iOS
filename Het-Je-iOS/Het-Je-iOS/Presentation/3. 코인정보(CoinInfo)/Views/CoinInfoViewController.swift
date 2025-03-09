@@ -114,8 +114,6 @@ final class CoinInfoViewController: BaseViewController {
         popularNFTCollectionView.do {
             $0.showsHorizontalScrollIndicator = false
             $0.register(PopularNFTCollectionViewCell.self, forCellWithReuseIdentifier: PopularNFTCollectionViewCell.id)
-//            $0.delegate = self
-//            $0.dataSource = self
         }
     }
     
@@ -133,7 +131,7 @@ final class CoinInfoViewController: BaseViewController {
 private extension CoinInfoViewController {
     
     func bind() {
-        let input = CoinInfoViewModel.Input()
+        let input = CoinInfoViewModel.Input(searchText: searchTextField.rx.text.orEmpty, tapSearchTextFieldReturnKey: searchTextField.rx.controlEvent(.editingDidEndOnExit))
         
         let output = viewModel.transform(input: input)
         
@@ -159,7 +157,15 @@ private extension CoinInfoViewController {
             cell.fetchPopularNFTCell(model: element)
         }.disposed(by: disposeBag)
         
-        
+        output.validSearchText
+            .bind(with: self) { owner, searchText in
+                switch !searchText.isEmpty {
+                case true:
+                    print("searchText:\(searchText)")
+                case false:
+                    print("searchText empty")
+                }
+            }.disposed(by: disposeBag)
     }
     
     func setNav() {
@@ -233,7 +239,5 @@ private extension CoinInfoViewController {
         
         return layout
     }
-    
-    
     
 }

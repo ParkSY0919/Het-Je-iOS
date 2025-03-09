@@ -16,13 +16,18 @@ final class CoinInfoViewModel: ViewModelProtocol {
     private let onCallAPI = Observable<Int>.interval(.seconds(600), scheduler: MainScheduler.instance)
     private let list = PublishSubject<DTO.Response.TrendingAPIResponseModel>()
     private var currentTime = ""
+    private var currentSearchText = ""
     
-    struct Input {}
+    struct Input {
+        let searchText: ControlProperty<String>
+        let tapSearchTextFieldReturnKey: ControlEvent<()>
+    }
     
     struct Output {
         let currentTitme: Driver<String>
         let sortedPopularSearchList: Driver<[DTO.Response.Coin]>
         let sortedPopularNFTList: Driver<[DTO.Response.Nft]>
+        let validSearchText: PublishSubject<String>
     }
     
     func transform(input: Input) -> Output {
@@ -31,6 +36,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
         let originPopularSearchList = BehaviorSubject<[DTO.Response.Coin]>(value: [])
         let originPopularNFTList = BehaviorSubject<[DTO.Response.Nft]>(value: [])
         let isAPILoaded = BehaviorSubject<Bool>(value: false)
+        let currentSearchText = PublishSubject<String>()
         
         onCallAPI
             .startWith(0)
@@ -71,10 +77,21 @@ final class CoinInfoViewModel: ViewModelProtocol {
             .compactMap { list, _ in list }
             .asDriver(onErrorJustReturn: [])
         
+        input.searchText
+            .subscribe(with: self) { owner, text in
+                owner.isValidSearchText(text: text)
+            }.disposed(by: disposeBag)
+        
+        input.tapSearchTextFieldReturnKey
+            .subscribe(with: self) { owner, _ in
+                currentSearchText.onNext(owner.currentSearchText)
+            }.disposed(by: disposeBag)
+        
         return Output(
             currentTitme: currentTitmeResult,
             sortedPopularSearchList: sortedPopularSearchList,
-            sortedPopularNFTList: sortedPopularNFTList
+            sortedPopularNFTList: sortedPopularNFTList,
+            validSearchText: currentSearchText
         )
     }
     
@@ -95,6 +112,14 @@ private extension CoinInfoViewModel {
             case .failure(let failure):
                 print("Error callUpbitAPI: \(failure.localizedDescription)")
             }
+        }
+    }
+    
+    func isValidSearchText(text: String) {
+        if !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            currentSearchText = text
+        } else {
+            currentSearchText = ""
         }
     }
     
