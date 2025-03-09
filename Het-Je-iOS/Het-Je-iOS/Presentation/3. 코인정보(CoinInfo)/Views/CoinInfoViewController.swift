@@ -92,7 +92,7 @@ final class CoinInfoViewController: BaseViewController {
         )
         
         dateLabel.setLabelUI(
-            "88.88 88:88 기준",
+            "",
             font: .systemFont(ofSize: 13, weight: .regular),
             textColor: .secondary,
             alignment: .right
@@ -136,6 +136,12 @@ private extension CoinInfoViewController {
         let input = CoinInfoViewModel.Input()
         
         let output = viewModel.transform(input: input)
+        
+        output.currentTitme
+            .drive(with: self) { owner, time in
+                print("currentTime: \(time)")
+                owner.dateLabel.text = time
+            }.disposed(by: disposeBag)
         
         output.sortedPopularSearchList
             .drive(popularSearchCollectionView.rx.items(
