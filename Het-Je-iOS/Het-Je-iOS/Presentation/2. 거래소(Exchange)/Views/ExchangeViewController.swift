@@ -30,6 +30,8 @@ final class ExchangeViewController: BaseViewController {
     }
     
     //다시 돌아왔을 때에 5초뒤 api 받아오는게 아닌, 바로 받아올 수 있도록 수정해야함
+        //돼있네.. 어찌 된게지!? viewModel의 disposebag을 초기화했다 해도 onCallAPI은 이미 생성돼있어서 start가 안 먹힐텐데..
+        //-> onCallAPI에도 dispose가 적용돼있어서 갈아 엎어진건가?!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
