@@ -12,12 +12,70 @@ import RxSwift
 
 final class CoinInfoViewModel: ViewModelProtocol {
     
+    private let disposeBag = DisposeBag()
+    private let onCallAPI = Observable<Int>.interval(.seconds(600), scheduler: MainScheduler.instance)
+    private let list = PublishSubject<DTO.Response.TrendingAPIResponseModel>()
+    
     struct Input {}
-    struct Output {}
+    
+    struct Output {
+        let sortedPopularSearchList: Driver<[DTO.Response.Coin]>
+        let sortedPopularNFTList: Driver<[DTO.Response.Nft]>
+    }
     
     func transform(input: Input) -> Output {
+        print(#function)
+        let originPopularSearchList = BehaviorSubject<[DTO.Response.Coin]>(value: [])
+        let originPopularNFTList = BehaviorSubject<[DTO.Response.Nft]>(value: [])
+        let isAPILoaded = BehaviorSubject<Bool>(value: false)
         
-        return Output()
+        onCallAPI
+            .startWith(0)
+            .debug("onCallAPI")
+            .subscribe(with: self) { owner, _ in
+                print("API 호출")
+                owner.callTrendingAPI()
+            }
+            .disposed(by: disposeBag)
+
+        list.subscribe(with: self) { owner, model in
+            var dropSearchList = Array(model.coins.prefix(14))
+            var droNFTList = Array(model.nfts.prefix(7))
+            originPopularSearchList.onNext(dropSearchList)
+            originPopularNFTList.onNext(droNFTList)
+            isAPILoaded.onNext(true)
+        }.disposed(by: disposeBag)
+        
+        let sortedPopularSearchList = Observable
+            .combineLatest(originPopularSearchList, isAPILoaded)
+            .filter { _, loaded in loaded }
+            .compactMap { list, _ in list }
+            .asDriver(onErrorJustReturn: [])
+        
+        let sortedPopularNFTList = Observable
+            .combineLatest(originPopularNFTList, isAPILoaded)
+            .filter { _, loaded in loaded }
+            .compactMap { list, _ in list }
+            .asDriver(onErrorJustReturn: [])
+        
+        return Output(sortedPopularSearchList: sortedPopularSearchList, sortedPopularNFTList: sortedPopularNFTList)
     }
     
 }
+
+private extension CoinInfoViewModel {
+    
+    func callTrendingAPI() {
+        print(#function)
+        NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { result in
+            switch result {
+            case .success(let success):
+                self.list.onNext(success)
+            case .failure(let failure):
+                print("Error callUpbitAPI: \(failure.localizedDescription)")
+            }
+        }
+    }
+    
+}
+
