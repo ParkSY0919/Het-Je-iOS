@@ -18,13 +18,12 @@ extension DTO.Response {
     
     struct TrendingCoinDetails: Codable {
         let name, symbol: String
-        let marketCapRank: Int
+        let score: Int
         let thumb, small, large: String
         let data: TrendingCoinData
         
         enum CodingKeys: String, CodingKey {
-            case name, symbol
-            case marketCapRank = "market_cap_rank"
+            case name, symbol, score
             case thumb, small, large
             case data
         }
