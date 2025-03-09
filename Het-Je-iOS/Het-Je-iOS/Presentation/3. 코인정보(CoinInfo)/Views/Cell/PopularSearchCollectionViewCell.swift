@@ -13,8 +13,8 @@ import Then
 final class PopularSearchCollectionViewCell: UICollectionViewCell {
     
     private let rankLabel = UILabel()
-    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "MOCHI", subtitleText: "Mochi")
-    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "3.45", alignment: .right))
+    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "2342523212312312323", subtitleText: "2335235233212312312312312312325")
+    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "3.4234242342342345", alignment: .right))
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -36,14 +36,15 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
             $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
         }
         
-        variationRateLabel.snp.makeConstraints {
-            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
+        aboutCoinView.snp.makeConstraints {
+            $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
+            $0.trailing.equalTo(variationRateLabel.snp.leading).offset(-5)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
-        aboutCoinView.snp.makeConstraints {
-            $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
-            $0.trailing.equalTo(variationRateLabel.snp.leading).offset(0)
+        variationRateLabel.snp.makeConstraints {
+            $0.leading.equalTo(aboutCoinView.snp.trailing).offset(5)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         

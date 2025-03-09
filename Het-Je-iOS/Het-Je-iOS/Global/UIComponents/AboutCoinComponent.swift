@@ -76,21 +76,29 @@ final class AboutCoinComponent: UIView {
         switch type {
         case .noneDetail:
             title.snp.makeConstraints {
-                $0.leading.equalTo(iconImageView.snp.trailing).offset(type.labelPaddingToIcon)
                 $0.top.equalTo(iconImageView.snp.top)
+                $0.leading.equalTo(iconImageView.snp.trailing).offset(type.labelPaddingToIcon)
+                $0.trailing.equalTo(self.safeAreaLayoutGuide).offset(-20).priority(999)
+                $0.width.lessThanOrEqualTo(50)
             }
+            
             subtitle.snp.makeConstraints {
-                $0.leading.equalTo(title.snp.leading)
+                $0.horizontalEdges.equalTo(title.snp.horizontalEdges)
                 $0.bottom.equalTo(iconImageView.snp.bottom)
+                $0.width.lessThanOrEqualTo(50)
             }
+
         case .detail:
             title.snp.makeConstraints {
                 $0.leading.equalTo(iconImageView.snp.trailing).offset(type.labelPaddingToIcon)
+                $0.trailing.equalTo(hashTag.snp.leading).priority(999)
                 $0.bottom.equalTo(subtitle.snp.top).offset(-3)
+                $0.width.lessThanOrEqualTo(50)
             }
             subtitle.snp.makeConstraints {
-                $0.leading.equalTo(title.snp.leading)
+                $0.horizontalEdges.equalTo(title.snp.horizontalEdges).offset(-5)
                 $0.bottom.equalTo(iconImageView.snp.bottom)
+                $0.width.lessThanOrEqualTo(50)
             }
         }
         
