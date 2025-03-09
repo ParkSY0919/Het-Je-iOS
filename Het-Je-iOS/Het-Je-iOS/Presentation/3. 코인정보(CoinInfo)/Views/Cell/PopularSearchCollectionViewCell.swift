@@ -32,27 +32,36 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
                                 variationRateLabel)
         
         rankLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView.safeAreaLayoutGuide)
+            //횡 스크롤 고정 시키고자 특단의 조치 2..
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).offset(-6)
+            $0.width.equalTo(14)
             $0.centerY.equalTo(contentView.safeAreaLayoutGuide)
         }
         
         aboutCoinView.snp.makeConstraints {
             $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
-            $0.trailing.equalTo(variationRateLabel.snp.leading).offset(-5)
+            $0.trailing.equalTo(variationRateLabel.snp.leading)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
         variationRateLabel.snp.makeConstraints {
-            $0.leading.equalTo(aboutCoinView.snp.trailing).offset(5)
-            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
+            $0.leading.equalTo(aboutCoinView.snp.trailing)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide).priority(.required)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
         rankLabel.setLabelUI(
             "8",
             font: .hetJeFont(.body_regular_12),
-            textColor: .primary
+            textColor: .primary,
+            alignment: .right
         )
+    }
+    
+    func configurePopularSearchCell(model: DTO.Response.Coin) {
+        rankLabel.text = "\(model.item.score + 1)"
+        aboutCoinView.fetchAboutCoinComponent(model: model.item)
+        variationRateLabel.updateVariationRateType(rate: model.item.data.doublePriceChangePercentage24H, alignment: .right)
     }
     
 }
