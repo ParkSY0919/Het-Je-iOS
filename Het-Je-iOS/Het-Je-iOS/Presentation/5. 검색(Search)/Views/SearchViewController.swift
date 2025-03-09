@@ -13,17 +13,15 @@ import SnapKit
 import Then
 
 final class SearchViewController: BaseViewController {
-    
+
     private let viewModel: SearchViewModel
     private let disposeBag = DisposeBag()
     
     private let navBackBtn = UIButton()
     private let navTextField = UITextField()
-    
-    private let tabBar = CutomTabBarView()
-    
+    private let segmentControl = CustomSegmentControl()
+    private let paginableView = PaginableView<Page>(pages: Page.allCases, firstPage: Page.coin)
     private let searchResultTableView = UITableView()
-    private let pagerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
@@ -39,26 +37,24 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bindRelatedPagerView()
         bind()
     }
     
     override func setHierarchy() {
-        view.addSubviews(pagerCollectionView,
-                         tabBar,
-                         searchResultTableView)
+        view.addSubviews(segmentControl, paginableView)
     }
     
     override func setLayout() {
-        tabBar.snp.makeConstraints {
+        segmentControl.snp.makeConstraints {
             $0.top.equalTo(underLine.snp.bottom)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.width.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
         }
-        tabBar.setCutomTabBarViewLayout()
-
-        searchResultTableView.snp.makeConstraints {
-            $0.top.equalTo(tabBar.snp.bottom)
-            $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        
+        paginableView.snp.makeConstraints {
+            $0.top.equalTo(segmentControl.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -69,11 +65,46 @@ final class SearchViewController: BaseViewController {
             $0.showsVerticalScrollIndicator = false
             $0.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.id)
         }
+        
+        segmentControl.do {
+            $0.setupButtons()
+            $0.selectedOption.accept(.coin)
+        }
+        
+        //setLayout 이후 실행돼야함
+        //-> 그래야 setupNotiView 속 equalToSuperView가 터지지않음
+        setupNotiView()
+    }
+    
+    private func setupNotiView() {
+        //PaginableView에서 노티 페이지의 뷰 가져와서 테이블 뷰 넣기
+        if let notiView = paginableView.getPageView(page: .coin) {
+            
+            //테이블뷰 노티 뷰에 추가 및 레이아웃 설정
+            notiView.addSubview(searchResultTableView)
+            searchResultTableView.snp.makeConstraints {
+                $0.verticalEdges.equalToSuperview()
+                $0.horizontalEdges.equalToSuperview().inset(20)
+            }
+            
+            //notiView 변화 생겼으니 레이아웃 수정 호출
+            notiView.layoutIfNeeded()
+        }
     }
     
 }
 
 private extension SearchViewController {
+    
+    func bindRelatedPagerView() {
+        paginableView.onMove
+            .bind(to: self.segmentControl.selectedOption)
+            .disposed(by: disposeBag)
+        
+        segmentControl.onChange
+            .bind(to: self.paginableView.selectedPage)
+            .disposed(by: disposeBag)
+    }
     
     func bind() {
         let input = SearchViewModel.Input(

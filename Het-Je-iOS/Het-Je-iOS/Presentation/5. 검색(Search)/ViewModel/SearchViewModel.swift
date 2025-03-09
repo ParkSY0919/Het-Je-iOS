@@ -51,10 +51,19 @@ final class SearchViewModel: ViewModelProtocol {
                 isAPILoaded.onNext(true)
             }.disposed(by: disposeBag)
         
+        //중복 검색어 왜 안 막힘
         input.in_TapNavTextFieldReturnKey
             .withLatestFrom(input.in_NavTextFieldText)
+            .compactMap { text in
+                if !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    return text
+                } else {
+                    return nil
+                }
+            }
             .distinctUntilChanged()
             .subscribe(with: self) { owner, searchText in
+                print(searchText, "searchText")
                 owner.callSearchAPI(text: searchText)
                 out_IsScrollToTop.accept(true)
             }.disposed(by: disposeBag)
@@ -85,6 +94,14 @@ private extension SearchViewModel {
             case .failure(let failure):
                 print("Error callSearchAPI: \(String(describing: failure.errorDescription))")
             }
+        }
+    }
+    
+    func isValidSearchText(text: String) -> String? {
+        if !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return text
+        } else {
+            return nil
         }
     }
     

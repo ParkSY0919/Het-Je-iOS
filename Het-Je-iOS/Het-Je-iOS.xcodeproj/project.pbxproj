@@ -70,8 +70,9 @@
 		9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */; };
 		9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */; };
 		9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */; };
-		9E9E1C7D2D7DAE73000EC8DB /* CutomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */; };
 		9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */; };
+		9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */; };
+		9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,8 +143,9 @@
 		9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomTabBarView.swift; sourceTree = "<group>"; };
 		9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,8 @@
 				9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */,
 				9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */,
 				9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */,
+				9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */,
+				9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -569,7 +573,6 @@
 			children = (
 				9E9E1C7E2D7DB39E000EC8DB /* Cell */,
 				9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */,
-				9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
+				9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */,
 				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
@@ -706,6 +710,7 @@
 				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
 				9E9E1BDA2D7ADDE8000EC8DB /* TabBarViewController.swift in Sources */,
 				9E9E1BE22D7ADE7B000EC8DB /* BaseViewController.swift in Sources */,
+				9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */,
 				9E9E1BE12D7ADE47000EC8DB /* OtherViewController.swift in Sources */,
 				9E9E1BE62D7ADEB5000EC8DB /* ViewModelProtocol.swift in Sources */,
 				9E9E1BE72D7ADEB5000EC8DB /* UITextField+.swift in Sources */,
@@ -714,7 +719,6 @@
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
 				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
-				9E9E1C7D2D7DAE73000EC8DB /* CutomTabBarView.swift in Sources */,
 				9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */,
 				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
 				9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */,
