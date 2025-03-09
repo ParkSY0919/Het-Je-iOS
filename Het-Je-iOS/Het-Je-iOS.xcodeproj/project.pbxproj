@@ -70,6 +70,8 @@
 		9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */; };
 		9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */; };
 		9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */; };
+		9E9E1C7D2D7DAE73000EC8DB /* CutomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */; };
+		9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +142,8 @@
 		9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutomTabBarView.swift; sourceTree = "<group>"; };
+		9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,7 +567,9 @@
 		9E9E1C702D7D9969000EC8DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C7E2D7DB39E000EC8DB /* Cell */,
 				9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */,
+				9E9E1C7C2D7DAE73000EC8DB /* CutomTabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -574,6 +580,14 @@
 				9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C7E2D7DB39E000EC8DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -679,6 +693,7 @@
 				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
+				9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */,
 				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
 				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
 				9E9E1C672D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift in Sources */,
@@ -699,6 +714,7 @@
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
 				9E9E1C382D7C6644000EC8DB /* NetworkManager.swift in Sources */,
+				9E9E1C7D2D7DAE73000EC8DB /* CutomTabBarView.swift in Sources */,
 				9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */,
 				9E9E1C3C2D7C6644000EC8DB /* TargetType.swift in Sources */,
 				9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */,

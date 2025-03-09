@@ -87,18 +87,14 @@ final class AboutCoinComponent: UIView {
                 $0.bottom.equalTo(iconImageView.snp.bottom)
                 $0.width.lessThanOrEqualTo(120)
             }
-            
         case .detail:
             title.snp.makeConstraints {
                 $0.leading.equalTo(iconImageView.snp.trailing).offset(type.labelPaddingToIcon)
-                $0.trailing.equalTo(hashTag.snp.leading).priority(999)
                 $0.bottom.equalTo(subtitle.snp.top).offset(-3)
-                $0.width.lessThanOrEqualTo(120)
             }
             subtitle.snp.makeConstraints {
-                $0.horizontalEdges.equalTo(title.snp.horizontalEdges).offset(-5)
+                $0.leading.equalTo(title.snp.leading)
                 $0.bottom.equalTo(iconImageView.snp.bottom)
-                $0.width.lessThanOrEqualTo(120)
             }
         }
         
@@ -125,6 +121,15 @@ final class AboutCoinComponent: UIView {
         
         title.text = model.symbol
         subtitle.text = model.name
+    }
+    
+    func fetchAboutCoinComponent(model: DTO.Response.Search.Coin) {
+        iconImageView.setImageKfDownSampling(with: model.thumb, cornerRadius: Int(type.imageSize)/2)
+        
+        title.text = model.symbol
+        subtitle.text = model.name
+        
+        hashTag.text = "\(model.marketCapRank)"
     }
     
 }

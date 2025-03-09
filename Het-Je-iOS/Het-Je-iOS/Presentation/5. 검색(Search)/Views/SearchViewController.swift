@@ -20,12 +20,16 @@ final class SearchViewController: BaseViewController {
     private let navBackBtn = UIButton()
     private let navTextField = UITextField()
     
+    private let tabBar = CutomTabBarView()
     
-    init(viewModel: SearchViewModel, navTitle: String) {
+    private let searchResultTableView = UITableView()
+    private let pagerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    
+    init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
         super.init()
         
-        setNav(text: navTitle)
+        setNav(text: viewModel.navTitle)
     }
     
     deinit {
@@ -36,6 +40,35 @@ final class SearchViewController: BaseViewController {
         super.viewDidLoad()
         
         bind()
+    }
+    
+    override func setHierarchy() {
+        view.addSubviews(pagerCollectionView,
+                         tabBar,
+                         searchResultTableView)
+    }
+    
+    override func setLayout() {
+        tabBar.snp.makeConstraints {
+            $0.top.equalTo(underLine.snp.bottom)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(60)
+        }
+        tabBar.setCutomTabBarViewLayout()
+
+        searchResultTableView.snp.makeConstraints {
+            $0.top.equalTo(tabBar.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
+    }
+    
+    override func setStyle() {
+        searchResultTableView.do {
+            $0.separatorStyle = .none
+            $0.rowHeight = 60
+            $0.showsVerticalScrollIndicator = false
+            $0.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.id)
+        }
     }
     
 }
@@ -55,6 +88,15 @@ private extension SearchViewController {
                 owner.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
+        
+        output.out_SearchResultList
+            .drive(searchResultTableView.rx.items(
+                    cellIdentifier: SearchResultTableViewCell.id,
+                    cellType: SearchResultTableViewCell.self))
+        { item, element, cell in
+            cell.selectionStyle = .none
+            cell.fetcHSearchResultCell(model: element)
+        }.disposed(by: disposeBag)
     }
     
     func setNav(text: String) {
