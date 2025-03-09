@@ -26,6 +26,7 @@ class BaseViewController: UIViewController {
         setHierarchy()
         setLayout()
         setStyle()
+        view.backgroundColor = .white
     }
     
     private func setUnderLine() {
