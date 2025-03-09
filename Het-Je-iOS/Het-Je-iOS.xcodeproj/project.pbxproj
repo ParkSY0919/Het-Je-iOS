@@ -67,6 +67,7 @@
 		9E9E1C672D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C662D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift */; };
 		9E9E1C692D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C682D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift */; };
 		9E9E1C6C2D7D3DD8000EC8DB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9E9E1C6B2D7D3DD8000EC8DB /* Kingfisher */; };
+		9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,6 +135,7 @@
 		9E9E1C632D7CB06E000EC8DB /* CoinInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewController.swift; sourceTree = "<group>"; };
 		9E9E1C662D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E9E1C682D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularNFTCollectionViewCell.swift; sourceTree = "<group>"; };
+		9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 		9E9E1BDE2D7ADE33000EC8DB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				9E9E1C622D7C8BFB000EC8DB /* SearchAPIRequestModel.swift in Sources */,
 				9E9E1BEA2D7ADEB5000EC8DB /* UIView+.swift in Sources */,
 				9E9E1BEB2D7ADEB5000EC8DB /* UIImageView+.swift in Sources */,
+				9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */,
 				9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */,
 				9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */,
 				9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */,

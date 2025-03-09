@@ -14,13 +14,20 @@ import Then
 
 final class CoinInfoViewController: BaseViewController {
     
-    private let searchTextField = UITextField()
+    private let viewModel: CoinInfoViewModel
+    private let disposeBag = DisposeBag()
     
+    private let searchTextField = UITextField()
     private let popularSearchLabel = UILabel()
     private let dateLabel = UILabel()
     private var popularSearchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private let popularNFTLabel = UILabel()
     private var popularNFTCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    
+    init(viewModel: CoinInfoViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
