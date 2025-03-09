@@ -100,7 +100,7 @@ final class AboutCoinComponent: UIView {
         }
         
         iconImageView.do {
-            $0.setImageView(image: UIImage(systemName: "square.and.arrow.up.circle.fill"))
+            $0.setImageKfDownSampling(with: imageURL, cornerRadius: Int(type.imageSize)/2)
         }
         
         title.setLabelUI(titleText, font: UIFont.hetJeFont(.body_bold_12), textColor: UIColor.primary)
