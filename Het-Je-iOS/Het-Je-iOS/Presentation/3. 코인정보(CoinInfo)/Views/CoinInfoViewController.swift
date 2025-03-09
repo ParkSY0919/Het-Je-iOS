@@ -150,7 +150,7 @@ private extension CoinInfoViewController {
                 cellIdentifier: PopularNFTCollectionViewCell.id,
                     cellType: PopularNFTCollectionViewCell.self))
         { item, element, cell in
-            
+            cell.fetchPopularNFTCell(model: element)
         }.disposed(by: disposeBag)
         
         

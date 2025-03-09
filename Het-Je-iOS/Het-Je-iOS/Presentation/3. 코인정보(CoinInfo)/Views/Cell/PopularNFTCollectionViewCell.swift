@@ -28,6 +28,16 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        coinImageView.image = nil
+        nftNameLabel.text = nil
+        nativeCurrencySymbolLabel.text = nil
+        floorPriceInNativeCurrencyLabel.text = nil
+        variationRateLabel.text = nil
+    }
+    
     private func setCell() {
         contentView.addSubviews(coinImageView,
                                 nftNameLabel,
@@ -63,7 +73,7 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalTo(nftNameLabel.snp.centerX)
         }
         
-        coinImageView.setImageKfDownSampling(with: "https://assets.coingecko.com/nft_contracts/images/3717/small/arc-stellars.png?1707290159", cornerRadius: 22)
+        
         
         nftNameLabel.setLabelUI(
             "Meebits12412412412",
@@ -84,6 +94,14 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
             textColor: .secondary,
             alignment: .right
         )
+    }
+    
+    func fetchPopularNFTCell(model: DTO.Response.Nft) {
+        coinImageView.setImageKfDownSampling(with: model.thumb, cornerRadius: 22)
+        nftNameLabel.text = model.name
+        nativeCurrencySymbolLabel.text = model.nativeCurrencySymbol
+        floorPriceInNativeCurrencyLabel.text = CustomFormatterManager.shard.formatNum(num: model.floorPriceInNativeCurrency)
+        variationRateLabel.updateVariationRateType(rate: model.floorPrice24HPercentageChange, alignment: .center)
     }
     
 }
