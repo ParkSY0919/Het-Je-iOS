@@ -59,6 +59,7 @@ extension UILabel {
         self.textColor = textColor
         self.textAlignment = alignment
         self.numberOfLines = numberOfLines
+        self.lineBreakMode = .byTruncatingTail
     }
     
 }

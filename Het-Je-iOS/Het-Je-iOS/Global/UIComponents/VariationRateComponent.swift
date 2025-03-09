@@ -72,16 +72,20 @@ final class VariationRateComponent: UILabel {
         }
     }
     
-    static func rateType(rate: Double, alignment: NSTextAlignment) -> VariationRateComponent {
+    func updateVariationRateType(rate: Double, alignment: NSTextAlignment) {
         let rate = CustomFormatterManager.shard.formatNum(num: rate)
+        var type: VariationRateType
+        
         switch Double(rate) ?? 0.00 > 0 {
         case true:
-            return VariationRateComponent(variationRateType: .rise(rate: rate, alignment: alignment))
+            type = .rise(rate: rate, alignment: alignment)
         case false:
-            return Double(rate) ?? 0.00 == 0.00 ?
-            VariationRateComponent(variationRateType: .none(rate: rate, alignment: alignment)) :
-            VariationRateComponent(variationRateType: .reduce(rate: rate, alignment: alignment))
+            type = Double(rate) ?? 0.00 == 0.00 ?
+                .none(rate: rate, alignment: alignment) :
+                .reduce(rate: rate, alignment: alignment)
         }
+        
+        self.setStyle(type: type)
     }
     
 }

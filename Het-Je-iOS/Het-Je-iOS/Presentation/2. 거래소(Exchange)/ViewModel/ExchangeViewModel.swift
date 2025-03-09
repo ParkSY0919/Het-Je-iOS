@@ -15,7 +15,7 @@ final class ExchangeViewModel: ViewModelProtocol {
     var activeSortButton: SortButtonComponent?
     private let onCallAPI = Observable<Int>.interval(.seconds(5), scheduler: MainScheduler.instance)
     private let list = PublishSubject<[DTO.Response.MarketData]>()
-    private let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     struct Input {
         let selectedButton: Observable<SortButtonComponent>

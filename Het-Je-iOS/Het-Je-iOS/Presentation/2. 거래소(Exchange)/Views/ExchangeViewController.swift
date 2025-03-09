@@ -15,7 +15,7 @@ import Then
 final class ExchangeViewController: BaseViewController {
     
     private let viewModel: ExchangeViewModel
-    private let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     private let exchangeTableView = UITableView(frame: .zero)
     private let container = UIView()
@@ -29,12 +29,23 @@ final class ExchangeViewController: BaseViewController {
         super.init()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //다시 돌아왔을 때에 5초뒤 api 받아오는게 아닌, 바로 받아올 수 있도록 수정해야함
+        //돼있네.. 어찌 된게지!? viewModel의 disposebag을 초기화했다 해도 onCallAPI은 이미 생성돼있어서 start가 안 먹힐텐데..
+        //-> onCallAPI에도 dispose가 적용돼있어서 갈아 엎어진건가?!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         setNav()
         bind()
         resetAllSortButtons(isFirstRun: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print(#function)
+        disposeBag = DisposeBag()
+        viewModel.disposeBag = DisposeBag()
     }
     
     override func setHierarchy() {

@@ -31,9 +31,26 @@ extension DTO.Response {
     
     struct TrendingCoinData: Codable {
         let priceChangePercentage24H: [String: Double]
-
+        let doublePriceChangePercentage24H: Double
+        
         enum CodingKeys: String, CodingKey {
             case priceChangePercentage24H = "price_change_percentage_24h"
+        }
+        
+        //커스텀 디코딩 출동
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            let priceDict = try container.decodeIfPresent([String: Double].self, forKey: .priceChangePercentage24H) ?? [:]
+            //priceChangePercentage24H 초기화
+            self.priceChangePercentage24H = priceDict
+            
+            //doublePriceChangePercentage24H 초기화
+            if let krwValue = priceDict["krw"] {
+                self.doublePriceChangePercentage24H = krwValue
+            } else {
+                self.doublePriceChangePercentage24H = 88.88
+            }
         }
     }
     

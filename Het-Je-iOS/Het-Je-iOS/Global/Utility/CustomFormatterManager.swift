@@ -14,24 +14,18 @@ final class CustomFormatterManager {
     
     private init() {}
     
-    func setDateString(strDate: String, format: String) -> String {
+    func dateFormatOnTrendingView(strDate: String, format: String) -> String {
         let inputDate = DateFormatter()
-        inputDate.dateFormat = "yyyy-MM-dd"
+        inputDate.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
         let date = inputDate.date(from: strDate)
         
         let outputDate = DateFormatter()
         outputDate.dateFormat = format
+        outputDate.timeZone = TimeZone(identifier: "Asia/Seoul") //GMT를 한국시간으로 변경
         guard let date else {
             print("setDateString error")
             return ""
         }
-        return outputDate.string(from: date)
-    }
-    
-    func setDateStringFromDate(date: Date, format: String) -> String {
-        let outputDate = DateFormatter()
-        outputDate.dateFormat = format
-        
         return outputDate.string(from: date)
     }
     

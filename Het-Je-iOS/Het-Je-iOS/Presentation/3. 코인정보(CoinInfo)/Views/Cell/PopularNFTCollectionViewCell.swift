@@ -28,6 +28,16 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        coinImageView.image = nil
+        nftNameLabel.text = nil
+        nativeCurrencySymbolLabel.text = nil
+        floorPriceInNativeCurrencyLabel.text = nil
+        variationRateLabel.text = nil
+    }
+    
     private func setCell() {
         contentView.addSubviews(coinImageView,
                                 nftNameLabel,
@@ -42,42 +52,56 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         
         nftNameLabel.snp.makeConstraints {
             $0.top.equalTo(coinImageView.snp.bottom).offset(8)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide)
         }
         
         nativeCurrencySymbolLabel.snp.makeConstraints {
             $0.top.equalTo(nftNameLabel.snp.bottom).offset(2)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide).offset(2)
-            
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide.snp.centerX).offset(2)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
         }
-        
+
         floorPriceInNativeCurrencyLabel.snp.makeConstraints {
             $0.top.equalTo(nativeCurrencySymbolLabel.snp.top)
-            $0.centerX.equalTo(contentView.safeAreaLayoutGuide).offset(-2)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide.snp.centerX).offset(-2)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide)
         }
+
         
         variationRateLabel.snp.makeConstraints {
             $0.top.equalTo(floorPriceInNativeCurrencyLabel.snp.bottom).offset(2)
             $0.centerX.equalTo(nftNameLabel.snp.centerX)
         }
         
-        coinImageView.setImageKfDownSampling(with: "https://assets.coingecko.com/nft_contracts/images/3717/small/arc-stellars.png?1707290159", cornerRadius: 22)
         
-        nftNameLabel.setLabelUI("Meebits", font: .hetJeFont(.body_bold_9), textColor: .primary)
+        
+        nftNameLabel.setLabelUI(
+            "Meebits12412412412",
+            font: .hetJeFont(.body_bold_9),
+            textColor: .primary,
+            alignment: .center
+        )
         
         nativeCurrencySymbolLabel.setLabelUI(
-            "ETH",
-            font: .hetJeFont(.body_regular_12),
-            textColor: .secondary,
-            alignment: .left
+            "ETH2222222222",
+            font: .hetJeFont(.body_regular_9),
+            textColor: .secondary
         )
         
         floorPriceInNativeCurrencyLabel.setLabelUI(
-            "0.66 ",
-            font: .hetJeFont(.body_regular_12),
+            "0.665425235235",
+            font: .hetJeFont(.body_regular_9),
             textColor: .secondary,
             alignment: .right
         )
+    }
+    
+    func fetchPopularNFTCell(model: DTO.Response.Nft) {
+        coinImageView.setImageKfDownSampling(with: model.thumb, cornerRadius: 22)
+        nftNameLabel.text = model.name
+        nativeCurrencySymbolLabel.text = model.nativeCurrencySymbol
+        floorPriceInNativeCurrencyLabel.text = CustomFormatterManager.shard.formatNum(num: model.floorPriceInNativeCurrency)
+        variationRateLabel.updateVariationRateType(rate: model.floorPrice24HPercentageChange, alignment: .center)
     }
     
 }

@@ -14,18 +14,26 @@ import Then
 
 final class CoinInfoViewController: BaseViewController {
     
-    private let searchTextField = UITextField()
+    private let viewModel: CoinInfoViewModel
+    private let disposeBag = DisposeBag()
     
+    private let searchTextField = UITextField()
     private let popularSearchLabel = UILabel()
     private let dateLabel = UILabel()
     private var popularSearchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     private let popularNFTLabel = UILabel()
     private var popularNFTCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
+    init(viewModel: CoinInfoViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNav()
+        bind()
     }
     
     override func setHierarchy() {
@@ -84,17 +92,17 @@ final class CoinInfoViewController: BaseViewController {
         )
         
         dateLabel.setLabelUI(
-            "88.88 88:88 기준",
+            "",
             font: .systemFont(ofSize: 13, weight: .regular),
             textColor: .secondary,
             alignment: .right
         )
         
         popularSearchCollectionView.do {
-            $0.showsVerticalScrollIndicator = false
+            $0.showsHorizontalScrollIndicator = false
             $0.register(PopularSearchCollectionViewCell.self, forCellWithReuseIdentifier: PopularSearchCollectionViewCell.id)
-            $0.delegate = self
-            $0.dataSource = self
+            //횡 스크롤 고정 시키고자 특단의 조치 1..
+            $0.isScrollEnabled = false
         }
         
         popularNFTLabel.setLabelUI(
@@ -106,8 +114,6 @@ final class CoinInfoViewController: BaseViewController {
         popularNFTCollectionView.do {
             $0.showsHorizontalScrollIndicator = false
             $0.register(PopularNFTCollectionViewCell.self, forCellWithReuseIdentifier: PopularNFTCollectionViewCell.id)
-            $0.delegate = self
-            $0.dataSource = self
         }
     }
     
@@ -123,6 +129,50 @@ final class CoinInfoViewController: BaseViewController {
 
 
 private extension CoinInfoViewController {
+    
+    func bind() {
+        let input = CoinInfoViewModel.Input(searchText: searchTextField.rx.text.orEmpty, tapSearchTextFieldReturnKey: searchTextField.rx.controlEvent(.editingDidEndOnExit))
+        
+        let output = viewModel.transform(input: input)
+        
+        output.currentTitme
+            .drive(with: self) { owner, time in
+                print("currentTime: \(time)")
+                owner.dateLabel.text = time
+            }.disposed(by: disposeBag)
+        
+        output.sortedPopularSearchList
+            .drive(popularSearchCollectionView.rx.items(
+                    cellIdentifier: PopularSearchCollectionViewCell.id,
+                    cellType: PopularSearchCollectionViewCell.self))
+        { item, element, cell in
+            cell.configurePopularSearchCell(model: element)
+        }.disposed(by: disposeBag)
+        
+        output.sortedPopularNFTList
+            .drive(popularNFTCollectionView.rx.items(
+                cellIdentifier: PopularNFTCollectionViewCell.id,
+                    cellType: PopularNFTCollectionViewCell.self))
+        { item, element, cell in
+            cell.fetchPopularNFTCell(model: element)
+        }.disposed(by: disposeBag)
+        
+        output.validSearchText
+            .bind(with: self) { owner, searchText in
+                switch !searchText.isEmpty {
+                case true:
+                    print("searchText:\(searchText)")
+                    owner.searchTextField.text = ""
+                    
+                    let vm = SearchViewModel()
+                    let vc = SearchViewController(viewModel: vm, navTitle: searchText)
+                    owner.viewTransition(viewController: vc, transitionStyle: .push)
+                case false:
+                    print("searchText empty")
+                    owner.searchTextField.text = ""
+                }
+            }.disposed(by: disposeBag)
+    }
     
     func setNav() {
         let label = UILabel()
@@ -171,10 +221,11 @@ private extension CoinInfoViewController {
     
     func setPopularSearchCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let ableScreenWidth = (view.bounds.width - 40 - 20) / 2 //(screenWith - 양쪽inset - cell사이간격)
+        let ableScreenWidth = (popularSearchCollectionView.bounds.width - 40 - 20) / 2 //(screenWith - 양쪽inset - cell사이간격)
         layout.do {
-            $0.minimumLineSpacing = 10
-            $0.minimumInteritemSpacing = 20
+            $0.scrollDirection = .horizontal
+            $0.minimumLineSpacing = 20
+            $0.minimumInteritemSpacing = 10
             $0.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             $0.itemSize = CGSize(width: ableScreenWidth, height: (popularSearchCollectionView.bounds.height - 10 * 6)/7) //column 간격*6
         }
@@ -193,40 +244,6 @@ private extension CoinInfoViewController {
         }
         
         return layout
-    }
-    
-    
-    
-}
-
-extension CoinInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView == popularSearchCollectionView {
-        case true:
-            //인기 검색어
-            return 14
-        case false:
-            //인기 NFT
-            return 7
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView == popularSearchCollectionView {
-        case true:
-            //인기 검색어
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularSearchCollectionViewCell.id, for: indexPath) as! PopularSearchCollectionViewCell
-            
-            
-            
-            return cell
-        case false:
-            //인기 NFT
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularNFTCollectionViewCell.id, for: indexPath) as! PopularNFTCollectionViewCell
-            
-            return cell
-        }
     }
     
 }
