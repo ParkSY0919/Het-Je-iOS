@@ -123,10 +123,7 @@ final class ExchangeViewController: BaseViewController {
             $0.separatorStyle = .none
             $0.showsVerticalScrollIndicator = false
             $0.register(ExchangeTableViewCell.self, forCellReuseIdentifier: ExchangeTableViewCell.id)
-            if #available(iOS 17.4, *) {
-                //바운스 막기
-                //$0.bouncesVertically = false
-            }
+            $0.bounces = false
         }
     }
     
