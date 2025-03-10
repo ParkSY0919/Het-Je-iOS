@@ -89,7 +89,7 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
         )
     }
     
-    func fetchCoinTrendCell(model: [DTO.Response.CoinDetail], currentTime: String) {
+    func fetchCoinTrendCell(model: [DTO.Response.MarketAPIResponseModel], currentTime: String) {
         guard let model = model.first else {
             print("fetchCoinTrendCell model 에러 발생")
             return

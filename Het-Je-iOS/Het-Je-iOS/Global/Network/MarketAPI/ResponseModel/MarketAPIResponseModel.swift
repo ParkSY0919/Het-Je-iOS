@@ -7,23 +7,23 @@
 
 extension DTO.Response {
     
-    struct CoinDetail: Decodable {
-      let id: String//id
-      let symbol: String//심볼명
-      let currentPrice: Double//현재가
-      let marketCap: Double//시가총액
-      let marketCapRank: Int
-      let fullyDilutedValuation: Double?//완전희석가치
-      let totalVolume: Double//총 거래량
-      let high24h: Double//24시간 최고가
-      let low24h: Double//24시간 최저가
-      let priceChangePercentage24h: Double?//24시간 변동률
-      let ath: Double//역대 최고가
-      let atl: Double//역대 최저가
+    struct MarketAPIResponseModel: Decodable {
+        let id: String//id
+        let symbol: String//심볼명
+        let currentPrice: Double//현재가
+        let marketCap: Double//시가총액
+        let marketCapRank: Int
+        let fullyDilutedValuation: Double?//완전희석가치
+        let totalVolume: Double//총 거래량
+        let high24h: Double//24시간 최고가
+        let low24h: Double//24시간 최저가
+        let priceChangePercentage24h: Double?//24시간 변동률
+        let ath: Double//역대 최고가
+        let atl: Double//역대 최저가
         
         let atlDate, athDate: String
-      let lastUpdated: String// 최근 업데이트 시간
-      let sparklineIn7d: SparklineData //7일간 변화 그래프
+        let lastUpdated: String// 최근 업데이트 시간
+        let sparklineIn7d: SparklineData //7일간 변화 그래프
         
         enum CodingKeys: String, CodingKey {
             case athDate = "ath_date"
@@ -46,7 +46,7 @@ extension DTO.Response {
     }
     
     struct SparklineData: Decodable {
-      let price: [Double]
+        let price: [Double]
     }
     
 }

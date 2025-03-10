@@ -20,7 +20,7 @@ final class CoinDetailViewModel: ViewModelProtocol {
     private lazy var onLoadAPI = BehaviorRelay(value: coinData.coinId)
     
     //rx 적용이전 사용할 list
-    var list: [DTO.Response.CoinDetail] = []
+    var list: [DTO.Response.MarketAPIResponseModel] = []
     private let isAPILoaded = PublishSubject<Bool>()
     
     init(coinData: CoinInfo) {
@@ -59,7 +59,7 @@ private extension CoinDetailViewModel {
     
     func callMarketAPI(coinId: String) {
         let request = DTO.Request.MarketAPIRequestModel(vs_currency: StringLiterals.koreaCurrency, ids: coinId, sparkline: "true")
-        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.CoinDetail].self) { result, callDate in
+        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.MarketAPIResponseModel].self) { result, callDate in
             switch result {
             case .success(let success):
                 let currentTime = CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "M/dd HH:mm:ss")
