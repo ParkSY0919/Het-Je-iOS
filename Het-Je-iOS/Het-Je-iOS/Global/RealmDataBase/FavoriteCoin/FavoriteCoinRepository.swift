@@ -14,6 +14,7 @@ protocol FavoriteCoinRepositoryProtocol {
     func fetchAll() -> Results<FavoriteCoinTable>
     func createItem(data: FavoriteCoinTable)
     func deleteItem(data: FavoriteCoinTable)
+    func checkFavoriteCoin(list: Results<FavoriteCoinTable>, currentCoinId: String) -> Bool
 //    func updateItem(data: FavoriteCoinTable)
 }
 
@@ -52,6 +53,15 @@ final class FavoriteCoinRepository: FavoriteCoinRepositoryProtocol {
             }
         } catch {
             print("realm 데이터 삭제 실패")
+        }
+    }
+    
+    //
+    func checkFavoriteCoin(list: Results<FavoriteCoinTable>, currentCoinId: String) -> Bool {
+        if let isValid = list.filter("id == %@", currentCoinId).first {
+            return true
+        } else {
+            return false
         }
     }
     

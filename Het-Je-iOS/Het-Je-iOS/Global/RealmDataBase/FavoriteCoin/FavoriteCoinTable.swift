@@ -19,8 +19,7 @@ final class FavoriteCoinTable: Object, Identifiable {
     @Persisted var thumb: String
     @Persisted var large: String
     
-    convenience init(id: ObjectId,
-                     coinId: String,
+    convenience init(coinId: String,
                      name: String,
                      symbol: String,
                      marketCapRank: Int,
@@ -28,7 +27,6 @@ final class FavoriteCoinTable: Object, Identifiable {
                      large: String)
     {
         self.init()
-        self.id = id
         self.coinId = coinId
         self.name = name
         self.symbol = symbol
