@@ -74,6 +74,8 @@
 		9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */; };
 		9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */; };
 		9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */; };
+		9E9E1C922D7EFC14000EC8DB /* FavoriteCoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */; };
+		9E9E1C942D7EFC3F000EC8DB /* FavoriteCoinTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -148,6 +150,8 @@
 		9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginableView.swift; sourceTree = "<group>"; };
 		9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonComponent.swift; sourceTree = "<group>"; };
+		9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinRepository.swift; sourceTree = "<group>"; };
+		9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +293,7 @@
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
 				9E7FC1B12D79DE6400CEF423 /* Resources */,
+				9E9E1C8F2D7EFBDF000EC8DB /* RealmDataBase */,
 				9E9E1C0C2D7AE8FD000EC8DB /* UIComponents */,
 				9E7FC1B72D79DE6400CEF423 /* Utility */,
 			);
@@ -596,6 +601,23 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		9E9E1C8F2D7EFBDF000EC8DB /* RealmDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C902D7EFBF7000EC8DB /* FavoriteCoin */,
+			);
+			path = RealmDataBase;
+			sourceTree = "<group>";
+		};
+		9E9E1C902D7EFBF7000EC8DB /* FavoriteCoin */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */,
+				9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */,
+			);
+			path = FavoriteCoin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,7 +763,9 @@
 				9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
 				9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */,
+				9E9E1C922D7EFC14000EC8DB /* FavoriteCoinRepository.swift in Sources */,
 				9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */,
+				9E9E1C942D7EFC3F000EC8DB /* FavoriteCoinTable.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
 				9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
