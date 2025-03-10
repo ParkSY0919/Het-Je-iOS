@@ -35,7 +35,7 @@ struct CoinDetail {
   let atlDate: String
   let roi: CoinROI?
   let lastUpdated: String// 최근 업데이트 시간
-  let sparklineIn7d: SparklineData?// 7일간 변화 그래프
+  let sparklineIn7d: SparklineData// 7일간 변화 그래프
   let priceChangePercentage7dInCurrency: Double?// 7일 변동률
 
 }
@@ -57,7 +57,7 @@ let mockCoinDetail = CoinDetail(
   symbol: "btc",
   name: "Bitcoin",
   image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
-  currentPrice: 16564.86,
+  currentPrice: 16564.00123,
   marketCap: 318198983557,
   marketCapRank: 1,
   fullyDilutedValuation: 347704617927,

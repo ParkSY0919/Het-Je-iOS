@@ -21,7 +21,7 @@ extension DTO.Response {
       let ath: Double//역대 최고가
       let atl: Double//역대 최저가
       let lastUpdated: String// 최근 업데이트 시간
-      let sparklineIn7d: SparklineData? //7일간 변화 그래프
+      let sparklineIn7d: SparklineData //7일간 변화 그래프
       let priceChangePercentage7dInCurrency: Double?// 7일 변동률
         
         enum CodingKeys: String, CodingKey {
