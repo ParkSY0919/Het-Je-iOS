@@ -77,6 +77,15 @@ private extension CoinDetailViewController {
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
+        
+        output.out_ReloadCollectionViewData
+            .filter { isLoad in
+                print("isLoad: \(isLoad)")
+                return isLoad
+            }
+            .bind(with: self) { owner, _ in
+                owner.detailCollectionView.reloadData()
+            }.disposed(by: disposeBag)
     }
     
     func setNav() {
@@ -241,7 +250,7 @@ extension CoinDetailViewController: UICollectionViewDataSource {
             
         case .차트:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinTrendCollectionViewCell.id, for: indexPath) as! CoinTrendCollectionViewCell
-            cell.fetchCoinTrendCell(model: mockCoinDetail)
+            cell.fetchCoinTrendCell(model: viewModel.list, currentTime: viewModel.currentTime)
             
             return cell
         case .종목정보:

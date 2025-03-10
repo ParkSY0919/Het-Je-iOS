@@ -70,9 +70,9 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
         )
         
         chartView.do {
-            $0.noDataText = "출력 데이터가 없습니다."
+            $0.noDataText = ""
             $0.noDataFont = .systemFont(ofSize: 20)
-            $0.noDataTextColor = .lightGray
+            $0.noDataTextColor = .white
             $0.backgroundColor = .white
             $0.legend.enabled = false
             $0.xAxis.drawGridLinesEnabled = false
@@ -84,20 +84,26 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
         
         currentTimeLabel.setLabelUI(
             "2/15 18:00:45 업데이트",
-            font: .hetJeFont(.body_regular_9),
+            font: .hetJeFont(.body_regular_12),
             textColor: .secondary
         )
     }
     
-    func fetchCoinTrendCell(model: CoinDetail/*mockCoinDetail*/) {
+    func fetchCoinTrendCell(model: [DTO.Response.CoinDetail], currentTime: String) {
+        guard let model = model.first else {
+            print("fetchCoinTrendCell model 에러 발생")
+            return
+        }
+        
         currentPriceLabel.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.currentPrice)
         
         let rate = model.priceChangePercentage24h ?? 0.0
         priceChangePercentage24hLabel.updateVariationRateType(rate: rate, alignment: .left)
         
         setLineData(lineChartView: chartView, lineChartDataEntries: entryData(values: model.sparklineIn7d.price))
+        
+        currentTimeLabel.text = currentTime
     }
-    
     
     //데이터 적용
     func setLineData(lineChartView: LineChartView, lineChartDataEntries: [ChartDataEntry]) {
@@ -143,4 +149,5 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
         //반환
         return lineDataEntries
     }
+    
 }
