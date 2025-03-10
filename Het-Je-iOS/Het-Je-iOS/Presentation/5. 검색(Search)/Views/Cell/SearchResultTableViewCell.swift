@@ -50,6 +50,7 @@ final class SearchResultTableViewCell: UITableViewCell {
     
     func fetcHSearchResultCell(model: DTO.Response.Search.Coin) {
         aboutCoinView.fetchAboutCoinComponent(model: model)
+        favoriteBtn.fetchFavoriteBtn(coinInfo: model)
     }
     
 }
