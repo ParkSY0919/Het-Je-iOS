@@ -13,6 +13,7 @@ import Then
 final class SearchResultTableViewCell: UITableViewCell {
     
     private let aboutCoinView = AboutCoinComponent(type: .detail, imageURL: "", titleText: "", subtitleText: "", rankTag: 0)
+    private let favoriteBtn = FavoriteButtonComponent()
     private let star = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -25,21 +26,26 @@ final class SearchResultTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        //이 친구를 nil 대응하려면 fetch 함수 속 받는 model을 nil로 받아야하는데 보통 그렇게 사용하나?
+//        aboutCoinView.fetchAboutCoinComponent(model: ??)
+        favoriteBtn.isSelected = false
+    }
+    
     private func setSearchResultCell() {
-        contentView.addSubviews(aboutCoinView, star)
+        contentView.addSubviews(aboutCoinView, favoriteBtn)
         
         aboutCoinView.snp.makeConstraints {
             $0.leading.centerY.equalTo(contentView.safeAreaLayoutGuide)
-            $0.trailing.equalTo(star.snp.leading).offset(-10)
+            $0.trailing.equalTo(favoriteBtn.snp.leading).offset(-10)
         }
         
-        star.snp.makeConstraints {
+        favoriteBtn.snp.makeConstraints {
             $0.trailing.centerY.equalTo(contentView.safeAreaLayoutGuide)
             $0.size.equalTo(20)
         }
-        
-        star.image = UIImage(systemName: "star")
-        star.tintColor = .primary
     }
     
     func fetcHSearchResultCell(model: DTO.Response.Search.Coin) {

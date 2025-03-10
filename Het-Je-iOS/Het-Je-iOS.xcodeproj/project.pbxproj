@@ -73,6 +73,7 @@
 		9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */; };
 		9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */; };
 		9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */; };
+		9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -146,6 +147,7 @@
 		9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginableView.swift; sourceTree = "<group>"; };
+		9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +416,7 @@
 				9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */,
 				9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */,
 				9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */,
+				9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
+				9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */,
 				9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
 				9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */,
