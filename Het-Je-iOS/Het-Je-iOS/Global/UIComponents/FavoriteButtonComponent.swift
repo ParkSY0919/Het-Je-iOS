@@ -15,6 +15,7 @@ final class FavoriteButtonComponent: UIButton {
     
     private let favoriteRepository: FavoriteCoinRepositoryProtocol = FavoriteCoinRepository()
     private var coinInfo: CoinInfo?
+    var onChange: ((Bool)->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,6 +76,8 @@ final class FavoriteButtonComponent: UIButton {
     
     @objc
     private func favoriteButtonTapped() {
+        self.isUserInteractionEnabled = false
+        
         guard let coinInfo = self.coinInfo else {
             print("코인 정보가 없습니다.")
             return
@@ -98,6 +101,7 @@ final class FavoriteButtonComponent: UIButton {
                                      large: coinInfo.large)
         favoriteRepository.getFileURL()
         favoriteRepository.createItem(data: data)
+        self.isUserInteractionEnabled = true
     }
     
     private func deleteFavoriteCoin(coinInfo: CoinInfo) {
@@ -108,6 +112,7 @@ final class FavoriteButtonComponent: UIButton {
         }
         
         favoriteRepository.deleteItem(data: data)
+        self.isUserInteractionEnabled = true
     }
     
 }
