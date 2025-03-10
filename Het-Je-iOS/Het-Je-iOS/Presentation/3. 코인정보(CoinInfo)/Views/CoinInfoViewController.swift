@@ -178,7 +178,9 @@ private extension CoinInfoViewController {
         
         output.out_PopularSearchCollectionViewTapped
             .bind(with: self) { owner, coinData in
-                print("동작!", coinData)
+                let data = coinData.item
+                let vc = owner.prepareForNextScreen(data: data)
+                owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
     }
     
@@ -254,4 +256,18 @@ private extension CoinInfoViewController {
         return layout
     }
     
+    func prepareForNextScreen(data: DTO.Response.TrendingCoinDetails) -> UIViewController {
+        let coinData = CoinInfo(coinId: data.id,
+                                name: data.name,
+                                symbol: data.symbol,
+                                marketCapRank: data.marketCapRank,
+                                thumb: data.thumb,
+                                large: data.large)
+        
+        let vm = CoinDetailViewModel(coinData: coinData)
+        let vc = CoinDetailViewController(viewModel: vm)
+        
+        return vc
+    }
+
 }

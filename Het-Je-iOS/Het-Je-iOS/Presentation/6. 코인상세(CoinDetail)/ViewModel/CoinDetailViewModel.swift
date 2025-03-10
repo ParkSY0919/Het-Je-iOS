@@ -13,6 +13,13 @@ import RxSwift
 
 final class CoinDetailViewModel: ViewModelProtocol {
     
+    let coinData: CoinInfo
+    
+    init(coinData: CoinInfo) {
+        self.coinData = coinData
+        print("coinInfoData: \(coinData)")
+    }
+    
     struct Input {}
     
     struct Output {}

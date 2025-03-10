@@ -138,7 +138,8 @@ private extension SearchViewController {
         
         output.in_SearchResultCellTapped
             .bind(with: self) { owner, coinData in
-                print("동작!", coinData)
+                let vc = owner.prepareForNextScreen(data: coinData)
+                owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
     }
     
@@ -167,6 +168,20 @@ private extension SearchViewController {
         print(#function)
         let indexPath = NSIndexPath(row: NSNotFound, section: 0)
         searchResultTableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+    }
+    
+    func prepareForNextScreen(data: DTO.Response.Search.Coin) -> UIViewController {
+        let coinData = CoinInfo(coinId: data.id,
+                                name: data.name,
+                                symbol: data.symbol,
+                                marketCapRank: data.marketCapRank,
+                                thumb: data.thumb,
+                                large: data.large)
+        
+        let vm = CoinDetailViewModel(coinData: coinData)
+        let vc = CoinDetailViewController(viewModel: vm)
+        
+        return vc
     }
     
 }

@@ -78,6 +78,7 @@
 		9E9E1C942D7EFC3F000EC8DB /* FavoriteCoinTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */; };
 		9E9E1C982D7F1DB8000EC8DB /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C972D7F1DB8000EC8DB /* CoinDetailViewController.swift */; };
 		9E9E1C9C2D7F1DF9000EC8DB /* CoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C9B2D7F1DF9000EC8DB /* CoinDetailViewModel.swift */; };
+		9E9E1C9E2D7F25B5000EC8DB /* CoinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C9D2D7F25B5000EC8DB /* CoinInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,6 +157,7 @@
 		9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinTable.swift; sourceTree = "<group>"; };
 		9E9E1C972D7F1DB8000EC8DB /* CoinDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewController.swift; sourceTree = "<group>"; };
 		9E9E1C9B2D7F1DF9000EC8DB /* CoinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewModel.swift; sourceTree = "<group>"; };
+		9E9E1C9D2D7F25B5000EC8DB /* CoinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,17 +269,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9E7FC1B32D79DE6400CEF423 /* Enums */ = {
+		9E7FC1B32D79DE6400CEF423 /* Enums_Structs */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C9D2D7F25B5000EC8DB /* CoinInfo.swift */,
 			);
-			path = Enums;
+			path = Enums_Structs;
 			sourceTree = "<group>";
 		};
 		9E7FC1B72D79DE6400CEF423 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				9E7FC1B32D79DE6400CEF423 /* Enums */,
+				9E7FC1B32D79DE6400CEF423 /* Enums_Structs */,
 				9E7FC1B42D79DE6400CEF423 /* CustomFormatterManager.swift */,
 				9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */,
 				9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */,
@@ -799,6 +802,7 @@
 				9E9E1C0E2D7AFD78000EC8DB /* VariationRateComponent.swift in Sources */,
 				9E9E1BEC2D7ADEB5000EC8DB /* StringLiterals.swift in Sources */,
 				9E9E1BED2D7ADEB5000EC8DB /* UIStackView+.swift in Sources */,
+				9E9E1C9E2D7F25B5000EC8DB /* CoinInfo.swift in Sources */,
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
