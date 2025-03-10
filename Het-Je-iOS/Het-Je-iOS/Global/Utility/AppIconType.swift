@@ -21,23 +21,24 @@ enum AppIconType {
     var image: UIImage? {
         switch self {
         case .up:
-            UIImage(systemName: "arrowtriangle.up.fill")
+            return UIImage(systemName: "arrowtriangle.up.fill")
         case .down:
-            UIImage(systemName: "arrowtriangle.down.fill")
+            return UIImage(systemName: "arrowtriangle.down.fill")
         case .search:
-            UIImage(systemName: "magnifyingglass")
+            return UIImage(systemName: "magnifyingglass")
         case .star:
-            UIImage(systemName: "star")
+            return UIImage(systemName: "star")
         case .star_fill:
-            UIImage(systemName: "star.fill")
+            return UIImage(systemName: "star.fill")
         case .right:
-            UIImage(systemName: "chevron.right")
+            return UIImage(systemName: "chevron.right")
         case .left:
-            UIImage(systemName: "arrow.left")
+            let config = UIImage.SymbolConfiguration(weight: .bold)
+            return UIImage(systemName: "arrow.left", withConfiguration: config)
         case .chart_Bar:
-            UIImage(systemName: "chart.bar.fill")
+            return UIImage(systemName: "chart.bar.fill")
         case .uptrend_Chart:
-            UIImage(systemName: "chart.line.uptrend.xyaxis")
+            return UIImage(systemName: "chart.line.uptrend.xyaxis")
         }
     }
 }
