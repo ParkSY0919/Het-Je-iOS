@@ -20,13 +20,19 @@ final class CoinDetailViewModel: ViewModelProtocol {
         print("coinInfoData: \(coinData)")
     }
     
-    struct Input {}
+    struct Input {
+        let in_TapNavLeftBtn: ControlEvent<()>?
+    }
     
-    struct Output {}
+    struct Output {
+        let out_TapNavLeftBtn: Driver<Void>?
+    }
     
     func transform(input: Input) -> Output {
         
-        return Output()
+        return Output(
+            out_TapNavLeftBtn: input.in_TapNavLeftBtn?.asDriver()
+        )
     }
     
 }
