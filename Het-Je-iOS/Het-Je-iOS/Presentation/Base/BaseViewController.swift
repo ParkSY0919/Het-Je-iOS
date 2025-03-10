@@ -10,6 +10,7 @@ import UIKit
 
 import SnapKit
 import Then
+import Toast
 
 class BaseViewController: UIViewController {
     
@@ -87,6 +88,15 @@ class BaseViewController: UIViewController {
             viewController.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
             return self.present(viewController, animated: true)
         }
+    }
+    
+    func showToast(message: String) {
+        var style = ToastStyle()
+        style.backgroundColor = .secondary
+        style.titleColor = .primary
+        style.cornerRadius = 10
+        
+        view.makeToast(message, duration: 2.5, position: .bottom, style: style)
     }
     
     @objc

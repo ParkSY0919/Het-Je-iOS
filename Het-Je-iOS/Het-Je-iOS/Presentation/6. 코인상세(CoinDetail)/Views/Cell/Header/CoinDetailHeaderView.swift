@@ -17,6 +17,7 @@ final class CoinDetailHeaderView: UICollectionReusableView {
     private let headerTitleLabel = UILabel()
     private let moreButton = UIButton(type: .custom)
     var title: String?
+    var onTappedMoreButton: (()->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,7 +70,14 @@ final class CoinDetailHeaderView: UICollectionReusableView {
             config.titleAlignment = .trailing
             $0.configuration = config
             $0.semanticContentAttribute = .forceRightToLeft
+            $0.addTarget(self, action: #selector(tapMoreButton), for: .touchUpInside)
         }
+    }
+    
+    @objc
+    private func tapMoreButton() {
+        print(#function)
+        onTappedMoreButton?()
     }
     
     func configureHeaderView(headerTitle: String) {
