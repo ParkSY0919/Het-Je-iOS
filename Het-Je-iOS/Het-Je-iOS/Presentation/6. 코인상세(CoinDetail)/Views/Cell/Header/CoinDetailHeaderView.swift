@@ -49,7 +49,7 @@ final class CoinDetailHeaderView: UICollectionReusableView {
     private func setStyle() {
         headerTitleLabel.setLabelUI(
             title ?? "headerTitleLabel 실패",
-            font: .systemFont(ofSize: 13, weight: .bold),
+            font: .systemFont(ofSize: 15, weight: .bold),
             textColor: .primary,
             alignment: .left
         )
@@ -58,7 +58,7 @@ final class CoinDetailHeaderView: UICollectionReusableView {
             var config = UIButton.Configuration.plain()
             
             var attributedTitle = AttributedString("더보기")
-            attributedTitle.font = .systemFont(ofSize: 11, weight: .bold)
+            attributedTitle.font = .systemFont(ofSize: 13, weight: .bold)
             attributedTitle.foregroundColor = .secondary
             
             config.attributedTitle = attributedTitle
@@ -78,7 +78,7 @@ final class CoinDetailHeaderView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.clipsToBounds = true // ✅ 헤더의 영역을 초과하지 않도록 설정
+        self.clipsToBounds = true
     }
     
 }

@@ -53,7 +53,7 @@ final class CoinDetailViewController: BaseViewController {
     override func setStyle() {
         detailCollectionView.do {
             $0.register(CoinTrendCollectionViewCell.self, forCellWithReuseIdentifier: CoinTrendCollectionViewCell.id)
-            
+            $0.register(CoinPriceRangeCollectionViewCell.self, forCellWithReuseIdentifier: CoinPriceRangeCollectionViewCell.id)
             $0.register(CoinDetailHeaderView.self, forSupplementaryViewOfKind: CoinDetailHeaderView.elementKinds, withReuseIdentifier: CoinDetailHeaderView.elementKinds)
             
             $0.showsVerticalScrollIndicator = false
@@ -163,22 +163,22 @@ private extension CoinDetailViewController {
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
-            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 0, bottom: 10, trailing: 0)
             
             section.boundarySupplementaryItems = []
             
             return section
         case .종목정보:
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(300))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(130))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(300))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(130))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
-            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
             
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(35))
             
@@ -254,8 +254,8 @@ extension CoinDetailViewController: UICollectionViewDataSource {
             
             return cell
         case .종목정보:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinTrendCollectionViewCell.id, for: indexPath) as! CoinTrendCollectionViewCell
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinPriceRangeCollectionViewCell.id, for: indexPath) as! CoinPriceRangeCollectionViewCell
+            cell.configurePriceRangeCell(model: viewModel.list)
             return cell
         case .투자지표:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinTrendCollectionViewCell.id, for: indexPath) as! CoinTrendCollectionViewCell
