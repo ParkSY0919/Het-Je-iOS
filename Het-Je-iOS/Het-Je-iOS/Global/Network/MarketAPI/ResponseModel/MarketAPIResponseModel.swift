@@ -22,7 +22,6 @@ extension DTO.Response {
       let atl: Double//역대 최저가
       let lastUpdated: String// 최근 업데이트 시간
       let sparklineIn7d: SparklineData //7일간 변화 그래프
-      let priceChangePercentage7dInCurrency: Double?// 7일 변동률
         
         enum CodingKeys: String, CodingKey {
             case id
@@ -38,8 +37,7 @@ extension DTO.Response {
             case ath
             case atl
             case lastUpdated = "last_updated"
-            case sparklineIn7d = "spark_line_In_7d"
-            case priceChangePercentage7dInCurrency = "price_change_percentage_7d_in_currency"
+            case sparklineIn7d = "sparkline_in_7d"
         }
     }
     
