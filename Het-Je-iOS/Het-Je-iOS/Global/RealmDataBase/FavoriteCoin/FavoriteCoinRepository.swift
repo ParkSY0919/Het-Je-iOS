@@ -12,8 +12,8 @@ import RealmSwift
 protocol FavoriteCoinRepositoryProtocol {
     func getFileURL()
     func fetchAll() -> Results<FavoriteCoinTable>
-    func createItem(data: FavoriteCoinTable)
-    func deleteItem(data: FavoriteCoinTable)
+    func createItem(data: FavoriteCoinTable, handler: @escaping (Bool) -> Void)
+    func deleteItem(data: FavoriteCoinTable, handler: @escaping (Bool) -> Void)
     func checkFavoriteCoin(list: Results<FavoriteCoinTable>, currentCoinId: String) -> Bool
     func getFavoriteCoinDataByCoinId(list: Results<FavoriteCoinTable>, currentCoinId: String) -> FavoriteCoinTable?
 //    func updateItem(data: FavoriteCoinTable)
@@ -34,26 +34,30 @@ final class FavoriteCoinRepository: FavoriteCoinRepositoryProtocol {
     }
     
     //Create
-    func createItem(data: FavoriteCoinTable) {
+    func createItem(data: FavoriteCoinTable, handler: @escaping (Bool) -> Void) {
         do {
             try realm.write {
                 realm.add(data)
                 print("realm 저장 성공한 경우")
+                handler(true)
             }
         } catch {
             print("realm 저장이 실패한 경우")
+            handler(false)
         }
     }
     
     //Delete
-    func deleteItem(data: FavoriteCoinTable) {
+    func deleteItem(data: FavoriteCoinTable, handler: @escaping (Bool) -> Void) {
         do {
             try realm.write {
                 realm.delete(data)
                 print("realm 데이터 삭제 성공")
+                handler(true)
             }
         } catch {
             print("realm 데이터 삭제 실패")
+            handler(false)
         }
     }
     

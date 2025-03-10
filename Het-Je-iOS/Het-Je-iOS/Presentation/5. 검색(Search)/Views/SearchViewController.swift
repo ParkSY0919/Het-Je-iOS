@@ -127,6 +127,10 @@ private extension SearchViewController {
             { item, element, cell in
                 cell.selectionStyle = .none
                 cell.fetcHSearchResultCell(model: element)
+                cell.favoriteBtn.onChange = { [weak self] (resultMessage) in
+                    guard let self else { return }
+                    self.showToast(message: resultMessage)
+                }
             }.disposed(by: disposeBag)
         
         output.out_IsScrollToTop

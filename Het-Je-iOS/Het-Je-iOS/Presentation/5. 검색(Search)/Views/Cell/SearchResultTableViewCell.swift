@@ -13,7 +13,7 @@ import Then
 final class SearchResultTableViewCell: UITableViewCell {
     
     private let aboutCoinView = AboutCoinComponent(type: .detail, imageURL: "", titleText: "", subtitleText: "", rankTag: 0)
-    private let favoriteBtn = FavoriteButtonComponent()
+    let favoriteBtn = FavoriteButtonComponent()
     private let star = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

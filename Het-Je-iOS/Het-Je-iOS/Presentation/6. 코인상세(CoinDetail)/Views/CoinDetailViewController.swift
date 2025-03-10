@@ -134,6 +134,10 @@ private extension CoinDetailViewController {
         
         let rightItem = FavoriteButtonComponent()
         rightItem.fetchFavoriteBtn(coinInfo: viewModel.coinData)
+        rightItem.onChange = { [weak self] (resultMessage) in
+            guard let self else { return }
+            self.showToast(message: resultMessage)
+        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightItem)
     }
     
