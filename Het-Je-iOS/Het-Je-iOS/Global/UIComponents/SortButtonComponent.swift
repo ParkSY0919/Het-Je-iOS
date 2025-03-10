@@ -12,10 +12,6 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol SortButtonDelegate: AnyObject {
-    func sortButtonDidTap(_ button: SortButtonComponent)
-}
-
 final class SortButtonComponent: UIView {
     enum SortButtonType {
         case currentPrice

@@ -163,9 +163,9 @@ private extension CoinInfoViewController {
                 case true:
                     print("searchText:\(searchText)")
                     owner.searchTextField.text = ""
-                    
-                    let vm = SearchViewModel()
-                    let vc = SearchViewController(viewModel: vm, navTitle: searchText)
+                    let repository: FavoriteCoinRepositoryProtocol = FavoriteCoinRepository()
+                    let vm = SearchViewModel(navTitle: searchText, list: repository.fetchAll())
+                    let vc = SearchViewController(viewModel: vm)
                     owner.viewTransition(viewController: vc, transitionStyle: .push)
                 case false:
                     print("searchText empty")

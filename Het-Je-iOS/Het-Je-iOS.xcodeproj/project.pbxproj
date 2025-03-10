@@ -70,6 +70,12 @@
 		9E9E1C6E2D7D4A25000EC8DB /* CoinInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */; };
 		9E9E1C732D7D9997000EC8DB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */; };
 		9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */; };
+		9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */; };
+		9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */; };
+		9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */; };
+		9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */; };
+		9E9E1C922D7EFC14000EC8DB /* FavoriteCoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */; };
+		9E9E1C942D7EFC3F000EC8DB /* FavoriteCoinTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +146,12 @@
 		9E9E1C6D2D7D4A25000EC8DB /* CoinInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
+		9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginableView.swift; sourceTree = "<group>"; };
+		9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonComponent.swift; sourceTree = "<group>"; };
+		9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinRepository.swift; sourceTree = "<group>"; };
+		9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +278,8 @@
 				9E7FC1B52D79DE6400CEF423 /* UIAlertManager.swift */,
 				9E7FC1FA2D7AC6FE00CEF423 /* AppIconType.swift */,
 				9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */,
+				9E9E1C842D7E06F4000EC8DB /* CustomSegmentControl.swift */,
+				9E9E1C862D7E0ADC000EC8DB /* PaginableView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -279,6 +293,7 @@
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
 				9E7FC1AF2D79DE6400CEF423 /* Protocols */,
 				9E7FC1B12D79DE6400CEF423 /* Resources */,
+				9E9E1C8F2D7EFBDF000EC8DB /* RealmDataBase */,
 				9E9E1C0C2D7AE8FD000EC8DB /* UIComponents */,
 				9E7FC1B72D79DE6400CEF423 /* Utility */,
 			);
@@ -305,11 +320,11 @@
 		9E7FC1E72D79DE6400CEF423 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */,
 				9E7FC1F12D7AC40200CEF423 /* 1. 탭바(TabBar) */,
 				9E7FC1F22D7AC42500CEF423 /* 2. 거래소(Exchange) */,
 				9E7FC1F32D7AC44000CEF423 /* 3. 코인정보(CoinInfo) */,
 				9E7FC1F42D7AC44600CEF423 /* 4. 포트폴리오 */,
+				9E9E1C6F2D7D9955000EC8DB /* 5. 검색(Search) */,
 				9E7FC1C02D79DE6400CEF423 /* Base */,
 			);
 			path = Presentation;
@@ -406,6 +421,7 @@
 				9E9E1C0D2D7AFD78000EC8DB /* VariationRateComponent.swift */,
 				9E9E1C0F2D7B0778000EC8DB /* AboutCoinComponent.swift */,
 				9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */,
+				9E9E1C8D2D7EF7D4000EC8DB /* FavoriteButtonComponent.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -557,13 +573,13 @@
 				9E9E1C712D7D996F000EC8DB /* ViewModel */,
 				9E9E1C702D7D9969000EC8DB /* Views */,
 			);
-			name = "5. 검색(Search)";
 			path = "5. 검색(Search)";
 			sourceTree = "<group>";
 		};
 		9E9E1C702D7D9969000EC8DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E1C7E2D7DB39E000EC8DB /* Cell */,
 				9E9E1C742D7D99C4000EC8DB /* SearchViewController.swift */,
 			);
 			path = Views;
@@ -575,6 +591,31 @@
 				9E9E1C722D7D9997000EC8DB /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E9E1C7E2D7DB39E000EC8DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C7F2D7DB3AB000EC8DB /* SearchResultTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9E9E1C8F2D7EFBDF000EC8DB /* RealmDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C902D7EFBF7000EC8DB /* FavoriteCoin */,
+			);
+			path = RealmDataBase;
+			sourceTree = "<group>";
+		};
+		9E9E1C902D7EFBF7000EC8DB /* FavoriteCoin */ = {
+			isa = PBXGroup;
+			children = (
+				9E9E1C932D7EFC3F000EC8DB /* FavoriteCoinTable.swift */,
+				9E9E1C912D7EFC14000EC8DB /* FavoriteCoinRepository.swift */,
+			);
+			path = FavoriteCoin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -677,9 +718,11 @@
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
+				9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */,
 				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,
+				9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */,
 				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
 				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
 				9E9E1C672D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift in Sources */,
@@ -692,6 +735,7 @@
 				9E7FC1FB2D7AC6FE00CEF423 /* AppIconType.swift in Sources */,
 				9E9E1BDA2D7ADDE8000EC8DB /* TabBarViewController.swift in Sources */,
 				9E9E1BE22D7ADE7B000EC8DB /* BaseViewController.swift in Sources */,
+				9E9E1C872D7E0ADC000EC8DB /* PaginableView.swift in Sources */,
 				9E9E1BE12D7ADE47000EC8DB /* OtherViewController.swift in Sources */,
 				9E9E1BE62D7ADEB5000EC8DB /* ViewModelProtocol.swift in Sources */,
 				9E9E1BE72D7ADEB5000EC8DB /* UITextField+.swift in Sources */,
@@ -718,7 +762,10 @@
 				9E9E1BE32D7ADE81000EC8DB /* ViewTransitionType.swift in Sources */,
 				9E9E1C752D7D99C4000EC8DB /* SearchViewController.swift in Sources */,
 				9E7FC1FD2D7AC90500CEF423 /* UIFont+.swift in Sources */,
+				9E9E1C8E2D7EF7D5000EC8DB /* FavoriteButtonComponent.swift in Sources */,
+				9E9E1C922D7EFC14000EC8DB /* FavoriteCoinRepository.swift in Sources */,
 				9E9E1C642D7CB06E000EC8DB /* CoinInfoViewController.swift in Sources */,
+				9E9E1C942D7EFC3F000EC8DB /* FavoriteCoinTable.swift in Sources */,
 				9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */,
 				9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */,
 				9E7FC1A12D79DD5F00CEF423 /* SceneDelegate.swift in Sources */,
@@ -754,6 +801,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -788,6 +836,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
