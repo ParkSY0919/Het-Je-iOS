@@ -49,7 +49,7 @@ final class SearchViewController: BaseViewController {
         segmentControl.snp.makeConstraints {
             $0.top.equalTo(underLine.snp.bottom)
             $0.width.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(60)
+            $0.height.equalTo(46)
         }
         
         paginableView.snp.makeConstraints {
