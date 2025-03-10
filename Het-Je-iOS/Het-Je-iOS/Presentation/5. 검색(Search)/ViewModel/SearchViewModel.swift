@@ -7,18 +7,21 @@
 
 import Foundation
 
+import RealmSwift
 import RxCocoa
 import RxSwift
 
 final class SearchViewModel: ViewModelProtocol {
     
     let navTitle: String
+    let favoriteCoinList: Results<FavoriteCoinTable>
     private let disposeBag = DisposeBag()
     private lazy var callSearchAPI = BehaviorRelay(value: navTitle.uppercased())
     private let list = PublishRelay<[DTO.Response.Search.Coin]>()
     
-    init(navTitle: String) {
+    init(navTitle: String, list: Results<FavoriteCoinTable>) {
         self.navTitle = navTitle
+        self.favoriteCoinList = list
     }
     
     struct Input {
