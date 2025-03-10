@@ -28,12 +28,14 @@ final class SearchViewModel: ViewModelProtocol {
         let in_TapNavBackButton: ControlEvent<Void>
         let in_TapNavTextFieldReturnKey: ControlEvent<()>
         let in_NavTextFieldText: ControlProperty<String>
+        let in_SearchResultCellTapped: ControlEvent<DTO.Response.Search.Coin>
     }
     
     struct Output {
         let out_TapNavBackButton: Driver<Void>
         let out_SearchResultList: Driver<[DTO.Response.Search.Coin]>
         let out_IsScrollToTop: PublishRelay<Bool>
+        let in_SearchResultCellTapped: Observable<ControlEvent<DTO.Response.Search.Coin>.Element>
     }
     
     func transform(input: Input) -> Output {
@@ -77,7 +79,8 @@ final class SearchViewModel: ViewModelProtocol {
         return Output(
             out_TapNavBackButton: out_TapNavBackButton,
             out_SearchResultList: out_SearchResultList,
-            out_IsScrollToTop: out_IsScrollToTop
+            out_IsScrollToTop: out_IsScrollToTop, in_SearchResultCellTapped: input.in_SearchResultCellTapped
+                .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
         )
     }
     

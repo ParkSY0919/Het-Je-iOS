@@ -110,7 +110,7 @@ private extension SearchViewController {
         let input = SearchViewModel.Input(
             in_TapNavBackButton: navBackBtn.rx.tap,
             in_TapNavTextFieldReturnKey: navTextField.rx.controlEvent(.editingDidEndOnExit),
-            in_NavTextFieldText: navTextField.rx.text.orEmpty
+            in_NavTextFieldText: navTextField.rx.text.orEmpty, in_SearchResultCellTapped: searchResultTableView.rx.modelSelected(DTO.Response.Search.Coin.self)
         )
         
         let output = viewModel.transform(input: input)
@@ -134,6 +134,11 @@ private extension SearchViewController {
                 if isScroll {
                     owner.setScrollToTop()
                 }
+            }.disposed(by: disposeBag)
+        
+        output.in_SearchResultCellTapped
+            .bind(with: self) { owner, coinData in
+                print("동작!", coinData)
             }.disposed(by: disposeBag)
     }
     
