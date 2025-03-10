@@ -15,6 +15,7 @@ protocol FavoriteCoinRepositoryProtocol {
     func createItem(data: FavoriteCoinTable)
     func deleteItem(data: FavoriteCoinTable)
     func checkFavoriteCoin(list: Results<FavoriteCoinTable>, currentCoinId: String) -> Bool
+    func getFavoriteCoinDataByCoinId(list: Results<FavoriteCoinTable>, currentCoinId: String) -> FavoriteCoinTable?
 //    func updateItem(data: FavoriteCoinTable)
 }
 
@@ -25,7 +26,7 @@ final class FavoriteCoinRepository: FavoriteCoinRepositoryProtocol {
     private let realm = try! Realm() //default.realm
     
     func getFileURL() {
-        print(realm.configuration.fileURL ?? "getFileURL Error")
+        print(realm.configuration.fileURL ?? "getFileURL Error", "getFileURL")
     }
     
     func fetchAll() -> Results<FavoriteCoinTable> {
@@ -56,9 +57,17 @@ final class FavoriteCoinRepository: FavoriteCoinRepositoryProtocol {
         }
     }
     
+    func getFavoriteCoinDataByCoinId(list: Results<FavoriteCoinTable>, currentCoinId: String) -> FavoriteCoinTable? {
+        if let data = list.filter("coinId == %@", currentCoinId).first {
+            return data
+        } else {
+            return nil
+        }
+    }
+    
     //
     func checkFavoriteCoin(list: Results<FavoriteCoinTable>, currentCoinId: String) -> Bool {
-        if let isValid = list.filter("id == %@", currentCoinId).first {
+        if list.filter("coinId == %@", currentCoinId).first != nil {
             return true
         } else {
             return false
