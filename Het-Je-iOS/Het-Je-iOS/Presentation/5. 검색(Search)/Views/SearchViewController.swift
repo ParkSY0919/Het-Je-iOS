@@ -110,7 +110,7 @@ private extension SearchViewController {
         let input = SearchViewModel.Input(
             in_TapNavBackButton: navBackBtn.rx.tap,
             in_TapNavTextFieldReturnKey: navTextField.rx.controlEvent(.editingDidEndOnExit),
-            in_NavTextFieldText: navTextField.rx.text.orEmpty
+            in_NavTextFieldText: navTextField.rx.text.orEmpty, in_SearchResultCellTapped: searchResultTableView.rx.modelSelected(DTO.Response.Search.Coin.self)
         )
         
         let output = viewModel.transform(input: input)
@@ -134,6 +134,12 @@ private extension SearchViewController {
                 if isScroll {
                     owner.setScrollToTop()
                 }
+            }.disposed(by: disposeBag)
+        
+        output.in_SearchResultCellTapped
+            .bind(with: self) { owner, coinData in
+                let vc = owner.prepareForNextScreen(data: coinData)
+                owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
     }
     
@@ -162,6 +168,20 @@ private extension SearchViewController {
         print(#function)
         let indexPath = NSIndexPath(row: NSNotFound, section: 0)
         searchResultTableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+    }
+    
+    func prepareForNextScreen(data: DTO.Response.Search.Coin) -> UIViewController {
+        let coinData = CoinInfo(coinId: data.id,
+                                name: data.name,
+                                symbol: data.symbol,
+                                marketCapRank: data.marketCapRank,
+                                thumb: data.thumb,
+                                large: data.large)
+        
+        let vm = CoinDetailViewModel(coinData: coinData)
+        let vc = CoinDetailViewController(viewModel: vm)
+        
+        return vc
     }
     
 }

@@ -10,6 +10,7 @@ extension DTO.Request {
     struct MarketAPIRequestModel: Encodable {
         let vs_currency: String
         let ids: String
+        let sparkline: String
     }
     
 }

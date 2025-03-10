@@ -21,6 +21,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
     struct Input {
         let searchText: ControlProperty<String>
         let tapSearchTextFieldReturnKey: ControlEvent<()>
+        let in_PopularSearchCollectionViewTapped: ControlEvent<DTO.Response.Coin>
     }
     
     struct Output {
@@ -28,6 +29,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
         let sortedPopularSearchList: Driver<[DTO.Response.Coin]>
         let sortedPopularNFTList: Driver<[DTO.Response.Nft]>
         let validSearchText: PublishSubject<String>
+        let out_PopularSearchCollectionViewTapped: Observable<ControlEvent<DTO.Response.Coin>.Element>
     }
     
     func transform(input: Input) -> Output {
@@ -91,8 +93,11 @@ final class CoinInfoViewModel: ViewModelProtocol {
             currentTitme: currentTitmeResult,
             sortedPopularSearchList: sortedPopularSearchList,
             sortedPopularNFTList: sortedPopularNFTList,
-            validSearchText: currentSearchText
-        )
+            validSearchText: currentSearchText,
+            out_PopularSearchCollectionViewTapped: input.in_PopularSearchCollectionViewTapped
+                .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
+            )
+        
     }
     
 }

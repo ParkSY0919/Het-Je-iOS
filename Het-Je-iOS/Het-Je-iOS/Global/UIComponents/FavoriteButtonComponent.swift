@@ -13,18 +13,8 @@ import Then
 
 final class FavoriteButtonComponent: UIButton {
     
-    //    struct CoinInfo {
-    //        let coinId: String
-    //        let name: String
-    //        let symbol: String
-    //        let marketCapRank: Int
-    //        let thumb: String
-    //        let large: String
-    //    }
-    
     private let favoriteRepository: FavoriteCoinRepositoryProtocol = FavoriteCoinRepository()
-    //    private var coinInfo: CoinInfo?
-    private var coinInfo: DTO.Response.Search.Coin?
+    private var coinInfo: CoinInfo?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,13 +50,27 @@ final class FavoriteButtonComponent: UIButton {
     }
     
     func fetchFavoriteBtn(coinInfo: DTO.Response.Search.Coin) {
+        let coinInfo = CoinInfo(coinId: coinInfo.id,
+                                name: coinInfo.name,
+                                symbol: coinInfo.symbol,
+                                marketCapRank: coinInfo.marketCapRank,
+                                thumb: coinInfo.thumb,
+                                large: coinInfo.large)
+        
         self.coinInfo = coinInfo
         self.isSelected = isFavoriteCoin(coinInfo: coinInfo)
     }
     
-    private func isFavoriteCoin(coinInfo: DTO.Response.Search.Coin) -> Bool {
+    //코인상세 or 검색 화면에서 사용할 함수
+    //-> 이전화면에서 CoinInfo형태 코인관련 data를 넘겨줄 거라 타입을 아래와 같이 설정
+    func fetchFavoriteBtn(coinInfo: CoinInfo) {
+        self.coinInfo = coinInfo
+        self.isSelected = isFavoriteCoin(coinInfo: coinInfo)
+    }
+    
+    private func isFavoriteCoin(coinInfo: CoinInfo) -> Bool {
         let favoriteCoinList = favoriteRepository.fetchAll()
-        return favoriteRepository.checkFavoriteCoin(list: favoriteCoinList, currentCoinId: coinInfo.id)
+        return favoriteRepository.checkFavoriteCoin(list: favoriteCoinList, currentCoinId: coinInfo.coinId)
     }
     
     @objc
@@ -85,8 +89,8 @@ final class FavoriteButtonComponent: UIButton {
         }
     }
     
-    private func createFavoriteCoin(coinInfo: DTO.Response.Search.Coin) {
-        let data = FavoriteCoinTable(coinId: coinInfo.id,
+    private func createFavoriteCoin(coinInfo: CoinInfo) {
+        let data = FavoriteCoinTable(coinId: coinInfo.coinId,
                                      name: coinInfo.name,
                                      symbol: coinInfo.symbol,
                                      marketCapRank: coinInfo.marketCapRank,
@@ -96,9 +100,9 @@ final class FavoriteButtonComponent: UIButton {
         favoriteRepository.createItem(data: data)
     }
     
-    private func deleteFavoriteCoin(coinInfo: DTO.Response.Search.Coin) {
+    private func deleteFavoriteCoin(coinInfo: CoinInfo) {
         let favoriteCoinList = favoriteRepository.fetchAll()
-        guard let data = favoriteRepository.getFavoriteCoinDataByCoinId(list: favoriteCoinList, currentCoinId: coinInfo.id) else {
+        guard let data = favoriteRepository.getFavoriteCoinDataByCoinId(list: favoriteCoinList, currentCoinId: coinInfo.coinId) else {
             print("coinId와 맞는 table data를 불러오는데 실패하였습니다.")
             return
         }

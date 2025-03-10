@@ -14,9 +14,11 @@ final class CustomFormatterManager {
     
     private init() {}
     
-    func dateFormatOnTrendingView(strDate: String, format: String) -> String {
+    func dateFormatOnTrendingView(strDate: String, format: String, isCoinDetailDate: Bool = false) -> String {
         let inputDate = DateFormatter()
-        inputDate.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        
+        inputDate.dateFormat = isCoinDetailDate ?
+         "yyyy-MM-dd'T'HH:mm:ss.SSSZ" : "EEE, dd MMM yyyy HH:mm:ss zzz"
         let date = inputDate.date(from: strDate)
         
         let outputDate = DateFormatter()
@@ -26,6 +28,18 @@ final class CustomFormatterManager {
             print("setDateString error")
             return ""
         }
+        
+        if isCoinDetailDate {
+            //. 기준으로 배열 원소 나누기
+            let dateComponents = outputDate.string(from: date).split(separator: ".")
+            if dateComponents.count == 3 {
+                let year = dateComponents[0]
+                let month = dateComponents[1]
+                let day = dateComponents[2]
+                return "\(year)년 \(month)월 \(day)일"
+            }
+        }
+        
         return outputDate.string(from: date)
     }
     
