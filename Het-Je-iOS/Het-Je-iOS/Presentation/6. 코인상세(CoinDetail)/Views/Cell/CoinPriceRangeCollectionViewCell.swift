@@ -55,7 +55,7 @@ final class CoinPriceRangeCollectionViewCell: UICollectionViewCell {
         
         //24시간 고가 실가격
         high24hPriceLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(20)
             $0.bottom.equalTo(contentView.snp.centerY).offset(-10)
         }
         //24시간 고가 라벨
@@ -65,7 +65,7 @@ final class CoinPriceRangeCollectionViewCell: UICollectionViewCell {
         }
         //24시간 저가 실가격
         low24hPriceLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView.snp.centerX).offset(30)
+            $0.leading.equalTo(contentView.snp.centerX).offset(20)
             $0.bottom.equalTo(high24hPriceLabel.snp.bottom)
         }
         //24시간 저가 라벨
@@ -124,7 +124,7 @@ final class CoinPriceRangeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configurePriceRangeCell(model: [DTO.Response.CoinDetail]) {
+    func configurePriceRangeCell(model: [DTO.Response.MarketAPIResponseModel]) {
         guard let model = model.first else {
             print("fetchCoinTrendCell model 에러 발생")
             return
