@@ -14,7 +14,7 @@ final class SearchViewModel: ViewModelProtocol {
     
     let navTitle: String
     private let disposeBag = DisposeBag()
-    private lazy var callSearchAPI = BehaviorRelay(value: navTitle)
+    private lazy var callSearchAPI = BehaviorRelay(value: navTitle.uppercased())
     private let list = PublishRelay<[DTO.Response.Search.Coin]>()
     
     init(navTitle: String) {
@@ -41,8 +41,11 @@ final class SearchViewModel: ViewModelProtocol {
         let out_IsScrollToTop = PublishRelay<Bool>()
         
         callSearchAPI
+            .distinctUntilChanged() //중복 검색어 호출 방지
             .bind(with: self) { owner, text in
+                print("api 호출: \(text)")
                 owner.callSearchAPI(text: text)
+                out_IsScrollToTop.accept(true)
             }.disposed(by: disposeBag)
         
         list
@@ -51,21 +54,15 @@ final class SearchViewModel: ViewModelProtocol {
                 isAPILoaded.onNext(true)
             }.disposed(by: disposeBag)
         
-        //중복 검색어 왜 안 막힘
         input.in_TapNavTextFieldReturnKey
             .withLatestFrom(input.in_NavTextFieldText)
-            .compactMap { text in
-                if !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    return text
-                } else {
-                    return nil
-                }
+            .withUnretained(self)
+            .compactMap { owner, text -> String? in
+                return owner.isValidSearchText(text: text)?.uppercased()
             }
-            .distinctUntilChanged()
             .subscribe(with: self) { owner, searchText in
-                print(searchText, "searchText")
-                owner.callSearchAPI(text: searchText)
-                out_IsScrollToTop.accept(true)
+                
+                owner.callSearchAPI.accept(searchText)
             }.disposed(by: disposeBag)
         
         let out_SearchResultList = Observable
@@ -86,7 +83,7 @@ final class SearchViewModel: ViewModelProtocol {
 private extension SearchViewModel {
     
     func callSearchAPI(text: String) {
-        let request = DTO.Request.SearchAPIRequestModel(query: text.lowercased())
+        let request = DTO.Request.SearchAPIRequestModel(query: text)
         NetworkManager.shared.callAPI(apiHandler: .fetchSearchAPI(request: request), responseModel: DTO.Response.Search.SearchAPIResponseModel.self) { result in
             switch result {
             case .success(let success):

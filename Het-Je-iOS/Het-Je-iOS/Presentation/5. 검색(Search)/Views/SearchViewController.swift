@@ -84,7 +84,7 @@ final class SearchViewController: BaseViewController {
             notiView.addSubview(searchResultTableView)
             searchResultTableView.snp.makeConstraints {
                 $0.verticalEdges.equalToSuperview()
-                $0.horizontalEdges.equalToSuperview().inset(20)
+                $0.horizontalEdges.equalTo(notiView.safeAreaLayoutGuide).inset(20)
             }
             
             //notiView 변화 생겼으니 레이아웃 수정 호출
