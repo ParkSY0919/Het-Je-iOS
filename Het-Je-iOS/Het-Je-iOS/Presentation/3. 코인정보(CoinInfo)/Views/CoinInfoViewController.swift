@@ -131,8 +131,11 @@ final class CoinInfoViewController: BaseViewController {
 private extension CoinInfoViewController {
     
     func bind() {
-        let input = CoinInfoViewModel.Input(searchText: searchTextField.rx.text.orEmpty, tapSearchTextFieldReturnKey: searchTextField.rx.controlEvent(.editingDidEndOnExit))
-        
+        let input = CoinInfoViewModel.Input(
+            searchText: searchTextField.rx.text.orEmpty,
+            tapSearchTextFieldReturnKey: searchTextField.rx.controlEvent(.editingDidEndOnExit),
+            in_PopularSearchCollectionViewTapped: popularSearchCollectionView.rx.modelSelected(DTO.Response.Coin.self)
+        )
         let output = viewModel.transform(input: input)
         
         output.currentTitme
@@ -171,6 +174,11 @@ private extension CoinInfoViewController {
                     print("searchText empty")
                     owner.searchTextField.text = ""
                 }
+            }.disposed(by: disposeBag)
+        
+        output.out_PopularSearchCollectionViewTapped
+            .bind(with: self) { owner, coinData in
+                print("동작!", coinData)
             }.disposed(by: disposeBag)
     }
     
