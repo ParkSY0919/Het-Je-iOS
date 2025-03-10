@@ -95,7 +95,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
             sortedPopularNFTList: sortedPopularNFTList,
             validSearchText: currentSearchText,
             out_PopularSearchCollectionViewTapped: input.in_PopularSearchCollectionViewTapped
-                .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
+                .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
             )
         
     }

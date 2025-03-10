@@ -80,7 +80,7 @@ final class SearchViewModel: ViewModelProtocol {
             out_TapNavBackButton: out_TapNavBackButton,
             out_SearchResultList: out_SearchResultList,
             out_IsScrollToTop: out_IsScrollToTop, in_SearchResultCellTapped: input.in_SearchResultCellTapped
-                .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
+                .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
         )
     }
     
