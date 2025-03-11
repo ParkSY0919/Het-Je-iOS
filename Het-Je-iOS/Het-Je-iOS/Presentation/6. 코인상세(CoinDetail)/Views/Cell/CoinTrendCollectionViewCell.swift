@@ -14,7 +14,7 @@ import Then
 final class CoinTrendCollectionViewCell: UICollectionViewCell {
     
     private let currentPriceLabel = UILabel()
-    private let priceChangePercentage24hLabel = VariationRateComponent(variationRateType: .reduce(rate: "0.98", alignment: .left))
+    private let priceChangePercentage24hLabel = VariationRateComponent(variationRateType: .none(rate: "", alignment: .left))
     private let chartView = LineChartView()
     private let currentTimeLabel = UILabel()
     
@@ -64,7 +64,7 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
     
     private func setStyle() {
         currentPriceLabel.setLabelUI(
-            "123,456,789",
+            "",
             font: .systemFont(ofSize: 20, weight: .heavy),
             textColor: .primary
         )
@@ -83,10 +83,12 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
         }
         
         currentTimeLabel.setLabelUI(
-            "2/15 18:00:45 업데이트",
+            "",
             font: .hetJeFont(.body_regular_12),
             textColor: .secondary
         )
+        
+        priceChangePercentage24hLabel.hideLabel()
     }
     
     func fetchCoinTrendCell(model: [DTO.Response.MarketAPIResponseModel], currentTime: String) {

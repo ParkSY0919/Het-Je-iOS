@@ -72,6 +72,10 @@ final class VariationRateComponent: UILabel {
         }
     }
     
+    func hideLabel() {
+        self.font = .systemFont(ofSize: 0)
+    }
+    
     func updateVariationRateType(rate: Double, alignment: NSTextAlignment) {
         let rate = CustomFormatterManager.shard.formatNum(num: rate)
         var type: VariationRateType
