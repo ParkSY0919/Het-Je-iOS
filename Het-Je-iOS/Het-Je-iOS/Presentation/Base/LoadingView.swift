@@ -8,7 +8,6 @@
 import UIKit
 
 import SnapKit
-import ThreadNetwork
 
 final class LoadingView: UIView {
     private let backgroundView = UIView()
