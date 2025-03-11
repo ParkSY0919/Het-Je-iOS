@@ -74,6 +74,11 @@ private extension CoinDetailViewController {
         
         let output = viewModel.transform(input: input)
         
+        output.out_loadingViewLoading
+            .drive(with: self) { owner, isLoading in
+                owner.isLoading(isLoading: isLoading)
+            }.disposed(by: disposeBag)
+        
         output.out_TapNavLeftBtn?
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
