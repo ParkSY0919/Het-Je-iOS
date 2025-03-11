@@ -115,6 +115,11 @@ private extension SearchViewController {
         
         let output = viewModel.transform(input: input)
         
+        output.out_isLoading
+            .drive(with: self) { owner, isLoading in
+                owner.isLoading(isLoading: isLoading)
+            }.disposed(by: disposeBag)
+        
         output.out_TapNavBackButton
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
