@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E2430E32D8046BE00121B58 /* NetworkGuidanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2430E22D8046BE00121B58 /* NetworkGuidanceViewController.swift */; };
 		9E2430E52D8047ED00121B58 /* NetworkGuidanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2430E42D8047ED00121B58 /* NetworkGuidanceViewModel.swift */; };
+		9E2430E92D8055A000121B58 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2430E82D8055A000121B58 /* LoadingView.swift */; };
 		9E7FC19D2D79DD5F00CEF423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */; };
 		9E7FC19F2D79DD5F00CEF423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1992D79DD5F00CEF423 /* LaunchScreen.storyboard */; };
 		9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */; };
@@ -104,6 +105,7 @@
 /* Begin PBXFileReference section */
 		9E2430E22D8046BE00121B58 /* NetworkGuidanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGuidanceViewController.swift; sourceTree = "<group>"; };
 		9E2430E42D8047ED00121B58 /* NetworkGuidanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGuidanceViewModel.swift; sourceTree = "<group>"; };
+		9E2430E82D8055A000121B58 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9E7FC17D2D79DC5C00CEF423 /* Het-Je-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Het-Je-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				9E7FC1BB2D79DE6400CEF423 /* Enums */,
 				9E7FC1BF2D79DE6400CEF423 /* BaseViewController.swift */,
+				9E2430E82D8055A000121B58 /* LoadingView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
 				9E9E1C852D7E06F4000EC8DB /* CustomSegmentControl.swift in Sources */,
+				9E2430E92D8055A000121B58 /* LoadingView.swift in Sources */,
 				9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */,
 				9E9E1BE52D7ADE8F000EC8DB /* CustomFormatterManager.swift in Sources */,
 				9E7FC1F02D7AC20700CEF423 /* CellReusable+.swift in Sources */,

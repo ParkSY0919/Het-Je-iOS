@@ -19,6 +19,7 @@ class BaseViewController: UIViewController {
     private var alreadyPresent = false
     
     let underLine = UIView()
+    private let loadingView = LoadingView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +44,10 @@ class BaseViewController: UIViewController {
         }
         underLine.backgroundColor = UIColor.bg
     }
+    
+//    func setLoadingView() {
+//        
+//    }
     
     func setHierarchy() {}
     
@@ -105,6 +110,26 @@ class BaseViewController: UIViewController {
         view.makeToast(message, duration: duration, position: .bottom, style: style)
     }
     
+    func showLoadingView() {
+        view.addSubview(loadingView)
+        loadingView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        loadingView.isLoading = true
+        
+        //로딩 시 탭바 속성 변경
+        if let tabBarVC = self.tabBarController as? TabBarController {
+            tabBarVC.setTabBarAppearence(onLoading: true)
+        }
+    }
+    
+    func hideLoadingView() {
+        loadingView.isLoading = false
+        if let tabBarVC = self.tabBarController as? TabBarController {
+            tabBarVC.setTabBarAppearence()
+        }
+    }
+    
     @objc
     func popBtnTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -146,7 +171,7 @@ private extension BaseViewController {
                 if path.status == .satisfied {
                     print("인터넷 연결 상태 양호: 알림 닫힘")
                 } else {
-                    // 인터넷 연결이 없을 때 알림 표시 (중복 표시 방지)
+                    //인터넷 연결 X = alert
                     self.showNetworkAlert()
                 }
             }
@@ -154,20 +179,19 @@ private extension BaseViewController {
     }
     
     func showNetworkAlert() {
-        // testViewController가 표시 중이면 중복 표시하지 않음
+        //중복 alert 방지
         if let presentedVC = self.presentedViewController, presentedVC is NetworkGuidanceViewController {
             print("이미 네트워크 알림이 표시 중입니다.")
             return
         }
         
         let vc = NetworkGuidanceViewController()
-        // Pass a reference to this controller for the retry action
         vc.baseViewController = self
         viewTransition(viewController: vc, transitionStyle: .overCurrentContext)
-        // Pause automatic monitoring when showing alert
         alreadyPresent = true
         print("네트워크 알림 표시됨")
     }
     
 }
+
 
