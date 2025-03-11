@@ -110,7 +110,16 @@ class BaseViewController: UIViewController {
         view.makeToast(message, duration: duration, position: .bottom, style: style)
     }
     
-    func showLoadingView() {
+    func isLoading(isLoading: Bool) {
+        switch isLoading {
+        case true:
+            showLoadingView()
+        case false:
+            hideLoadingView()
+        }
+    }
+    
+    private func showLoadingView() {
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -123,7 +132,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func hideLoadingView() {
+    private func hideLoadingView() {
         loadingView.isLoading = false
         if let tabBarVC = self.tabBarController as? TabBarController {
             tabBarVC.setTabBarAppearence()

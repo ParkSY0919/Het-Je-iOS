@@ -48,7 +48,7 @@ final class LoadingView: UIView {
     }
     
     private func setStyle() {
-        backgroundView.backgroundColor = .black.withAlphaComponent(0.5)
+        backgroundView.backgroundColor = .black.withAlphaComponent(0.3)
         backgroundView.isUserInteractionEnabled = false //유저 터치 방지
     }
     
