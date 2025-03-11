@@ -49,7 +49,6 @@
 		9E9E1C122D7B12D7000EC8DB /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */; };
 		9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C132D7B15E2000EC8DB /* ExchangeViewController.swift */; };
 		9E9E1C172D7B1B7B000EC8DB /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */; };
-		9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */; };
 		9E9E1C1E2D7B5CE9000EC8DB /* SortButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */; };
 		9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */; };
 		9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C222D7C6644000EC8DB /* DTO.swift */; };
@@ -59,9 +58,6 @@
 		9E9E1C422D7C6E32000EC8DB /* UpbitAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */; };
 		9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */; };
 		9E9E1C4B2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */; };
-		9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */; };
-		9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */; };
-		9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */; };
 		9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */; };
 		9E9E1C582D7C8615000EC8DB /* TrendingAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */; };
 		9E9E1C602D7C8A8F000EC8DB /* SearchAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */; };
@@ -136,7 +132,6 @@
 		9E9E1C112D7B12D7000EC8DB /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		9E9E1C132D7B15E2000EC8DB /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
-		9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "거래소데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C1D2D7B5CE9000EC8DB /* SortButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonComponent.swift; sourceTree = "<group>"; };
 		9E9E1C1F2D7C2D87000EC8DB /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		9E9E1C222D7C6644000EC8DB /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
@@ -146,9 +141,6 @@
 		9E9E1C412D7C6E32000EC8DB /* UpbitAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIRequestModel.swift; sourceTree = "<group>"; };
 		9E9E1C452D7C775A000EC8DB /* UpbitAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPIResponseModel.swift; sourceTree = "<group>"; };
 		9E9E1C4A2D7C7AD6000EC8DB /* MarketAPIRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIRequestModel.swift; sourceTree = "<group>"; };
-		9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "상세데이터.swift"; sourceTree = "<group>"; };
-		9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "서치데이터.swift"; sourceTree = "<group>"; };
-		9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "트렌딩데이터.swift"; sourceTree = "<group>"; };
 		9E9E1C532D7C7E74000EC8DB /* MarketAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketAPIResponseModel.swift; sourceTree = "<group>"; };
 		9E9E1C572D7C8615000EC8DB /* TrendingAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPIResponseModel.swift; sourceTree = "<group>"; };
 		9E9E1C5F2D7C8A8F000EC8DB /* SearchAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIResponseModel.swift; sourceTree = "<group>"; };
@@ -334,7 +326,6 @@
 		9E7FC1B82D79DE6400CEF423 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E1C182D7B1C5F000EC8DB /* Mock */,
 				9E9E1C332D7C6644000EC8DB /* Network */,
 				9E7FC1AB2D79DE6400CEF423 /* Extensions */,
 				9E7FC1AD2D79DE6400CEF423 /* Literals */,
@@ -482,17 +473,6 @@
 				9E9E1C162D7B1B7B000EC8DB /* ExchangeTableViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		9E9E1C182D7B1C5F000EC8DB /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				9E9E1C1B2D7B1C9F000EC8DB /* 거래소데이터.swift */,
-				9E9E1C4D2D7C7D21000EC8DB /* 상세데이터.swift */,
-				9E9E1C4E2D7C7D21000EC8DB /* 서치데이터.swift */,
-				9E9E1C4F2D7C7D21000EC8DB /* 트렌딩데이터.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		9E9E1C252D7C6644000EC8DB /* BaseServices */ = {
@@ -822,13 +802,10 @@
 				9E9E1CA12D7F3AC3000EC8DB /* CoinDetailHeaderView.swift in Sources */,
 				9E9E1C802D7DB3AB000EC8DB /* SearchResultTableViewCell.swift in Sources */,
 				9E9E1C462D7C775A000EC8DB /* UpbitAPIResponseModel.swift in Sources */,
-				9E9E1C502D7C7D21000EC8DB /* 서치데이터.swift in Sources */,
 				9E9E1C672D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift in Sources */,
 				9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */,
 				9E9E1C9C2D7F1DF9000EC8DB /* CoinDetailViewModel.swift in Sources */,
 				9E2430E52D8047ED00121B58 /* NetworkGuidanceViewModel.swift in Sources */,
-				9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */,
-				9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */,
 				9E9E1C692D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift in Sources */,
 				9E7FC1F62D7AC4E800CEF423 /* Config.swift in Sources */,
 				9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */,
@@ -841,7 +818,6 @@
 				9E9E1BE62D7ADEB5000EC8DB /* ViewModelProtocol.swift in Sources */,
 				9E9E1BE72D7ADEB5000EC8DB /* UITextField+.swift in Sources */,
 				9E9E1BE82D7ADEB5000EC8DB /* UILabel+.swift in Sources */,
-				9E9E1C1C2D7B1C9F000EC8DB /* 거래소데이터.swift in Sources */,
 				9E9E1CA72D7F4160000EC8DB /* CoinTrendCollectionViewCell.swift in Sources */,
 				9E9E1C102D7B0778000EC8DB /* AboutCoinComponent.swift in Sources */,
 				9E9E1C352D7C6644000EC8DB /* DTO.swift in Sources */,
