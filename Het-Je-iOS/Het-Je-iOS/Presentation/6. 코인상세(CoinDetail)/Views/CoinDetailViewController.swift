@@ -110,7 +110,7 @@ private extension CoinDetailViewController {
         image.setImageKfDownSampling(with: viewModel.coinData.thumb, cornerRadius: 0)
         
         image.snp.makeConstraints {
-            $0.size.equalTo(15)
+            $0.size.equalTo(20)
             $0.centerY.leading.equalTo(titleView)
             //equalToSuperView or titleView.snp.centerY 하면 아직 titleView가 nav.titleView에 등록 전이기에 앱이 터짐
         }
@@ -121,7 +121,7 @@ private extension CoinDetailViewController {
         }
         
         titleView.snp.makeConstraints {
-            $0.width.equalTo(label.snp.width).offset(15 + 10) //이미지 크기 + 간격
+            $0.width.equalTo(label.snp.width).offset(20 + 10) //이미지 크기 + 간격
             $0.height.equalTo(30)
         }
         
