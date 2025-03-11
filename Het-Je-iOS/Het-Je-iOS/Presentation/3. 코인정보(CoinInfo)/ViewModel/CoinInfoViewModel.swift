@@ -47,7 +47,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
             .debug("onCallAPI")
             .subscribe(with: self) { owner, _ in
                 print("API 호출")
-                owner.callTrendingAPI1()
+                owner.callTrendingAPI()
             }
             .disposed(by: disposeBag)
 
@@ -108,22 +108,6 @@ final class CoinInfoViewModel: ViewModelProtocol {
 private extension CoinInfoViewModel {
     
     func callTrendingAPI() {
-        print(#function)
-        NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { result, callDate in
-            switch result {
-            case .success(let success):
-                //시간변환 성공 케케!!!!!!!!!
-                print("!!!\(CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "MM:dd HH:mm"))!!!")
-                let currentTime = CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "MM:dd HH:mm")
-                self.currentTime = currentTime
-                self.list.onNext(success)
-            case .failure(let failure):
-                print("Error callUpbitAPI: \(failure.localizedDescription)")
-            }
-        }
-    }
-    
-    func callTrendingAPI1() {
         print(#function)
         NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { [weak self] result, callDate, statusCode in
             guard let self else { return }
