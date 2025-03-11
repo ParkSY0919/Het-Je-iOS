@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2430E32D8046BE00121B58 /* NetworkGuidanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2430E22D8046BE00121B58 /* NetworkGuidanceViewController.swift */; };
+		9E2430E52D8047ED00121B58 /* NetworkGuidanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2430E42D8047ED00121B58 /* NetworkGuidanceViewModel.swift */; };
 		9E7FC19D2D79DD5F00CEF423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */; };
 		9E7FC19F2D79DD5F00CEF423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E7FC1992D79DD5F00CEF423 /* LaunchScreen.storyboard */; };
 		9E7FC1A02D79DD5F00CEF423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */; };
@@ -100,6 +102,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E2430E22D8046BE00121B58 /* NetworkGuidanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGuidanceViewController.swift; sourceTree = "<group>"; };
+		9E2430E42D8047ED00121B58 /* NetworkGuidanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGuidanceViewModel.swift; sourceTree = "<group>"; };
 		9E7FC17D2D79DC5C00CEF423 /* Het-Je-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Het-Je-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7FC1952D79DD5F00CEF423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E7FC1962D79DD5F00CEF423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +194,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E2430E12D80469E00121B58 /* 네트워크 알림 */ = {
+			isa = PBXGroup;
+			children = (
+				9E2430E72D8049F200121B58 /* ViewModel */,
+				9E2430E62D8049DD00121B58 /* Views */,
+			);
+			name = "네트워크 알림";
+			path = "네트워크 알림";
+			sourceTree = "<group>";
+		};
+		9E2430E62D8049DD00121B58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E2430E22D8046BE00121B58 /* NetworkGuidanceViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E2430E72D8049F200121B58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E2430E42D8047ED00121B58 /* NetworkGuidanceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9E7FC1742D79DC5C00CEF423 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +365,7 @@
 		9E7FC1E72D79DE6400CEF423 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E2430E12D80469E00121B58 /* 네트워크 알림 */,
 				9E7FC1F12D7AC40200CEF423 /* 1. 탭바(TabBar) */,
 				9E7FC1F22D7AC42500CEF423 /* 2. 거래소(Exchange) */,
 				9E7FC1F32D7AC44000CEF423 /* 3. 코인정보(CoinInfo) */,
@@ -776,6 +807,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2430E32D8046BE00121B58 /* NetworkGuidanceViewController.swift in Sources */,
 				9E9E1BE42D7ADE8F000EC8DB /* UIAlertManager.swift in Sources */,
 				9E9E1C202D7C2D87000EC8DB /* ExchangeViewModel.swift in Sources */,
 				9E9E1C142D7B15E2000EC8DB /* ExchangeViewController.swift in Sources */,
@@ -790,6 +822,7 @@
 				9E9E1C672D7D3574000EC8DB /* PopularSearchCollectionViewCell.swift in Sources */,
 				9E9E1C542D7C7E74000EC8DB /* MarketAPIResponseModel.swift in Sources */,
 				9E9E1C9C2D7F1DF9000EC8DB /* CoinDetailViewModel.swift in Sources */,
+				9E2430E52D8047ED00121B58 /* NetworkGuidanceViewModel.swift in Sources */,
 				9E9E1C512D7C7D21000EC8DB /* 상세데이터.swift in Sources */,
 				9E9E1C522D7C7D21000EC8DB /* 트렌딩데이터.swift in Sources */,
 				9E9E1C692D7D357C000EC8DB /* PopularNFTCollectionViewCell.swift in Sources */,
