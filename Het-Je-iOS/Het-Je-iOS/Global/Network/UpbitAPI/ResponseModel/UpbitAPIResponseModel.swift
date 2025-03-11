@@ -22,4 +22,14 @@ extension DTO.Response {
             case accTradePrice24h = "acc_trade_price_24h"
         }
     }
+    
+    struct UpbitAPIErrorResponseModel: Codable {
+        let error: UpbitError
+    
+        struct UpbitError: Codable {
+            let name: Int
+            let message: String
+        }
+    }
+    
 }
