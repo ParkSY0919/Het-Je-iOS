@@ -13,8 +13,8 @@ import Then
 final class PopularSearchCollectionViewCell: UICollectionViewCell {
     
     private let rankLabel = UILabel()
-    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "2342523212312312323", subtitleText: "2335235233212312312312312312325")
-    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "3.4234242342342345", alignment: .right))
+    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "", subtitleText: "")
+    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "", alignment: .right))
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -53,7 +53,7 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
         }
         
         rankLabel.setLabelUI(
-            "8",
+            "",
             font: .hetJeFont(.body_regular_12),
             textColor: .primary,
             alignment: .right

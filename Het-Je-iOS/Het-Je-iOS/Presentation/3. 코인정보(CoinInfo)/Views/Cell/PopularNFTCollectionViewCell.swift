@@ -16,7 +16,7 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
     private let nftNameLabel = UILabel()
     private let nativeCurrencySymbolLabel = UILabel()
     private let floorPriceInNativeCurrencyLabel = UILabel()
-    private let variationRateLabel = VariationRateComponent(variationRateType: .rise(rate: "45.7", alignment: .center))
+    private let variationRateLabel = VariationRateComponent(variationRateType: .rise(rate: "", alignment: .center))
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -76,20 +76,20 @@ final class PopularNFTCollectionViewCell: UICollectionViewCell {
         
         
         nftNameLabel.setLabelUI(
-            "Meebits12412412412",
+            "",
             font: .hetJeFont(.body_bold_9),
             textColor: .primary,
             alignment: .center
         )
         
         nativeCurrencySymbolLabel.setLabelUI(
-            "ETH2222222222",
+            "",
             font: .hetJeFont(.body_regular_9),
             textColor: .secondary
         )
         
         floorPriceInNativeCurrencyLabel.setLabelUI(
-            "0.665425235235",
+            "",
             font: .hetJeFont(.body_regular_9),
             textColor: .secondary,
             alignment: .right

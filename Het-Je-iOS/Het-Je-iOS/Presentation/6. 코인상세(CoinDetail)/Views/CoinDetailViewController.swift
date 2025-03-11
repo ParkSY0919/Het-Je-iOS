@@ -244,7 +244,7 @@ extension CoinDetailViewController: UICollectionViewDelegate {
                                                                                for: indexPath) as? CoinDetailHeaderView
             else { return UICollectionReusableView() }
             
-            let title = (sectionTypes[indexPath.section] == .종목정보) ? "종목정보" : "투자지표"
+            let title = (sectionTypes[indexPath.section] == .종목정보) ? StringLiterals.CoinDetail.headerTitle1 : StringLiterals.CoinDetail.headerTitle2
             header.configureHeaderView(headerTitle: title)
             header.onTappedMoreButton = {
                 self.showToast(message: "\(title)의 더보기 기능은 아직 준비 중입니다")

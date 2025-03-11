@@ -172,9 +172,9 @@ private extension ExchangeViewController {
             .drive(with: self) { owenr, errorCode in
                 switch errorCode {
                 case 400:
-                    owenr.showToast(message: "요청을 처리할 수 없습니다. 잠시 후 다시 시도해주세요.")
+                    owenr.showToast(message: StringLiterals.UpbitErrorMessages.badRequest)
                 case 401:
-                    owenr.showToast(message: "접근 권한이 없습니다.")
+                    owenr.showToast(message: StringLiterals.UpbitErrorMessages.unauthorized)
                 default:
                     print("")
                 }

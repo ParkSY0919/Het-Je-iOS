@@ -91,9 +91,9 @@ final class CoinValuationCollectionViewCell: UICollectionViewCell {
             print("fetchCoinTrendCell model 에러 발생")
             return
         }
-        marketCapLabel.text = "시가총액"
-        fullyDilutedValuationLabel.text = "완전 희석 가치(FDV)"
-        totalVolumeLabel.text = "총 거래량"
+        marketCapLabel.text = StringLiterals.CoinDetail.marketCapLabel
+        fullyDilutedValuationLabel.text = StringLiterals.CoinDetail.fullyDilutedValuationLabel
+        totalVolumeLabel.text = StringLiterals.CoinDetail.totalVolumeLabel
         
         marketCapPrice.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.marketCap)
         guard let fullyDilutedValuation = model.fullyDilutedValuation else {

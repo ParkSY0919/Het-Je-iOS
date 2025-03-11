@@ -28,21 +28,21 @@ enum CoinGekoErrorCode: Int, CaseIterable {
     var message: String {
         switch self {
         case .badRequest:
-            "잘못된 요청입니다. 입력값을 확인해주세요."
+            StringLiterals.CoinGekoErrorMessages.badRequest
         case .unauthorized:
-            "인증되지 않은 요청입니다. 다시 로그인해주세요"
+            StringLiterals.CoinGekoErrorMessages.unauthorized
         case .forbidden:
-            "접근이 차단되었습니다. 권한을 확인해주세요."
+            StringLiterals.CoinGekoErrorMessages.forbidden
         case .tooManyRequests:
-            "요청이 너무 많습니다. 잠시 후 다시 시도해주세요."
+            StringLiterals.CoinGekoErrorMessages.tooManyRequests
         case .serviceUnavailable:
-            "현재 서비스 이용이 어렵습니다. 잠시 후 다시 시도해주세요."
+            StringLiterals.CoinGekoErrorMessages.serviceUnavailable
         case .accessDenied:
-            "접근이 제한되었습니다. 관리자에게 문의해주세요."
+            StringLiterals.CoinGekoErrorMessages.accessDenied
         case .apiKeyMissing:
-            "API 키가 잘못되었습니다. 설정을 확인해주세요."
+            StringLiterals.CoinGekoErrorMessages.apiKeyMissing
         case .endpointError:
-            "해당 요청은 제한된 기능입니다. 구독을 확인해주세요."
+            StringLiterals.CoinGekoErrorMessages.endpointError
         }
     }
 }

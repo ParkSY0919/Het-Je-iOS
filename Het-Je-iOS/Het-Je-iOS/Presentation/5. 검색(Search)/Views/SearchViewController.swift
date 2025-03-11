@@ -153,7 +153,6 @@ private extension SearchViewController {
         
         output.out_onError
             .drive(with: self) { owner, statusCode in
-                print("111111111output.out_onError에서의 statusCode: \(statusCode)")
                 owner.showToast(statusCode: statusCode)
             }.disposed(by: disposeBag)
     }

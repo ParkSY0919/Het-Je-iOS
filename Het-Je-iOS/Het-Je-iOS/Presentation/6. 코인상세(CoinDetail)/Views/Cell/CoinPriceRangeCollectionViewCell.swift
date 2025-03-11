@@ -130,16 +130,16 @@ final class CoinPriceRangeCollectionViewCell: UICollectionViewCell {
             return
         }
         
-        high24hLabel.text = "24시간 고가"
+        high24hLabel.text = StringLiterals.CoinDetail.high24hLabel
         high24hPriceLabel.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.high24h)
         
-        low24hLabel.text = "24시간 저가"
+        low24hLabel.text = StringLiterals.CoinDetail.low24hLabel
         low24hPriceLabel.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.low24h)
         
-        athLabel.text = "역대 최고가"
+        athLabel.text = StringLiterals.CoinDetail.athLabel
         athPriceLabel.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.ath)
         
-        atlLabel.text = "역대 최저가"
+        atlLabel.text = StringLiterals.CoinDetail.atlLabel
         atlPriceLabel.text = "₩" + CustomFormatterManager.shard.formatNum(num: model.atl)
         
         athDataLabel.text = CustomFormatterManager.shard.dateFormatOnTrendingView(

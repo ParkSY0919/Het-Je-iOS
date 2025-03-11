@@ -96,7 +96,7 @@ final class NetworkGuidanceViewController: UIViewController {
         )
         
         statusLabel.setLabelUI(
-            "네트워크 연결이 일시적으로 원활하지 않습니다. 데이터 또는 Wi-Fi 연결 상태를 확인해주세요.",
+            StringLiterals.NetworkGuidance.statusLabelText,
             font: .hetJeFont(.body_regular_12),
             textColor: .primary,
             alignment: .center,
@@ -104,7 +104,7 @@ final class NetworkGuidanceViewController: UIViewController {
         )
         
         retryButton.do {
-            $0.setTitle("다시 시도하기", for: .normal)
+            $0.setTitle(StringLiterals.NetworkGuidance.retryBtnTitle, for: .normal)
             $0.setTitleColor(.primary, for: .normal)
             $0.titleLabel?.font = .hetJeFont(.body_bold_12)
         }
@@ -127,7 +127,7 @@ final class NetworkGuidanceViewController: UIViewController {
                         }
                     } else {
                         print("인터넷 연결 실패")
-                        baseVC.showToast(message: "네트워크 통신이 원활하지 않습니다.", isNetworkToast: true)
+                        baseVC.showToast(message: StringLiterals.NetworkGuidance.toastMessage, isNetworkToast: true)
                     }
                 }
             }.disposed(by: disposeBag)

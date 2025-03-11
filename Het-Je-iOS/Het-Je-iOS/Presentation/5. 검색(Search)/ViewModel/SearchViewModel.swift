@@ -107,7 +107,7 @@ private extension SearchViewModel {
             switch result {
             case .success(let success):
                 self.list.accept(success.coins)
-            case .failure(let failure):
+            case .failure(_):
                 print("!")
 //                print("Error callSearchAPI: \(String(describing: failure.errorDescription))")
             }
