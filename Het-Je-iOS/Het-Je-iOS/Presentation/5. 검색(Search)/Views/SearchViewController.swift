@@ -115,7 +115,7 @@ private extension SearchViewController {
         
         let output = viewModel.transform(input: input)
         
-        output.out_isLoading
+        output.out_loadingViewLoading
             .drive(with: self) { owner, isLoading in
                 owner.isLoading(isLoading: isLoading)
             }.disposed(by: disposeBag)
