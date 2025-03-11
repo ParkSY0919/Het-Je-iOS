@@ -902,7 +902,7 @@
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Het-Je-iOS/Application/Settings/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Het-Je_박신영";
+				INFOPLIST_KEY_CFBundleDisplayName = "박신영_했제";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -937,7 +937,7 @@
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Het-Je-iOS/Application/Settings/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Het-Je_박신영";
+				INFOPLIST_KEY_CFBundleDisplayName = "박신영_했제";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
