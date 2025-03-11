@@ -19,7 +19,7 @@ extension DTO.Response {
     struct TrendingCoinDetails: Codable {
         let id: String
         let name, symbol: String
-        let marketCapRank: Int
+        let marketCapRank: Int?
         let score: Int
         let thumb, small, large: String
         let data: TrendingCoinData

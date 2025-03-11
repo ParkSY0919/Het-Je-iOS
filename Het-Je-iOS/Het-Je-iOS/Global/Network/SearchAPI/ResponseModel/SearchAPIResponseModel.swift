@@ -13,7 +13,7 @@ extension DTO.Response.Search {
 
     struct Coin: Codable {
         let id, name, symbol: String
-        let marketCapRank: Int
+        let marketCapRank: Int?
         let thumb, large: String
 
         enum CodingKeys: String, CodingKey {
