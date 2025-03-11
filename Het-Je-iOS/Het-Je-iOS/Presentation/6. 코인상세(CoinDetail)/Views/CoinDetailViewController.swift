@@ -92,6 +92,11 @@ private extension CoinDetailViewController {
             .bind(with: self) { owner, _ in
                 owner.detailCollectionView.reloadData()
             }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                owner.showToast(statusCode: statusCode)
+            }.disposed(by: disposeBag)
     }
     
     func setNav() {

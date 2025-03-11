@@ -23,6 +23,7 @@ final class CoinDetailViewModel: ViewModelProtocol {
     var list: [DTO.Response.MarketAPIResponseModel] = []
     private let isAPILoaded = PublishSubject<Bool>()
     private let loadingViewLoading = BehaviorRelay<Bool>(value: false)
+    private let onError = BehaviorRelay<Int>(value: 0)
     
     init(coinData: CoinInfo) {
         self.coinData = coinData
@@ -37,6 +38,7 @@ final class CoinDetailViewModel: ViewModelProtocol {
         let out_TapNavLeftBtn: Driver<Void>?
         let out_ReloadCollectionViewData: Observable<Bool>
         let out_loadingViewLoading: Driver<Bool>
+        let out_onError: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
@@ -53,7 +55,8 @@ final class CoinDetailViewModel: ViewModelProtocol {
         return Output(
             out_TapNavLeftBtn: input.in_TapNavLeftBtn?.asDriver(),
             out_ReloadCollectionViewData: out_ReloadCollectionViewData,
-            out_loadingViewLoading: loadingViewLoading.asDriver()
+            out_loadingViewLoading: loadingViewLoading.asDriver(),
+            out_onError: onError.asDriver()
         )
     }
     
@@ -67,6 +70,7 @@ private extension CoinDetailViewModel {
             
             guard let self else { return }
             self.loadingViewLoading.accept(false)
+            self.onError.accept(statusCode)
             
             switch result {
             case .success(let success):
