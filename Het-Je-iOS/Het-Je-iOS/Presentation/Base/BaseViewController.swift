@@ -8,13 +8,18 @@
 
 import UIKit
 
+import Network
 import SnapKit
 import Then
 import Toast
 
 class BaseViewController: UIViewController {
     
+    private let monitor = NWPathMonitor()
+    private var alreadyPresent = false
+    
     let underLine = UIView()
+    private let loadingView = LoadingView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -28,6 +33,7 @@ class BaseViewController: UIViewController {
         setLayout()
         setStyle()
         view.backgroundColor = .white
+        startMonitoring()
     }
     
     private func setUnderLine() {
@@ -38,6 +44,10 @@ class BaseViewController: UIViewController {
         }
         underLine.backgroundColor = UIColor.bg
     }
+    
+//    func setLoadingView() {
+//        
+//    }
     
     func setHierarchy() {}
     
@@ -90,13 +100,75 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func showToast(message: String) {
+    ///normal Toast (+@ 네트워크 단절 대응)
+    func showToast(message: String, isNetworkToast: Bool = false) {
         var style = ToastStyle()
         style.backgroundColor = .secondary
         style.titleColor = .primary
         style.cornerRadius = 10
         
-        view.makeToast(message, duration: 2.5, position: .bottom, style: style)
+        let duration: Double = isNetworkToast ? 1 : 2.5
+        view.makeToast(message, duration: duration, position: .bottom, style: style)
+    }
+    
+    ///업비트 에러 대응 Toast
+    func showToast(message: String) {
+        var style = ToastStyle()
+        style.backgroundColor = .secondary
+        style.titleColor = .primary
+        style.messageFont = .hetJeFont(.body_bold_12)
+        style.cornerRadius = 10
+        
+        let duration = 2.5
+        view.makeToast(message, duration: duration, position: .bottom, style: style)
+    }
+    
+    //코인게코 에러 대응 Toast
+    func showToast(statusCode: Int) {
+        var style = ToastStyle()
+        style.backgroundColor = .secondary
+        style.titleColor = .primary
+        style.messageFont = .hetJeFont(.body_bold_12)
+        style.cornerRadius = 10
+        let duration = 2.5
+        
+        if let errorCode = CoinGekoErrorCode(rawValue: statusCode) {
+            let errorMessage = errorCode.message
+            view.makeToast(errorMessage, duration: duration, position: .bottom, style: style)
+            print("errorMessage: \(errorMessage)")
+        } else {
+            print("currentErrorCode: \(statusCode)")
+        }
+        print(#function)
+    }
+    
+    func isLoading(isLoading: Bool) {
+        switch isLoading {
+        case true:
+            showLoadingView()
+        case false:
+            hideLoadingView()
+        }
+    }
+    
+    private func showLoadingView() {
+        view.addSubview(loadingView)
+        loadingView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        loadingView.isLoading = true
+        
+        //로딩 시 탭바 속성 변경
+        if let tabBarVC = self.tabBarController as? TabBarController {
+            tabBarVC.setTabBarAppearence(onLoading: true)
+        }
+    }
+    
+    private func hideLoadingView() {
+        loadingView.isLoading = false
+        if let tabBarVC = self.tabBarController as? TabBarController {
+            tabBarVC.setTabBarAppearence()
+        }
     }
     
     @objc
@@ -109,9 +181,58 @@ class BaseViewController: UIViewController {
         print(#function)
     }
     
+    func checkNetworkStatus() -> Bool {
+        return monitor.currentPath.status == .satisfied
+    }
+        
+    func resetMonitoring() {
+        alreadyPresent = false
+    }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
 }
+
+private extension BaseViewController {
+    
+    func startMonitoring() {
+        monitor.start(queue: .global())
+        monitor.pathUpdateHandler = { [weak self] path in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                //이미 alert이 표시되고 있다면 추가 동작 X
+                if self.alreadyPresent {
+                    return
+                }
+                
+                if path.status == .satisfied {
+                    print("인터넷 연결 상태 양호: 알림 닫힘")
+                } else {
+                    //인터넷 연결 X = alert
+                    self.showNetworkAlert()
+                }
+            }
+        }
+    }
+    
+    func showNetworkAlert() {
+        //중복 alert 방지
+        if let presentedVC = self.presentedViewController, presentedVC is NetworkGuidanceViewController {
+            print("이미 네트워크 알림이 표시 중입니다.")
+            return
+        }
+        
+        let vc = NetworkGuidanceViewController()
+        vc.baseViewController = self
+        viewTransition(viewController: vc, transitionStyle: .overCurrentContext)
+        alreadyPresent = true
+        print("네트워크 알림 표시됨")
+    }
+    
+}
+
+

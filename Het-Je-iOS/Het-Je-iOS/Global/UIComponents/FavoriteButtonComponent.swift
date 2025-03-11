@@ -15,6 +15,7 @@ final class FavoriteButtonComponent: UIButton {
     
     private let favoriteRepository: FavoriteCoinRepositoryProtocol = FavoriteCoinRepository()
     private var coinInfo: CoinInfo?
+    var onChange: ((String)->())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,7 +54,7 @@ final class FavoriteButtonComponent: UIButton {
         let coinInfo = CoinInfo(coinId: coinInfo.id,
                                 name: coinInfo.name,
                                 symbol: coinInfo.symbol,
-                                marketCapRank: coinInfo.marketCapRank,
+                                marketCapRank: coinInfo.marketCapRank ?? -1,
                                 thumb: coinInfo.thumb,
                                 large: coinInfo.large)
         
@@ -75,6 +76,8 @@ final class FavoriteButtonComponent: UIButton {
     
     @objc
     private func favoriteButtonTapped() {
+        self.isUserInteractionEnabled = false
+        
         guard let coinInfo = self.coinInfo else {
             print("코인 정보가 없습니다.")
             return
@@ -97,7 +100,18 @@ final class FavoriteButtonComponent: UIButton {
                                      thumb: coinInfo.thumb,
                                      large: coinInfo.large)
         favoriteRepository.getFileURL()
-        favoriteRepository.createItem(data: data)
+        favoriteRepository.createItem(data: data) { [weak self] isSuccess in
+            //저장 성공 여부
+            switch isSuccess {
+            case true:
+                self?.onChange?("\(coinInfo.symbol)이 즐겨찾기에 저장되었습니다.")
+                print("지금 저장 true")
+            case false:
+                self?.onChange?("\(coinInfo.symbol)을 즐겨찾기에 저장하지 못했습니다.")
+                print("지금 저장 false")
+            }
+        }
+        self.isUserInteractionEnabled = true
     }
     
     private func deleteFavoriteCoin(coinInfo: CoinInfo) {
@@ -107,7 +121,17 @@ final class FavoriteButtonComponent: UIButton {
             return
         }
         
-        favoriteRepository.deleteItem(data: data)
+        favoriteRepository.deleteItem(data: data) { [weak self] isSuccess in
+            switch isSuccess {
+            case true:
+                self?.onChange?("\(coinInfo.symbol)이 즐겨찾기에서 삭제되었습니다.")
+                print("지금 삭제 true")
+            case false:
+                self?.onChange?("\(coinInfo.symbol)을 즐겨찾기에서 삭제하지 못했습니다.")
+                print("지금 삭제 false")
+            }
+        }
+        self.isUserInteractionEnabled = true
     }
     
 }

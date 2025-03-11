@@ -16,6 +16,7 @@ final class ExchangeViewModel: ViewModelProtocol {
     private let onCallAPI = Observable<Int>.interval(.seconds(5), scheduler: MainScheduler.instance)
     private let list = PublishSubject<[DTO.Response.MarketData]>()
     var disposeBag = DisposeBag()
+    private let onError = BehaviorRelay<Int>(value: 0)
     
     struct Input {
         let selectedButton: Observable<SortButtonComponent>
@@ -23,6 +24,7 @@ final class ExchangeViewModel: ViewModelProtocol {
     
     struct Output {
         let sortedListResult: Driver<[DTO.Response.MarketData]>
+        let out_onError: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
@@ -36,7 +38,6 @@ final class ExchangeViewModel: ViewModelProtocol {
             }
             .disposed(by: disposeBag)
 
-        
         list.subscribe(with: self) { owner, model in
             originList.onNext(model)
             isAPILoaded.onNext(true) //api 통신 끝났음을 알림
@@ -52,20 +53,32 @@ final class ExchangeViewModel: ViewModelProtocol {
             }
             .asDriver(onErrorJustReturn: [])
 
-        return Output(sortedListResult: sortedList)
+        return Output(
+            sortedListResult: sortedList,
+            out_onError: onError.asDriver()
+        )
     }
+    
 }
 
 private extension ExchangeViewModel {
     
     func callUpbitAPI() {
         let request = DTO.Request.UpbitAPIRequestModel(quote_currencies: StringLiterals.koreaCurrency)
-        NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: request), responseModel: [DTO.Response.MarketData].self) { result in
+        NetworkManager.shared.callAPI(apiHandler: .fetchUpbitAPI(request: request), responseModel: [DTO.Response.MarketData].self, errorResponseModel: DTO.Response.UpbitAPIErrorResponseModel.self) { [weak self] result in
+            guard let self else { return }
+            
             switch result {
             case .success(let success):
                 self.list.onNext(success)
             case .failure(let failure):
-                print("Error callUpbitAPI: \(failure.localizedDescription)")
+                switch failure {
+                case .serverError(let data):
+                    print("serverError data: \(data)")
+                    self.onError.accept(data.error.name)
+                case .networkError(let data):
+                    print("networkError data: \(data)")
+                }
             }
         }
     }

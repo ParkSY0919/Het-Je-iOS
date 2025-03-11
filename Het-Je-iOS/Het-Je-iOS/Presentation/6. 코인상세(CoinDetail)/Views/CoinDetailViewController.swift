@@ -74,6 +74,11 @@ private extension CoinDetailViewController {
         
         let output = viewModel.transform(input: input)
         
+        output.out_loadingViewLoading
+            .drive(with: self) { owner, isLoading in
+                owner.isLoading(isLoading: isLoading)
+            }.disposed(by: disposeBag)
+        
         output.out_TapNavLeftBtn?
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
@@ -86,6 +91,11 @@ private extension CoinDetailViewController {
             }
             .bind(with: self) { owner, _ in
                 owner.detailCollectionView.reloadData()
+            }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                owner.showToast(statusCode: statusCode)
             }.disposed(by: disposeBag)
     }
     
@@ -110,7 +120,7 @@ private extension CoinDetailViewController {
         image.setImageKfDownSampling(with: viewModel.coinData.thumb, cornerRadius: 0)
         
         image.snp.makeConstraints {
-            $0.size.equalTo(15)
+            $0.size.equalTo(20)
             $0.centerY.leading.equalTo(titleView)
             //equalToSuperView or titleView.snp.centerY 하면 아직 titleView가 nav.titleView에 등록 전이기에 앱이 터짐
         }
@@ -121,7 +131,7 @@ private extension CoinDetailViewController {
         }
         
         titleView.snp.makeConstraints {
-            $0.width.equalTo(label.snp.width).offset(15 + 10) //이미지 크기 + 간격
+            $0.width.equalTo(label.snp.width).offset(20 + 10) //이미지 크기 + 간격
             $0.height.equalTo(30)
         }
         
@@ -134,6 +144,10 @@ private extension CoinDetailViewController {
         
         let rightItem = FavoriteButtonComponent()
         rightItem.fetchFavoriteBtn(coinInfo: viewModel.coinData)
+        rightItem.onChange = { [weak self] (resultMessage) in
+            guard let self else { return }
+            self.showToast(message: resultMessage)
+        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightItem)
     }
     
@@ -230,7 +244,7 @@ extension CoinDetailViewController: UICollectionViewDelegate {
                                                                                for: indexPath) as? CoinDetailHeaderView
             else { return UICollectionReusableView() }
             
-            let title = (sectionTypes[indexPath.section] == .종목정보) ? "종목정보" : "투자지표"
+            let title = (sectionTypes[indexPath.section] == .종목정보) ? StringLiterals.CoinDetail.headerTitle1 : StringLiterals.CoinDetail.headerTitle2
             header.configureHeaderView(headerTitle: title)
             header.onTappedMoreButton = {
                 self.showToast(message: "\(title)의 더보기 기능은 아직 준비 중입니다")

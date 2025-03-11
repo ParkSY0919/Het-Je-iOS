@@ -86,7 +86,7 @@ final class CoinInfoViewController: BaseViewController {
         setSearchTextField()
         
         popularSearchLabel.setLabelUI(
-            "인기 검색어",
+            StringLiterals.CoinInfo.popularSearchLabel,
             font: .systemFont(ofSize: 14, weight: .bold),
             textColor: .primary
         )
@@ -106,7 +106,7 @@ final class CoinInfoViewController: BaseViewController {
         }
         
         popularNFTLabel.setLabelUI(
-            "인기 NFT",
+            StringLiterals.CoinInfo.popularNFTLabel,
             font: .systemFont(ofSize: 14, weight: .bold),
             textColor: .primary
         )
@@ -182,6 +182,12 @@ private extension CoinInfoViewController {
                 let vc = owner.prepareForNextScreen(data: data)
                 owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                owner.showToast(statusCode: statusCode)
+                print("output.out_onError: \(statusCode)")
+            }.disposed(by: disposeBag)
     }
     
     func setNav() {
@@ -218,7 +224,7 @@ private extension CoinInfoViewController {
             $0.leftView = containerView
             $0.leftViewMode = .always
             $0.setPlaceholder(
-                placeholder: "검색어를 입력해주세요.",
+                placeholder: StringLiterals.CoinInfo.searchTextFieldPlaceHolder,
                 fontColor: .secondary,
                 font: .systemFont(ofSize: 14, weight: .bold) //주어진 12로 하기에는 글자가 작아 변경
             )
@@ -260,7 +266,7 @@ private extension CoinInfoViewController {
         let coinData = CoinInfo(coinId: data.id,
                                 name: data.name,
                                 symbol: data.symbol,
-                                marketCapRank: data.marketCapRank,
+                                marketCapRank: data.marketCapRank ?? -1,
                                 thumb: data.thumb,
                                 large: data.large)
         

@@ -17,6 +17,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
     private let list = PublishSubject<DTO.Response.TrendingAPIResponseModel>()
     private var currentTime = ""
     private var currentSearchText = ""
+    private let onError = BehaviorRelay<Int>(value: 0)
     
     struct Input {
         let searchText: ControlProperty<String>
@@ -30,6 +31,7 @@ final class CoinInfoViewModel: ViewModelProtocol {
         let sortedPopularNFTList: Driver<[DTO.Response.Nft]>
         let validSearchText: PublishSubject<String>
         let out_PopularSearchCollectionViewTapped: Observable<ControlEvent<DTO.Response.Coin>.Element>
+        let out_onError: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
@@ -95,7 +97,8 @@ final class CoinInfoViewModel: ViewModelProtocol {
             sortedPopularNFTList: sortedPopularNFTList,
             validSearchText: currentSearchText,
             out_PopularSearchCollectionViewTapped: input.in_PopularSearchCollectionViewTapped
-                .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance)
+                .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance),
+            out_onError: onError.asDriver()
             )
         
     }
@@ -106,11 +109,11 @@ private extension CoinInfoViewModel {
     
     func callTrendingAPI() {
         print(#function)
-        NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { result, callDate in
+        NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { [weak self] result, callDate, statusCode in
+            guard let self else { return }
+            self.onError.accept(statusCode)
             switch result {
             case .success(let success):
-                //시간변환 성공 케케!!!!!!!!!
-                print("!!!\(CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "MM:dd HH:mm"))!!!")
                 let currentTime = CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "MM:dd HH:mm")
                 self.currentTime = currentTime
                 self.list.onNext(success)

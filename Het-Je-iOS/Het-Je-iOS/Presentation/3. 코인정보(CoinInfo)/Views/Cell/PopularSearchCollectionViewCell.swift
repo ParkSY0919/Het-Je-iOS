@@ -13,8 +13,8 @@ import Then
 final class PopularSearchCollectionViewCell: UICollectionViewCell {
     
     private let rankLabel = UILabel()
-    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "2342523212312312323", subtitleText: "2335235233212312312312312312325")
-    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "3.4234242342342345", alignment: .right))
+    private lazy var aboutCoinView = AboutCoinComponent(type: .noneDetail, imageURL: "https://assets.coingecko.com/coins/images/35100/thumb/pixel-icon.png?1708339519", titleText: "", subtitleText: "")
+    private lazy var variationRateLabel = VariationRateComponent(variationRateType: .reduce(rate: "", alignment: .right))
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -40,7 +40,9 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
         
         aboutCoinView.snp.makeConstraints {
             $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
-            $0.trailing.equalTo(variationRateLabel.snp.leading)
+//            $0.trailing.equalTo(variationRateLabel.snp.leading)
+            $0.trailing.lessThanOrEqualTo(variationRateLabel.snp.leading)
+            //이와 같이 설정하면 variationRateLabel의 레이아웃이 우선적으로 자리잡히고, 이후 aboutCoinView의 width가 variationRateLabel에 맞춰 조절돼야하는데 왜 안될까..
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
@@ -51,7 +53,7 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
         }
         
         rankLabel.setLabelUI(
-            "8",
+            "",
             font: .hetJeFont(.body_regular_12),
             textColor: .primary,
             alignment: .right

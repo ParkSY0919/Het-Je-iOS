@@ -22,6 +22,8 @@ final class CoinDetailViewModel: ViewModelProtocol {
     //rx 적용이전 사용할 list
     var list: [DTO.Response.MarketAPIResponseModel] = []
     private let isAPILoaded = PublishSubject<Bool>()
+    private let loadingViewLoading = BehaviorRelay<Bool>(value: false)
+    private let onError = BehaviorRelay<Int>(value: 0)
     
     init(coinData: CoinInfo) {
         self.coinData = coinData
@@ -35,11 +37,14 @@ final class CoinDetailViewModel: ViewModelProtocol {
     struct Output {
         let out_TapNavLeftBtn: Driver<Void>?
         let out_ReloadCollectionViewData: Observable<Bool>
+        let out_loadingViewLoading: Driver<Bool>
+        let out_onError: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
         onLoadAPI
             .bind(with: self) { owner, coinId in
+                owner.loadingViewLoading.accept(true)
                 owner.callMarketAPI(coinId: coinId)
             }.disposed(by: disposeBag)
         
@@ -49,7 +54,9 @@ final class CoinDetailViewModel: ViewModelProtocol {
         
         return Output(
             out_TapNavLeftBtn: input.in_TapNavLeftBtn?.asDriver(),
-            out_ReloadCollectionViewData: out_ReloadCollectionViewData
+            out_ReloadCollectionViewData: out_ReloadCollectionViewData,
+            out_loadingViewLoading: loadingViewLoading.asDriver(),
+            out_onError: onError.asDriver()
         )
     }
     
@@ -59,7 +66,12 @@ private extension CoinDetailViewModel {
     
     func callMarketAPI(coinId: String) {
         let request = DTO.Request.MarketAPIRequestModel(vs_currency: StringLiterals.koreaCurrency, ids: coinId, sparkline: "true")
-        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.MarketAPIResponseModel].self) { result, callDate in
+        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.MarketAPIResponseModel].self) { [weak self] result, callDate, statusCode in
+            
+            guard let self else { return }
+            self.loadingViewLoading.accept(false)
+            self.onError.accept(statusCode)
+            
             switch result {
             case .success(let success):
                 let currentTime = CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "M/dd HH:mm:ss")

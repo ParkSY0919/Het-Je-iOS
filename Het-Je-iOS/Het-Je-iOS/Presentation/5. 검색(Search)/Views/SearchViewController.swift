@@ -115,6 +115,11 @@ private extension SearchViewController {
         
         let output = viewModel.transform(input: input)
         
+        output.out_loadingViewLoading
+            .drive(with: self) { owner, isLoading in
+                owner.isLoading(isLoading: isLoading)
+            }.disposed(by: disposeBag)
+        
         output.out_TapNavBackButton
             .drive(with: self, onNext: { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
@@ -127,6 +132,10 @@ private extension SearchViewController {
             { item, element, cell in
                 cell.selectionStyle = .none
                 cell.fetcHSearchResultCell(model: element)
+                cell.favoriteBtn.onChange = { [weak self] (resultMessage) in
+                    guard let self else { return }
+                    self.showToast(message: resultMessage)
+                }
             }.disposed(by: disposeBag)
         
         output.out_IsScrollToTop
@@ -140,6 +149,11 @@ private extension SearchViewController {
             .bind(with: self) { owner, coinData in
                 let vc = owner.prepareForNextScreen(data: coinData)
                 owner.viewTransition(viewController: vc, transitionStyle: .push)
+            }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                owner.showToast(statusCode: statusCode)
             }.disposed(by: disposeBag)
     }
     
@@ -174,7 +188,7 @@ private extension SearchViewController {
         let coinData = CoinInfo(coinId: data.id,
                                 name: data.name,
                                 symbol: data.symbol,
-                                marketCapRank: data.marketCapRank,
+                                marketCapRank: data.marketCapRank ?? -1,
                                 thumb: data.thumb,
                                 large: data.large)
         

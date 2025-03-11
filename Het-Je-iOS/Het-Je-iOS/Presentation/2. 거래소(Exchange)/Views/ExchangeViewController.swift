@@ -167,6 +167,18 @@ private extension ExchangeViewController {
                 cell.configureCell(model: element)
             }
             .disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owenr, errorCode in
+                switch errorCode {
+                case 400:
+                    owenr.showToast(message: StringLiterals.UpbitErrorMessages.badRequest)
+                case 401:
+                    owenr.showToast(message: StringLiterals.UpbitErrorMessages.unauthorized)
+                default:
+                    print("")
+                }
+            }.disposed(by: disposeBag)
     }
 
     func setNav() {

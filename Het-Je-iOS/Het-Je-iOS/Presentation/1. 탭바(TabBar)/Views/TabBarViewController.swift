@@ -49,14 +49,18 @@ final class TabBarController: UITabBarController {
         self.selectedIndex = 0
     }
     
-    private func setTabBarAppearence () {
+    func setTabBarAppearence (onLoading: Bool = false) {
         let appearence = UITabBarAppearance ()
         appearence.configureWithTransparentBackground()
-        appearence.backgroundColor = UIColor.bg
+        appearence.backgroundColor = onLoading ? .black.withAlphaComponent(0.5) : UIColor.bg
         tabBar.standardAppearance = appearence
         tabBar.scrollEdgeAppearance = appearence
-        tabBar.tintColor = UIColor.primary
+        tabBar.tintColor = onLoading ? .bg : .primary
+        //탭바 터치 활성화 여부
+        tabBar.isUserInteractionEnabled = onLoading ? false : true
+        //로딩할 때에 탭바 역시 비활성화 된다는 것을 보여주고자, 탭바 속성 색상 역시 바꿔주었습니다
     }
+    
     
 }
 
