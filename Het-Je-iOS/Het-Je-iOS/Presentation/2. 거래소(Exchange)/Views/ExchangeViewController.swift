@@ -167,6 +167,18 @@ private extension ExchangeViewController {
                 cell.configureCell(model: element)
             }
             .disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owenr, errorCode in
+                switch errorCode {
+                case 400:
+                    owenr.showToast(message: "요청을 처리할 수 없습니다. 잠시 후 다시 시도해주세요.")
+                case 401:
+                    owenr.showToast(message: "접근 권한이 없습니다.")
+                default:
+                    print("")
+                }
+            }.disposed(by: disposeBag)
     }
 
     func setNav() {

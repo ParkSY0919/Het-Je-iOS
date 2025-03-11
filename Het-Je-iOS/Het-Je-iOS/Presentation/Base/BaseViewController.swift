@@ -110,6 +110,17 @@ class BaseViewController: UIViewController {
         view.makeToast(message, duration: duration, position: .bottom, style: style)
     }
     
+    func showToast(message: String) {
+        var style = ToastStyle()
+        style.backgroundColor = .secondary
+        style.titleColor = .primary
+        style.messageFont = .hetJeFont(.body_bold_12)
+        style.cornerRadius = 10
+        
+        let duration = 2.5
+        view.makeToast(message, duration: duration, position: .bottom, style: style)
+    }
+    
     func isLoading(isLoading: Bool) {
         switch isLoading {
         case true:
