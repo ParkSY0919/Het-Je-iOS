@@ -111,7 +111,7 @@ private extension CoinInfoViewModel {
         print(#function)
         NetworkManager.shared.callAPI(apiHandler: .fetchTrendingAPI, responseModel: DTO.Response.TrendingAPIResponseModel.self) { [weak self] result, callDate, statusCode in
             guard let self else { return }
-            self.onError.accept(statusCode ?? 0)
+            self.onError.accept(statusCode)
             switch result {
             case .success(let success):
                 let currentTime = CustomFormatterManager.shard.dateFormatOnTrendingView(strDate: callDate ?? "", format: "MM:dd HH:mm")

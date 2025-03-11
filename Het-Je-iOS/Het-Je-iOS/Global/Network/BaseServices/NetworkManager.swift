@@ -85,11 +85,11 @@ final class NetworkManager {
     
     func callAPI<T: Decodable>(apiHandler: TargetType,
                                responseModel: T.Type,
-                               completionHandler: @escaping (Result<T, AFError>, String?, Int?) -> Void) {
+                               completionHandler: @escaping (Result<T, AFError>, String?, Int) -> Void) {
         AF.request(apiHandler)
             .responseDecodable(of: T.self) { response in
 
-                let statusCode = response.response?.statusCode
+                let statusCode = response.response?.statusCode ?? -1
                 let date = response.response?.headers.dictionary["Date"]
                 switch response.result {
                 case .success(let result):

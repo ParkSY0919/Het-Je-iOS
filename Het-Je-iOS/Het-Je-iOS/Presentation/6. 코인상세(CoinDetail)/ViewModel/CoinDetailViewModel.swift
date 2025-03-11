@@ -63,7 +63,7 @@ private extension CoinDetailViewModel {
     
     func callMarketAPI(coinId: String) {
         let request = DTO.Request.MarketAPIRequestModel(vs_currency: StringLiterals.koreaCurrency, ids: coinId, sparkline: "true")
-        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.MarketAPIResponseModel].self) { [weak self] result, callDate in
+        NetworkManager.shared.callAPI(apiHandler: .fetchMarketAPI(request: request), responseModel: [DTO.Response.MarketAPIResponseModel].self) { [weak self] result, callDate, statusCode in
             
             guard let self else { return }
             self.loadingViewLoading.accept(false)
