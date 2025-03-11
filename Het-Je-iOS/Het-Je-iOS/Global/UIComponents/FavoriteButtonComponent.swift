@@ -54,7 +54,7 @@ final class FavoriteButtonComponent: UIButton {
         let coinInfo = CoinInfo(coinId: coinInfo.id,
                                 name: coinInfo.name,
                                 symbol: coinInfo.symbol,
-                                marketCapRank: coinInfo.marketCapRank,
+                                marketCapRank: coinInfo.marketCapRank ?? -1,
                                 thumb: coinInfo.thumb,
                                 large: coinInfo.large)
         

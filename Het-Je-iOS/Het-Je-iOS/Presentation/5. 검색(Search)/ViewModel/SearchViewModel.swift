@@ -19,6 +19,7 @@ final class SearchViewModel: ViewModelProtocol {
     private lazy var callSearchAPI = BehaviorRelay(value: navTitle.uppercased())
     private let list = PublishRelay<[DTO.Response.Search.Coin]>()
     private let loadingViewLoading = BehaviorRelay<Bool>(value: false)
+    private let onError = BehaviorRelay<Int>(value: 0)
     
     
     init(navTitle: String, list: Results<FavoriteCoinTable>) {
@@ -39,6 +40,7 @@ final class SearchViewModel: ViewModelProtocol {
         let out_IsScrollToTop: PublishRelay<Bool>
         let in_SearchResultCellTapped: Observable<ControlEvent<DTO.Response.Search.Coin>.Element>
         let out_loadingViewLoading: Driver<Bool>
+        let out_onError: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
@@ -86,7 +88,8 @@ final class SearchViewModel: ViewModelProtocol {
             out_IsScrollToTop: out_IsScrollToTop,
             in_SearchResultCellTapped: input.in_SearchResultCellTapped
                 .throttle(.seconds(1), latest: false, scheduler: MainScheduler.instance),
-            out_loadingViewLoading: loadingViewLoading.asDriver()
+            out_loadingViewLoading: loadingViewLoading.asDriver(),
+            out_onError: onError.asDriver()
         )
     }
     
@@ -96,13 +99,17 @@ private extension SearchViewModel {
     
     func callSearchAPI(text: String) {
         let request = DTO.Request.SearchAPIRequestModel(query: text)
-        NetworkManager.shared.callAPI(apiHandler: .fetchSearchAPI(request: request), responseModel: DTO.Response.Search.SearchAPIResponseModel.self) { result in
+        NetworkManager.shared.callAPI(apiHandler: .fetchSearchAPI(request: request), responseModel: DTO.Response.Search.SearchAPIResponseModel.self) { [weak self] result, statusCode in
+            guard let self else { return }
+            
             self.loadingViewLoading.accept(false)
+            self.onError.accept(statusCode)
             switch result {
             case .success(let success):
                 self.list.accept(success.coins)
             case .failure(let failure):
-                print("Error callSearchAPI: \(String(describing: failure.errorDescription))")
+                print("!")
+//                print("Error callSearchAPI: \(String(describing: failure.errorDescription))")
             }
         }
     }

@@ -150,6 +150,12 @@ private extension SearchViewController {
                 let vc = owner.prepareForNextScreen(data: coinData)
                 owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                print("111111111output.out_onError에서의 statusCode: \(statusCode)")
+                owner.showToast(statusCode: statusCode)
+            }.disposed(by: disposeBag)
     }
     
     func setNav(text: String) {
@@ -183,7 +189,7 @@ private extension SearchViewController {
         let coinData = CoinInfo(coinId: data.id,
                                 name: data.name,
                                 symbol: data.symbol,
-                                marketCapRank: data.marketCapRank,
+                                marketCapRank: data.marketCapRank ?? -1,
                                 thumb: data.thumb,
                                 large: data.large)
         

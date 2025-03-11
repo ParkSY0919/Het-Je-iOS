@@ -100,6 +100,7 @@ class BaseViewController: UIViewController {
         }
     }
     
+    ///normal Toast (+@ 네트워크 단절 대응)
     func showToast(message: String, isNetworkToast: Bool = false) {
         var style = ToastStyle()
         style.backgroundColor = .secondary
@@ -110,6 +111,7 @@ class BaseViewController: UIViewController {
         view.makeToast(message, duration: duration, position: .bottom, style: style)
     }
     
+    ///업비트 에러 대응 Toast
     func showToast(message: String) {
         var style = ToastStyle()
         style.backgroundColor = .secondary
@@ -119,6 +121,25 @@ class BaseViewController: UIViewController {
         
         let duration = 2.5
         view.makeToast(message, duration: duration, position: .bottom, style: style)
+    }
+    
+    //코인게코 에러 대응 Toast
+    func showToast(statusCode: Int) {
+        var style = ToastStyle()
+        style.backgroundColor = .secondary
+        style.titleColor = .primary
+        style.messageFont = .hetJeFont(.body_bold_12)
+        style.cornerRadius = 10
+        let duration = 2.5
+        
+        if let errorCode = CoinGekoErrorCode(rawValue: statusCode) {
+            let errorMessage = errorCode.message
+            view.makeToast(errorMessage, duration: duration, position: .bottom, style: style)
+            print("errorMessage: \(errorMessage)")
+        } else {
+            print("currentErrorCode: \(statusCode)")
+        }
+        print(#function)
     }
     
     func isLoading(isLoading: Bool) {

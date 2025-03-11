@@ -182,6 +182,12 @@ private extension CoinInfoViewController {
                 let vc = owner.prepareForNextScreen(data: data)
                 owner.viewTransition(viewController: vc, transitionStyle: .push)
             }.disposed(by: disposeBag)
+        
+        output.out_onError
+            .drive(with: self) { owner, statusCode in
+                owner.showToast(statusCode: statusCode)
+                print("output.out_onError: \(statusCode)")
+            }.disposed(by: disposeBag)
     }
     
     func setNav() {
@@ -260,7 +266,7 @@ private extension CoinInfoViewController {
         let coinData = CoinInfo(coinId: data.id,
                                 name: data.name,
                                 symbol: data.symbol,
-                                marketCapRank: data.marketCapRank,
+                                marketCapRank: data.marketCapRank ?? -1,
                                 thumb: data.thumb,
                                 large: data.large)
         
