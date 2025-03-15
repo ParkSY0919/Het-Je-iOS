@@ -40,15 +40,12 @@ final class PopularSearchCollectionViewCell: UICollectionViewCell {
         
         aboutCoinView.snp.makeConstraints {
             $0.leading.equalTo(rankLabel.snp.trailing).offset(10)
-//            $0.trailing.equalTo(variationRateLabel.snp.leading)
-            $0.trailing.lessThanOrEqualTo(variationRateLabel.snp.leading)
-            //이와 같이 설정하면 variationRateLabel의 레이아웃이 우선적으로 자리잡히고, 이후 aboutCoinView의 width가 variationRateLabel에 맞춰 조절돼야하는데 왜 안될까..
+            $0.trailing.lessThanOrEqualTo(variationRateLabel.snp.leading).inset(2)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
         variationRateLabel.snp.makeConstraints {
-            $0.leading.equalTo(aboutCoinView.snp.trailing)
-            $0.trailing.equalTo(contentView.safeAreaLayoutGuide).priority(.required)
+            $0.trailing.equalTo(contentView.safeAreaLayoutGuide)
             $0.centerY.equalTo(rankLabel.snp.centerY)
         }
         
