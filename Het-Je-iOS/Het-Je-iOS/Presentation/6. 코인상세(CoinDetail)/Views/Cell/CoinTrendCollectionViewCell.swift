@@ -78,8 +78,19 @@ final class CoinTrendCollectionViewCell: UICollectionViewCell {
             $0.xAxis.drawGridLinesEnabled = false
             $0.xAxis.drawAxisLineEnabled = false
             $0.xAxis.drawLabelsEnabled = false
+            
             $0.leftAxis.enabled = false
+            $0.leftAxis.drawAxisLineEnabled = false
+            $0.leftAxis.drawAxisLineEnabled = false
+            $0.leftAxis.drawGridLinesEnabled = false
+            
             $0.rightAxis.enabled = false
+            $0.rightAxis.drawAxisLineEnabled = false
+            $0.rightAxis.drawAxisLineEnabled = false
+            $0.rightAxis.drawGridLinesEnabled = false
+         
+            $0.setViewPortOffsets(left: 0, top: 0, right: 0, bottom: 0)
+            $0.legend.enabled = false
         }
         
         currentTimeLabel.setLabelUI(
