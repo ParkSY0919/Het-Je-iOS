@@ -1,6 +1,16 @@
 # Het-Je
 암호화폐 정보를 실시간으로 제공하는 iOS 애플리케이션으로, Upbit과 CoinGecko API를 연동하여 암호화폐 시세 정보, 트렌딩 데이터, NFT 정보 등을 사용자에게 제공합니다.
 
+<br>
+
+## 주요 화면
+
+|                                                   거래소                                                   |                                                   코인정보 → 상세                                                   |                                                   검색 → 상세                                                   |
+| :--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: |
+| <img src = "https://github.com/user-attachments/assets/cf1dc5ab-69b7-4f3d-a7f1-1d0284680ffc" width ="200"> | <img src = "https://github.com/user-attachments/assets/ca1ddf40-b440-4e59-9ee8-62c50d16cb81" width ="200"> | <img src = "https://github.com/user-attachments/assets/0c3e24ca-9ef1-4d4d-ba19-50037ceb2c36" width ="200"> |
+
+<br>
+
 ## 구조 관련 고려사항
 
 ### MVVM + RxSwift 아키텍처
@@ -11,6 +21,8 @@
 
 ### 계층별 분리 설계
 코드의 재사용성과 유지보수성을 향상시키기 위해 Application, Global, Presentation 3개 계층으로 명확히 분리한 아키텍처를 구축했습니다. 각 계층의 역할을 엄격히 정의하여 Global 계층에는 비즈니스 로직과 공통 기능을, Presentation 계층에는 UI 관련 로직만을 배치했습니다. 의존성 방향을 일방향으로 제한함으로써 코드 변경 시 영향 범위를 예측 가능하게 만들었습니다.
+
+<br>
 
 ## 기능 관련 고려사항
 
@@ -23,6 +35,7 @@
 ### 즐겨찾기 시스템
 사용자 개인화 기능 구현을 위해 Protocol 지향 Repository 패턴을 적용한 즐겨찾기 시스템을 구축했습니다. `FavoriteCoinRepositoryProtocol`을 정의하여 데이터 접근 계층을 추상화했고, Realm을 구현체로 사용해 로컬 저장소를 관리했습니다. 특히 즐겨찾기 상태 변경 시 UI 피드백과 데이터 저장을 동시에 처리하기 위해 클로저 기반 비동기 처리를 구현했습니다. `FavoriteButtonComponent`에서는 사용자 인터랙션 중 중복 터치를 방지하기 위한 플래그 관리도 포함하여 안정적인 사용자 경험을 제공했습니다.
 
+<br>
 
 ## 기술적 고려사항
 
@@ -42,6 +55,8 @@ Upbit과 CoinGecko라는 전혀 다른 API 명세를 가진 서비스들을 하�
 ### Protocol 지향 아키텍처와 코드 표준화
 프로젝트 확장성과 코드 품질 향상을 위해 Protocol 지향 프로그래밍을 적극 도입했습니다. `TargetType`과 `TargetTypeProtocol`을 통해 API 엔드포인트를 표준화하고, `ViewModelProtocol`로 Input/Output 패턴을 강제하여 모든 ViewModel이 일관된 인터페이스를 갖도록 했습니다. `FavoriteCoinRepositoryProtocol`을 통해 데이터 계층 추상화를 구현하고, Extension을 활용해 기능별 코드 분리와 StringLiterals를 통한 문자열 중앙 관리를 통해 코드의 일관성과 유지보수성을 대폭 개선했습니다.
 
+<br>
+
 ## 기술 스택
 
 - **언어**: Swift
@@ -51,6 +66,8 @@ Upbit과 CoinGecko라는 전혀 다른 API 명세를 가진 서비스들을 하�
 - **데이터베이스**: Realm
 - **보조 라이브러리**: Then (빌더 패턴), Toast (알림)
 - **API**: Upbit API (국내 거래소 시세), CoinGecko API (글로벌 암호화폐 정보)
+
+<br>
 
 ## 주요 성과
 
